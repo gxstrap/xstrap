@@ -127,7 +127,7 @@ public class SettingController extends BaseController {
     @GetMapping(value = "/security")
     public ModelAndView security(Map<String, Object> map) {
 
-        return new ModelAndView("/security", map);
+        return new ModelAndView("/settings/security", map);
     }
 
     /**
@@ -139,7 +139,36 @@ public class SettingController extends BaseController {
     @GetMapping(value = "/email")
     public ModelAndView email(Map<String, Object> map) {
 
-        return new ModelAndView("/email", map);
+        return new ModelAndView("/settings/email", map);
+    }
+
+    /**
+     * 邮箱设置提交
+     * 1.输入新的邮箱和登录密码提交表单，如果密码不正确则提示"密码不正确，请重试。"，
+     *    如果输入的不是新的邮箱则提示"新邮箱，不能跟当前邮箱一样。"
+     * 2.提示"请到邮箱 xxxxx@qq.com中接收确认邮件，并点击确认邮件中的链接完成修改"
+     * 3.登录邮箱点击链接跳转到 /help/email-confirm.ftl 页面
+     * 4.输入登录密码，如果密码不对提示"密码不正确，请重试。",若成功则跳转到网站首页
+     * 5.进入邮箱设置页面，当前登录邮箱显示 "xxxxx@qq.com (已验证)"
+     * @param map
+     * @return
+     */
+    @PostMapping(value = "/email")
+    public ModelAndView emailSubmit(Map<String, Object> map) {
+
+        //发送邮件后，跳转到设置新邮箱页面
+        return new ModelAndView("/settings/email-confirm", map);
+    }
+
+    /**
+     * 设置新邮箱提交表单
+     * @param map
+     * @return
+     */
+    @PostMapping(value = "/newemail")
+    public ModelAndView settingNewEmail(Map<String, Object> map) {
+
+        return new ModelAndView("/settings/email-confirm", map);
     }
 
     /**
