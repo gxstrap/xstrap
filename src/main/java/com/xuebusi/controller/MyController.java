@@ -110,9 +110,9 @@ public class MyController extends BaseController {
      * @return
      */
     @RequestMapping(value = "/orders")
-    public ModelAndView orders(@RequestParam("status") String status,
-                               @RequestParam("lastHowManyMonths") String lastHowManyMonths,
-                               @RequestParam("payWays") String payWays,
+    public ModelAndView orders(@RequestParam(value = "status", required = false, defaultValue = "") String status,
+                               @RequestParam(value = "lastHowManyMonths", required = false, defaultValue = "") String lastHowManyMonths,
+                               @RequestParam(value = "payWays", required = false, defaultValue = "") String payWays,
                                Map<String, Object> map) {
         if (OrderStatusEnum.CREATED.name().equals(status)) {
             //待付款订单
@@ -122,7 +122,7 @@ public class MyController extends BaseController {
             return new ModelAndView("/orders/order-paid", map);
         }
         //全部订单
-        return new ModelAndView("/orders/order-all", map);
+        return new ModelAndView("/my/orders/order-all", map);
     }
 
 

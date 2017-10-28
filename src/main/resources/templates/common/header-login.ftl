@@ -113,7 +113,8 @@
                         <li class="hidden-lg user-nav-li-my">
                             <a href="/my"> <i class="es-icon es-icon-eventnote"></i>我的学习</a>
                         </li>
-                        <li><a href="/my/coin"><i class="es-icon es-icon-accountwallet"></i>账户中心</a>
+                        <li>
+                            <a href="/my/orders"><i class="es-icon es-icon-accountwallet"></i>账户中心</a>
                         </li>
                         <li>
                             <a href="/message/"> <span class="pull-right num" style="padding: 0 5px">1</span>
