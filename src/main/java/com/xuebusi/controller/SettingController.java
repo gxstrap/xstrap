@@ -29,6 +29,7 @@ public class SettingController extends BaseController {
 
     /**
      * 基础信息
+     *
      * @param map
      * @return
      */
@@ -46,6 +47,7 @@ public class SettingController extends BaseController {
 
     /**
      * 保存基础信息
+     *
      * @param map
      * @return
      */
@@ -68,9 +70,33 @@ public class SettingController extends BaseController {
         return new ModelAndView(new RedirectView("redirect:/user/login"));
     }
 
+    /**
+     * 头像设置
+     *
+     * @param map
+     * @return
+     */
+    @GetMapping(value = "/avatar")
+    public ModelAndView avatar(Map<String, Object> map) {
+
+        return new ModelAndView("/settings/avatar", map);
+    }
+
+    /**
+     * 上传头像
+     *
+     * @param map
+     * @return
+     */
+    @PostMapping(value = "/avatar")
+    public ModelAndView uploadAvatar(Map<String, Object> map) {
+
+        return new ModelAndView("/settings/avatar", map);
+    }
 
     /**
      * 实名认证
+     *
      * @param map
      * @return
      */
@@ -82,6 +108,7 @@ public class SettingController extends BaseController {
 
     /**
      * 安全设置
+     *
      * @param map
      * @return
      */
@@ -93,6 +120,7 @@ public class SettingController extends BaseController {
 
     /**
      * 邮箱设置
+     *
      * @param map
      * @return
      */
@@ -101,8 +129,10 @@ public class SettingController extends BaseController {
 
         return new ModelAndView("/email", map);
     }
+
     /**
      * 第三方登录
+     *
      * @param map
      * @return
      */
@@ -114,6 +144,7 @@ public class SettingController extends BaseController {
 
     /**
      * 绑定手机
+     *
      * @param map
      * @return
      */
