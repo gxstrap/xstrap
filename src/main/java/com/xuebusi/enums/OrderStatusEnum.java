@@ -6,8 +6,8 @@ package com.xuebusi.enums;
  */
 public enum OrderStatusEnum {
 
-    CREATED(1, "待付款"),
-    PAID(2, "已付款");
+    created(1, "待付款"),
+    paid(2, "已付款");
 
     private int code;
     private String value;

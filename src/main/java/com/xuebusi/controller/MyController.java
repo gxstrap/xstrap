@@ -114,10 +114,10 @@ public class MyController extends BaseController {
                                @RequestParam(value = "lastHowManyMonths", required = false, defaultValue = "") String lastHowManyMonths,
                                @RequestParam(value = "payWays", required = false, defaultValue = "") String payWays,
                                Map<String, Object> map) {
-        if (OrderStatusEnum.CREATED.name().equals(status)) {
+        if (OrderStatusEnum.created.name().equals(status)) {
             //待付款订单
             return new ModelAndView("/orders/order-created", map);
-        } else if (OrderStatusEnum.PAID.name().equals(status)) {
+        } else if (OrderStatusEnum.paid.name().equals(status)) {
             //已付款订单
             return new ModelAndView("/orders/order-paid", map);
         }
