@@ -28,7 +28,7 @@ public class SettingController extends BaseController {
     private UserService userService;
 
     /**
-     * 基础信息
+     * 基础信息页面
      *
      * @param map
      * @return
@@ -71,7 +71,7 @@ public class SettingController extends BaseController {
     }
 
     /**
-     * 头像设置
+     * 头像设置页面
      *
      * @param map
      * @return
@@ -95,19 +95,31 @@ public class SettingController extends BaseController {
     }
 
     /**
-     * 实名认证
+     * 实名认证页面
      *
      * @param map
      * @return
      */
-    @GetMapping(value = "/approval/submit")
+    @GetMapping(value = "/approval")
     public ModelAndView approval(Map<String, Object> map) {
 
-        return new ModelAndView("/approval", map);
+        return new ModelAndView("/settings/approval", map);
     }
 
     /**
-     * 安全设置
+     * 实名认证提交
+     * @param map
+     * @return
+     */
+    @PostMapping(value = "/approval")
+    public ModelAndView approvalSubmit(Map<String, Object> map) {
+
+        //跳转到认证中页面
+        return new ModelAndView("/settings/approval-waiting", map);
+    }
+
+    /**
+     * 安全设置页面
      *
      * @param map
      * @return
@@ -119,7 +131,7 @@ public class SettingController extends BaseController {
     }
 
     /**
-     * 邮箱设置
+     * 邮箱设置页面
      *
      * @param map
      * @return
@@ -131,7 +143,7 @@ public class SettingController extends BaseController {
     }
 
     /**
-     * 第三方登录
+     * 第三方登录页面
      *
      * @param map
      * @return
@@ -143,7 +155,7 @@ public class SettingController extends BaseController {
     }
 
     /**
-     * 绑定手机
+     * 绑定手机页面
      *
      * @param map
      * @return

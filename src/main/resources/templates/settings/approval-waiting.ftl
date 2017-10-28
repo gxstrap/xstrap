@@ -1,4 +1,4 @@
-<!-- 头像设置页面 -->
+<!-- 实名认证页面 -->
 <!DOCTYPE html>
 <!-- saved from url=(0041)http://www.xuebusi.cn/settings/avatar -->
 <html lang="zh_CN"><!--<![endif]-->
@@ -55,49 +55,30 @@
 
         }
     </script>
-    <#include "../common/header.ftl">
+<#include "../common/header.ftl">
+
     <div id="content-container" class="container">
         <div class="row">
-            <#include "../common/setting-list.ftl">
+        <#include "../common/setting-list.ftl">
             <div class="col-md-9">
                 <div class="panel panel-default panel-col">
-                    <div class="panel-heading">头像设置</div>
+                    <div class="panel-heading">  实名认证
+                    </div>
                     <div class="panel-body">
-
-                        <form id="settings-avatar-form" class="form-horizontal" method="post">
-                            <div class="form-group">
-                                <div class="col-md-2 control-label"><b>当前头像</b></div>
-                                <div class="controls col-md-8 controls">
-                                    <img src="http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-28/144327f23d99966410.jpg">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-2 control-label">
-                                </div>
-                                <div class="controls col-md-8 controls">
-                                    <p class="help-block">你可以上传JPG、GIF或PNG格式的文件，文件大小不能超过<strong>2M</strong>。</p>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-2 control-label"></div>
-                                <div class="controls col-md-8 controls">
-                                    <a id="upload-picture-btn"
-                                       class="btn btn-primary"
-                                       data-upload-token="NjA5OTJ8dG1wfGltYWdlfDE1MDkxODcwMDh8MGZjNGJiZGQ4MDQxMGQ4N2MxNGFhZGYzOWYzZGY4OWQ"
-                                       data-goto-url="/settings/avatar/crop"
-                                            >上传新头像</a>
+                        <form id="approval-form" class="form-horizontal" method="post" enctype="multipart/form-data" novalidate="novalidate" data-widget-cid="widget-1">
+                            <div class="help-block approval">
+                                <label class="col-md-2 control-label"></label>
+                                <div class="alert alert-info" role="alert">正在实名认证中，管理员会尽快答复您。
                                 </div>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <#include "../common/footer.ftl">
+
+<#include "../common/footer.ftl">
 </div>
 
 <#include "../common/sidebar.ftl">
