@@ -2,12 +2,14 @@ package com.xuebusi.controller;
 
 import com.xuebusi.entity.Course;
 import com.xuebusi.entity.User;
+import com.xuebusi.enums.OrderStatusEnum;
 import com.xuebusi.service.CourseService;
 import com.xuebusi.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 我的课程、我的订单
  * Created by SYJ on 2017/10/22.
  */
 @Controller
@@ -75,5 +78,52 @@ public class MyController extends BaseController {
 
         return null;
     }*/
+
+    /**
+     * 账户中心-我的账户-我的金币页面
+     * @param map
+     * @return
+     */
+    @RequestMapping(value = "/coin")
+    public ModelAndView coin(Map<String, Object> map) {
+
+        return new ModelAndView("/coin", map);
+    }
+
+    /**
+     * 账户中心-我的账户-我的现金账单
+     * @param map
+     * @return
+     */
+    @RequestMapping(value = "/bill")
+    public ModelAndView bill(Map<String, Object> map) {
+
+        return new ModelAndView("/bill", map);
+    }
+
+    /**
+     *  账户中心-我的订单
+     * @param status    订单状态
+     * @param lastHowManyMonths 最近几周或几个月
+     * @param payWays   支付方式
+     * @param map
+     * @return
+     */
+    @RequestMapping(value = "/orders")
+    public ModelAndView orders(@RequestParam("status") String status,
+                               @RequestParam("lastHowManyMonths") String lastHowManyMonths,
+                               @RequestParam("payWays") String payWays,
+                               Map<String, Object> map) {
+        if (OrderStatusEnum.CREATED.name().equals(status)) {
+            //待付款订单
+            return new ModelAndView("/orders/order-created", map);
+        } else if (OrderStatusEnum.PAID.name().equals(status)) {
+            //已付款订单
+            return new ModelAndView("/orders/order-paid", map);
+        }
+        //全部订单
+        return new ModelAndView("/orders/order-all", map);
+    }
+
 
 }
