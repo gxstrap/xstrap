@@ -180,7 +180,7 @@ public class SettingController extends BaseController {
     @GetMapping(value = "/binds")
     public ModelAndView binds(Map<String, Object> map) {
 
-        return new ModelAndView("/binds", map);
+        return new ModelAndView("/settings/binds", map);
     }
 
     /**

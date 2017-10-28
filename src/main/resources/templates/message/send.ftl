@@ -62,32 +62,60 @@ aA[index].style.color = 'red'*/
 
         }
     </script>
-<#include "../common/header.ftl">
-
+    <#include "../common/header.ftl">
     <div id="content-container" class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3 ptl">
+        <style>
+            .ui-autocomplete {
+                border:1px solid #ccc;
+                background-color: #FFFFFF;
+                box-shadow: 2px 2px 3px #EEEEEE;
+            }
+            .ui-autocomplete-ctn{
+                margin:0;
+                padding:0;
+            }
+            .ui-autocomplete-item {
+                width: 180px;
+                overflow:hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                line-height: 30px;
+                padding:0 10px 0 10px;
+                cursor: default;
+            }
+            .ui-autocomplete-item-hover {
+                background:#f2f2f2;
+            }
+            .ui-autocomplete-item-hl {
+                background:#F6FF94;
+            }
+        </style>
+        <div class="row row-8">
+            <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default panel-page">
-                    <div class="panel-heading"><h2>设置新邮箱</h2></div>
-                    <form id="setting-email-form" class="form-horizontal" method="post">
-                        <div class="alert alert-danger">密码不正确，请重试。</div>
-                        <div class="form-group">
-                            <div class="col-md-3 control-label"><label>新邮箱</label></div>
-                            <div class="col-md-9 controls">
-                                <span class="control-text">2753686693@qq.com</span>
+                    <div class="panel-heading">
+                        <a href="/message/" class="btn btn-default pull-right">返回我的私信</a>
+                        <h2>写私信</h2>
+                    </div>
+                    <form id="message-create-form" class="form-horizontal" method="post" novalidate="novalidate" data-widget-cid="widget-1">
+                        <div class="form-group in-focus">
+                            <div class="col-md-12 controls">
+                                <input type="text" id="message_receiver" name="message[receiver]" required="required" class="form-control" placeholder="收信人用户名" data-auto-url="/following/bynickname/match_jsonp" data-url="/message/check/receiver" data-display="收信人用户名" data-widget-cid="widget-2" autocomplete="off">
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <div class="col-md-3 control-label"><label for="password-field">网站登录密码</label></div>
-                            <div class="col-md-9 controls">
-                                <input type="password" name="password" class="form-control" id="password-field">
-                                <p class="help-block">设置新的登录邮箱，需要校验当前的网站登录密码</p>
+                            <div class="col-md-12 controls">
+                                <textarea id="message_content" name="message[content]" required="required" class="form-control" rows="5" placeholder="想要说的话" data-display="想要说的话" data-widget-cid="widget-3"></textarea>
                             </div>
                         </div>
+
                         <div class="form-group">
-                            <div class="col-md-3 control-label"></div>
-                            <div class="col-md-9 controls">
-                                <button type="submit" id="set-email-btn" class="btn btn-primary">提交</button>
+                            <div class="col-md-12 controls">
+                                <input type="hidden" id="message__token" name="message[_token]" value="giiWryeCvbNHPXceHQls9qcba9lUUKcV_F173jHVUb8">
+                                <button id="message-create-btn" class="btn btn-primary pull-right" data-loading-text="正在发送..." type="submit" value="">
+                                    发送
+                                </button>
                             </div>
                         </div>
                         <input type="hidden" name="_csrf_token" value="G-f4v68GpgsfMxY4kwZGZZkWf-cUST1naLjQxyb5HKc">
@@ -96,7 +124,17 @@ aA[index].style.color = 'red'*/
             </div>
         </div>
     </div>
-    <#include "../common/footer.ftl">
+
+
+
+
+
+
+
+
+
+
+<#include "../common/footer.ftl">
 </div>
 <!-- 侧边栏快捷操作 -->
 <#include "../common/sidebar.ftl">
