@@ -100,13 +100,15 @@
                 <div class="panel panel-default panel-col">
                     <div class="panel-heading">头像设置</div>
                     <div class="panel-body">
-                        <form id="settings-avatar-form" class="form-horizontal" method="post" action="/settings">
+
+                        <form id="settings-avatar-form" class="form-horizontal" method="post">
                             <div class="form-group">
                                 <div class="col-md-2 control-label"><b>当前头像</b></div>
                                 <div class="controls col-md-8 controls">
-                                    <img src="/images/0548491aa7e5403534.jpg">
+                                    <img src="http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/02-12/0548491a51dd226428.jpg">
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <div class="col-md-2 control-label">
                                 </div>
@@ -114,22 +116,19 @@
                                     <p class="help-block">你可以上传JPG、GIF或PNG格式的文件，文件大小不能超过<strong>2M</strong>。</p>
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <div class="col-md-2 control-label"></div>
                                 <div class="controls col-md-8 controls">
-                                    <a id="upload-picture-btn" class="btn btn-primary webuploader-container"
-                                       data-upload-token="NjA5OTJ8dG1wfGltYWdlfDE1MDg2NzM0MTV8OWE4YWVhYjJlM2JhNjhjNzBjYjQ0ZmQ4MzdlOTdlY2Q"
-                                       data-goto-url="/settings/avatar/crop" data-widget-cid="widget-1">
-
-                                        <div class="webuploader-pick">上传新头像</div>
-                                        <div id="rt_rt_1bt1dtg211ro11dl2p861ta71v3c1" style="position: absolute; top: 6px; left: 12px; width: 70px; height: 20px; overflow: hidden; bottom: auto; right: auto;">
-                                            <input type="file" name="file" class="webuploader-element-invisible" accept="image/png,image/jpg,image/jpeg,imge/bmp,image/gif">
-                                            <label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label>
-                                        </div>
-                                    </a>
+                                    <a id="upload-picture-btn"
+                                       class="btn btn-primary"
+                                       data-upload-token="NjA5OTJ8dG1wfGltYWdlfDE1MDkxODcwMDh8MGZjNGJiZGQ4MDQxMGQ4N2MxNGFhZGYzOWYzZGY4OWQ"
+                                       data-goto-url="/settings/avatar/crop"
+                                            >上传新头像</a>
                                 </div>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>
