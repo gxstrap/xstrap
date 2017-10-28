@@ -79,7 +79,7 @@ aA[index].style.color = 'red'*/
                             <div class="media-body">
                                 <h4 class="media-heading">
                                     <a class="link-dark " href="/user/29231">Robin_TY</a>
-                                    : <a href="/message/conversation/" class=""> xuebusi,欢迎加入课程《用Python进行员工离职原因分析及预测》。在本课...</a>
+                                    : <a href="/message/conversation/" class="link-dark"> xuebusi,欢迎加入课程《用Python进行员工离职原因分析及预测》。在本课...</a>
                                     <span class="text-warning">(3条未读)</span>
                                 </h4>
                                 <div class="conversation-footer clearfix">
@@ -99,7 +99,7 @@ aA[index].style.color = 'red'*/
                             <div class="media-body">
                                 <h4 class="media-heading">
                                     <a class="link-dark " href="/user/1">admin</a>
-                                    <a href="/message/conversation/" class=""> :xuebusi,欢迎加入课程手把手教你玩转小米Minos——小米 武泽胜。在本课...</a>
+                                    <a href="/message/conversation/" class="link-dark"> :xuebusi,欢迎加入课程手把手教你玩转小米Minos——小米 武泽胜。在本课...</a>
                                     <span class="text-warning">(2条未读)</span>
                                 </h4>
                                 <div class="conversation-footer clearfix">
@@ -119,7 +119,7 @@ aA[index].style.color = 'red'*/
                             <div class="media-body">
                                 <h4 class="media-heading">
                                     <a class="link-dark " href="/user/63259">马天</a>
-                                    :<a href="/message/conversation/" class="">xuebusi,欢迎加入课程快速开发微信小程序。在本课程学习中遇到的问题，你可以...</a>
+                                    :<a href="/message/conversation/" class="link-dark">xuebusi,欢迎加入课程快速开发微信小程序。在本课程学习中遇到的问题，你可以...</a>
                                     <span class="text-warning">(1条未读)</span>
                                 </h4>
                                 <div class="conversation-footer clearfix">
@@ -139,8 +139,8 @@ aA[index].style.color = 'red'*/
 
                             <div class="media-body">
                                 <h4 class="media-heading">
-                                    <a class="link-dark " href="/user/49756">小象老师</a>
-                                    :<a href="/message/conversation/" class="">xuebusi,欢迎加入课程使用Apache Kylin分析Twitter流数据...</a>
+                                    <a class="link-dark " href="/user/49756">XBS老师</a>
+                                    :<a href="/message/conversation/" class="link-dark">xuebusi,欢迎加入课程使用Apache Kylin分析Twitter流数据...</a>
                                     <span class="text-warning">(1条未读)</span>
                                 </h4>
                                 <div class="conversation-footer clearfix">
@@ -162,7 +162,7 @@ aA[index].style.color = 'red'*/
                             <div class="media-body">
                                 <h4 class="media-heading">
                                     <a class="link-dark " href="/user/695">fish</a>
-                                    :<a href="/message/conversation/" class="">xuebusi,欢迎加入课程Hadoop/HBase实践及修改——冼茂源。在本课...</a>
+                                    :<a href="/message/conversation/" class="link-dark">xuebusi,欢迎加入课程Hadoop/HBase实践及修改——冼茂源。在本课...</a>
 
                                 </h4>
                                 <div class="conversation-footer clearfix">

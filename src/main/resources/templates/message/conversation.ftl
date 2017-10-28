@@ -80,7 +80,7 @@
                                                 <a class="link-dark " href="/user/1">admin</a>
                                                 ：</strong>xuebusi,欢迎加入课程手把手教你玩转小米Minos——小米&nbsp;武泽胜。<br>
                                             <br>
-                                            在本课程学习中遇到的问题，你可以在小象问答(&nbsp;
+                                            在本课程学习中遇到的问题，你可以在XBS问答(&nbsp;
                                             <a target="_blank" href="http://www.xuebusi.com/"><font color="0000FF">http://www.xuebusi.com/</font></a>
                                             &nbsp;
                                             )上提问并得到快速回复。<br>
@@ -111,7 +111,7 @@
                                             <strong>
                                                 <a class="link-dark " href="/user/1">admin</a>
                                                 ：</strong>xuebusi,欢迎加入课程备战数学建模地区赛。<br>
-                                            <br>在本课程学习中遇到的问题，你可以在小象问答(&nbsp;
+                                            <br>在本课程学习中遇到的问题，你可以在XBS问答(&nbsp;
                                             <a target="_blank" href="http://www.xuebusi.com/">
                                                 <font color="0000FF">http://www.xuebusi.com/</font>
                                             </a>
