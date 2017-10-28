@@ -110,26 +110,41 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li role="presentation" class="dropdown-header">${(user.username)!}</li>
-                        <li><a href="/settings/"><i class="es-icon es-icon-setting"></i>个人设置</a>
+                        <li>
+                            <a href="/settings/">
+                                <i class="es-icon es-icon-setting"></i>个人设置
+                            </a>
                         </li>
                         <li class="hidden-lg user-nav-li-my">
-                            <a href="/my"> <i class="es-icon es-icon-eventnote"></i>我的学习</a>
+                            <a href="/my">
+                                <i class="es-icon es-icon-eventnote"></i>我的学习
+                            </a>
                         </li>
                         <li>
-                            <a href="/my/orders"><i class="es-icon es-icon-accountwallet"></i>账户中心</a>
+                            <a href="/my/orders">
+                                <i class="es-icon es-icon-accountwallet"></i>账户中心
+                            </a>
                         </li>
                         <li>
                             <a href="/message/">
                                 <span class="pull-right num" style="padding: 0 5px">1</span>
-                                <i class="es-icon es-icon-mail"></i>我的私信</a>
+                                <i class="es-icon es-icon-mail"></i>我的私信
+                            </a>
                         </li>
-                        <li class="hidden-lg"><a href="/notification"><span class="pull-right num">6</span><i
-                                class="es-icon es-icon-notificationson"></i>通知</a>
+                        <li class="hidden-lg"><a href="/notification">
+                            <span class="pull-right num">6</span>
+                            <i class="es-icon es-icon-notificationson"></i>通知
+                        </a>
                         </li>
                         <li class="mobile-switch js-switch-mobile visible-xs">
-                            <a href="javascript:;"> <i class="es-icon es-icon-qiehuan"></i>切换触屏版</a>
+                            <a href="javascript:;">
+                                <i class="es-icon es-icon-qiehuan"></i>切换触屏版
+                            </a>
                         </li>
-                        <li class="user-nav-li-logout"><a href="/logout"><i class="es-icon es-icon-power"></i>退出登录</a>
+                        <li class="user-nav-li-logout">
+                            <a href="/logout">
+                                <i class="es-icon es-icon-power"></i>退出登录
+                            </a>
                         </li>
                     </ul>
                 </li>
