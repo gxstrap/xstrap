@@ -90,3 +90,7 @@ buildNumber.properties
 .classpath
 .settings
 .metadata
+src/main/resources/templates/my/homework/
+src/main/resources/templates/my/notebooks/
+src/main/resources/templates/my/questions/
+src/main/resources/templates/my/quiz/
