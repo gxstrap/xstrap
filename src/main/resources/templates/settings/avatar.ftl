@@ -105,7 +105,7 @@
                             <div class="form-group">
                                 <div class="col-md-2 control-label"><b>当前头像</b></div>
                                 <div class="controls col-md-8 controls">
-                                    <img src="http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/02-12/0548491a51dd226428.jpg">
+                                    <img src="http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-28/144327f23d99966410.jpg">
                                 </div>
                             </div>
 
