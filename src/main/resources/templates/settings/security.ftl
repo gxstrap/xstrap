@@ -95,7 +95,7 @@
                             </div>
                             <span class="col-sm-3 col-xs-6" style="margin-top: 5px;">支付密码</span>
                             <span class="col-sm-4 hidden-xs" style="margin-top: 5px;">在网校进行消费行为时需要输入的密码</span>
-                            <a href="http://www.chinahadoop.cn/settings/pay_password" class="col-xs-offset-1  btn btn-primary" style="margin-top: -3px;">设置</a>
+                            <a href="http://www.xuebusi.com/settings/pay_password" class="col-xs-offset-1  btn btn-primary" style="margin-top: -3px;">设置</a>
                         </div>
                         <hr>
                         <div class="row">
@@ -104,7 +104,7 @@
                             </div>
                             <span class="col-sm-3 col-xs-6" style="margin-top: 5px;">安全问题</span>
                             <span class="col-sm-4 hidden-xs" style="margin-top: 5px;">通过设置并且验证安全问题，保护帐号密码安全。</span>
-                            <a href="http://www.chinahadoop.cn/settings/security_questions" class="col-xs-offset-1 btn btn-primary" style="margin-top: -3px;">
+                            <a href="http://www.xuebusi.com/settings/security_questions" class="col-xs-offset-1 btn btn-primary" style="margin-top: -3px;">
                                 设置
                             </a>
                         </div>
@@ -115,7 +115,7 @@
                             </div>
                             <span class="col-sm-3 col-xs-6" style="margin-top: 5px;">手机绑定</span>
                             <span class="col-sm-4 hidden-xs" style="margin-top: 5px;">增加账户登录、购买课程时的安全性，同时还可以找回登录密码，支付密码。</span>
-                            <a href="http://www.chinahadoop.cn/settings/bind_mobile" class="col-xs-offset-1 btn btn-primary" style="margin-top: -3px;">
+                            <a href="http://www.xuebusi.com/settings/bind_mobile" class="col-xs-offset-1 btn btn-primary" style="margin-top: -3px;">
                                 绑定
                             </a>
                         </div>

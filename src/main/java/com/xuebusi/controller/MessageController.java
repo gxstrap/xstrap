@@ -50,5 +50,14 @@ public class MessageController {
         return new ModelAndView(new RedirectView("/message"), map);
     }
 
+    /**
+     * 私信详情页
+     * @param map
+     * @return
+     */
+    @GetMapping(value = "/conversation")
+    public ModelAndView conversation(Map<String, Object> map) {
 
+        return new ModelAndView("/message/conversation", map);
+    }
 }

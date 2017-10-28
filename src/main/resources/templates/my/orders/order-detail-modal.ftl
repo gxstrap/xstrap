@@ -33,7 +33,7 @@
                             <td width="75%">
                                 <strong> <a href="javascript:;" role="show-user" data-toggle="modal"
                                             data-target="#modal"
-                                            data-url="http://www.chinahadoop.cn/admin/user/60992">xuebusi</a>
+                                            data-url="http://www.xuebusi.com/admin/user/60992">xuebusi</a>
                                 </strong>
                             </td>
                         </tr>
@@ -129,7 +129,7 @@
                             </td>
                             <td>
                                 <a href="javascript:;" role="show-user" data-toggle="modal" data-target="#modal"
-                                   data-url="http://www.chinahadoop.cn/admin/user/60992">xuebusi</a>
+                                   data-url="http://www.xuebusi.com/admin/user/60992">xuebusi</a>
 
                             </td>
                             <td>
@@ -146,7 +146,7 @@
                             </td>
                             <td>
                                 <a href="javascript:;" role="show-user" data-toggle="modal" data-target="#modal"
-                                   data-url="http://www.chinahadoop.cn/admin/user/102306">祺少17o</a>
+                                   data-url="http://www.xuebusi.com/admin/user/102306">祺少17o</a>
 
                             </td>
                             <td>

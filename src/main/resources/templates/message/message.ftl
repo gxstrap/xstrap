@@ -10,7 +10,7 @@
     <![endif]-->
 <!--[if gt IE 8]>
     <!-->
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <!--<![endif]-->
 <html lang="zh_CN">
 <!-- Mirrored from www.xuebusi.cn/page/agreement by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Oct 2017 23:48:15 GMT -->
@@ -71,16 +71,15 @@ aA[index].style.color = 'red'*/
                         <a class="btn btn-primary pull-right" href="/message/send/">写私信</a>
                         <h2>私信</h2>
                     </div>
-
                     <ul class="media-list conversation-list">
-                        <li class="media" data-url="/message/conversation/358251">
+                        <li class="media" <#--data-url="/message/conversation/358251"-->>
                             <a class="pull-left media-object js-user-card" href="/user/29231" data-card-url="/user/29231/card/show" data-user-id="29231">
                                 <img class="avatar-sm" src="http://scb1a9q0-sb.qiqiuyun.net/files/default/2016/04-29/115850a2bfc9555442.jpg">
                             </a>
                             <div class="media-body">
                                 <h4 class="media-heading">
                                     <a class="link-dark " href="/user/29231">Robin_TY</a>
-                                    : xuebusi,欢迎加入课程《用Python进行员工离职原因分析及预测》。在本课...
+                                    : <a href="/message/conversation/" class=""> xuebusi,欢迎加入课程《用Python进行员工离职原因分析及预测》。在本课...</a>
                                     <span class="text-warning">(3条未读)</span>
                                 </h4>
                                 <div class="conversation-footer clearfix">
@@ -100,7 +99,7 @@ aA[index].style.color = 'red'*/
                             <div class="media-body">
                                 <h4 class="media-heading">
                                     <a class="link-dark " href="/user/1">admin</a>
-                                    :xuebusi,欢迎加入课程手把手教你玩转小米Minos——小米 武泽胜。在本课...
+                                    <a href="/message/conversation/" class=""> :xuebusi,欢迎加入课程手把手教你玩转小米Minos——小米 武泽胜。在本课...</a>
                                     <span class="text-warning">(2条未读)</span>
                                 </h4>
                                 <div class="conversation-footer clearfix">
@@ -120,7 +119,7 @@ aA[index].style.color = 'red'*/
                             <div class="media-body">
                                 <h4 class="media-heading">
                                     <a class="link-dark " href="/user/63259">马天</a>
-                                    :xuebusi,欢迎加入课程快速开发微信小程序。在本课程学习中遇到的问题，你可以...
+                                    :<a href="/message/conversation/" class="">xuebusi,欢迎加入课程快速开发微信小程序。在本课程学习中遇到的问题，你可以...</a>
                                     <span class="text-warning">(1条未读)</span>
                                 </h4>
                                 <div class="conversation-footer clearfix">
@@ -136,18 +135,14 @@ aA[index].style.color = 'red'*/
                         <li class="media" data-url="/message/conversation/291651">
                             <a class="pull-left media-object js-user-card" href="/user/49756" data-card-url="/user/49756/card/show" data-user-id="49756">
                                 <img class="avatar-sm" src="http://scb1a9q0-sb.qiqiuyun.net/files/user/2016/09-21/14084195a173022212.jpg">
-
                             </a>
 
                             <div class="media-body">
                                 <h4 class="media-heading">
                                     <a class="link-dark " href="/user/49756">小象老师</a>
-                                    :
-                                    xuebusi,欢迎加入课程使用Apache Kylin分析Twitter流数据...
-
+                                    :<a href="/message/conversation/" class="">xuebusi,欢迎加入课程使用Apache Kylin分析Twitter流数据...</a>
                                     <span class="text-warning">(1条未读)</span>
                                 </h4>
-
                                 <div class="conversation-footer clearfix">
                                     <span class="pull-left">22天前</span>
                                     <span class="pull-right">共4条</span>
@@ -167,11 +162,9 @@ aA[index].style.color = 'red'*/
                             <div class="media-body">
                                 <h4 class="media-heading">
                                     <a class="link-dark " href="/user/695">fish</a>
-                                    :
-                                    xuebusi,欢迎加入课程Hadoop/HBase实践及修改——冼茂源。在本课...
+                                    :<a href="/message/conversation/" class="">xuebusi,欢迎加入课程Hadoop/HBase实践及修改——冼茂源。在本课...</a>
 
                                 </h4>
-
                                 <div class="conversation-footer clearfix">
                                     <span class="pull-left">22天前</span>
                                     <span class="pull-right">共1条</span>
