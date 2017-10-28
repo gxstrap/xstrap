@@ -88,9 +88,7 @@ public class LoginController extends BaseController {
      */
     @GetMapping(value = "/logout")
     public ModelAndView logout(HttpServletRequest request, Map<String, Object> map) {
-        if (request.getSession() != null) {
-            request.getSession().removeAttribute("user");
-        }
+        request.getSession().invalidate();
         return new ModelAndView("/user/login", map);
     }
 
