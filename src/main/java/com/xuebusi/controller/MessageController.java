@@ -10,6 +10,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.util.Map;
 
 /**
+ * 私信
  * Created by SYJ on 2017/10/28.
  */
 @Controller

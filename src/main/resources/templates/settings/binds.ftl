@@ -63,12 +63,16 @@
                 <div class="panel panel-default panel-col">
                     <div class="panel-heading">第三方登录</div>
                     <div class="panel-body">
+                        <!-- 通过微博或qq绑定成功后跳转至本页面显示"账号绑定成功" -->
+                        <div class="alert alert-success">帐号绑定成功!</div>
                         <ul class="media-list">
                             <li class="media">
                                 <img src="http://scb1a9q0-sb.qiqiuyun.net/assets/img/social/weibo.png?11.0.2.5" class=" media-object pull-left">
                                 <div class="media-body">
-                                    <a href="/settings/bind/weibo"
-                                       class="bind btn btn-primary pull-right">绑定</a>
+                                    <!-- 已绑定时显示"取消绑定" -->
+                                    <a href="/settings/unbind/weibo" class="unbind btn btn-default pull-right">取消绑定</a>
+                                    <!-- 未绑定时显示"绑定" -->
+                                    <a href="/settings/bind/weibo" class="bind btn btn-primary pull-right">绑定</a>
                                     <div>微博帐号</div>
                                     <div class="text-muted">未绑定</div>
                                 </div>

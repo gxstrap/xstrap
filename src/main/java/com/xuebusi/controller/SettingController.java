@@ -1,6 +1,7 @@
 package com.xuebusi.controller;
 
 import com.xuebusi.entity.User;
+import com.xuebusi.enums.BindTypeEnum;
 import com.xuebusi.service.UserService;
 import com.xuebusi.vo.UserFormVo;
 import org.apache.commons.lang3.StringUtils;
@@ -8,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -178,8 +180,52 @@ public class SettingController extends BaseController {
      * @return
      */
     @GetMapping(value = "/binds")
-    public ModelAndView binds(Map<String, Object> map) {
+    public ModelAndView toBinds(Map<String, Object> map) {
 
+        return new ModelAndView("/settings/binds", map);
+    }
+
+    /**
+     * 绑定(第三方登录:微博、QQ、微信)
+     *
+     * 未绑定时显示"绑定"按钮(图标下方会显示未绑定的状态),
+     * 已绑定时显示"已绑定按钮";
+     * 点击绑定按钮,跳转到第三方登录页面,输入第三方的账号和密码登录,
+     * 登录成功会(即绑定成功)后会跳转回第三方登录页面,在上方提示"账号绑定成功".
+     *
+     * @param map
+     * @return
+     */
+    @PostMapping(value = "/binds/{bindType}")
+    public ModelAndView bind(@PathVariable("bindType") String bindType, Map<String, Object> map) {
+        if (BindTypeEnum.weibo.name().equals(bindType)) {
+            //微博绑定
+        } else if (BindTypeEnum.qq.name().equals(bindType)) {
+            //QQ绑定
+        } else if (BindTypeEnum.weixin.name().equals(bindType)){
+            //微信绑定
+        } else {
+            //其他
+        }
+        return new ModelAndView("/settings/binds", map);
+    }
+
+    /**
+     * 取消绑定(第三方登录:微博、QQ、微信)
+     * @param map
+     * @return
+     */
+    @PostMapping(value = "/unbind/{bindType}")
+    public ModelAndView unbindWeibo(@PathVariable("bindType") String bindType, Map<String, Object> map) {
+        if (BindTypeEnum.weibo.name().equals(bindType)) {
+            //微博取消绑定
+        } else if (BindTypeEnum.qq.name().equals(bindType)) {
+            //QQ取消绑定
+        } else if (BindTypeEnum.weixin.name().equals(bindType)){
+            //微信取消绑定
+        } else {
+            //其他取消绑定
+        }
         return new ModelAndView("/settings/binds", map);
     }
 
