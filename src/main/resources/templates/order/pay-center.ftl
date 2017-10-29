@@ -50,7 +50,7 @@
                             <div class="order-info">
                                 <p>订单名称：购买课程${(payCenterInfo.courseTitle)!}</p>
 
-                                <p>订单号：C2017102922375190611</p>
+                                <p>订单号：${(payCenterInfo.orderNo)!}</p>
 
                                 <p>
                                     订单价格：

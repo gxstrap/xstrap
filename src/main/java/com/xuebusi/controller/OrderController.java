@@ -1,7 +1,5 @@
 package com.xuebusi.controller;
 
-import ch.qos.logback.core.joran.util.beans.BeanUtil;
-import com.alibaba.fastjson.JSON;
 import com.xuebusi.entity.Course;
 import com.xuebusi.service.CourseService;
 import com.xuebusi.vo.OrderCreateVo;
@@ -15,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -24,6 +24,8 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/order")
 public class OrderController {
+
+    private static final SimpleDateFormat dateFormart = new SimpleDateFormat("yyyyMMddHHssmm");
 
     @Autowired
     private CourseService courseService;
@@ -62,6 +64,10 @@ public class OrderController {
 
         PayCenterInfoVo payCenterInfo = new PayCenterInfoVo();
         BeanUtils.copyProperties(orderCreateVo, payCenterInfo);
+
+        //生成订单号, 例如: C2017102922375190611
+        payCenterInfo.setOrderNo("C" + dateFormart.format(new Date()) + (int)((Math.random()*9+1)*10000));
+
         map.put("payCenterInfo", payCenterInfo);
         return new ModelAndView("/order/pay-center", map);
     }

@@ -13,6 +13,7 @@ public class PayCenterInfoVo {
     private String courseTitle;//课程标题
     private String courseImgUrl;//课程图片地址
     private String courseLink;//课程链接地址
+    private String orderNo;//订单号
 
     public String getTargetType() {
         return targetType;
@@ -68,5 +69,13 @@ public class PayCenterInfoVo {
 
     public void setCourseLink(String courseLink) {
         this.courseLink = courseLink;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
     }
 }
