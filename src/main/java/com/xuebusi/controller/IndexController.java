@@ -1,7 +1,6 @@
 package com.xuebusi.controller;
 
 import com.xuebusi.entity.Course;
-import com.xuebusi.mapper.CourseMapper;
 import com.xuebusi.service.CourseService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

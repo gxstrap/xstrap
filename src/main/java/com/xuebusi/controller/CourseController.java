@@ -3,7 +3,6 @@ package com.xuebusi.controller;
 import com.xuebusi.entity.*;
 import com.xuebusi.enums.CourseCategoryEnum;
 import com.xuebusi.enums.CourseNavigationEnum;
-import com.xuebusi.enums.SelectiveTypeEnum;
 import com.xuebusi.service.CourseDetailService;
 import com.xuebusi.service.CourseService;
 import com.xuebusi.service.LessonService;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -70,7 +68,7 @@ public class CourseController extends BaseController{
         }
         List<Lesson> lessonList = lessonService.findByCourseId(id);
         //相关课程
-        List<Course> courseRelevantList = this.getCourseRelevant(course.getCourseNavigation(), course.getCourseCategory());
+        List<Course> courseRelevantList = this.getCourseRelevant(course.getId(), course.getCourseNavigation(), course.getCourseCategory());
 
         map.put("selectiveType", selectiveType);
         map.put("course", course);
@@ -121,7 +119,7 @@ public class CourseController extends BaseController{
         CourseDetail courseDetail = courseDetailService.findOne(courseId);
         List<Lesson> lessonList = lessonService.findByCourseId(courseId);
         //相关课程
-        List<Course> courseRelevantList = this.getCourseRelevant(course.getCourseNavigation(), course.getCourseCategory());
+        List<Course> courseRelevantList = this.getCourseRelevant(course.getId(), course.getCourseNavigation(), course.getCourseCategory());
 
         map.put("selectiveType", selectiveType);
         map.put("course", course);
@@ -148,23 +146,30 @@ public class CourseController extends BaseController{
 
     /**
      * 查询相关课程
+     * @param id 课程主键
      * @param navigation 所属导航菜单
      * @param category 所属二级分类
      * @return
      */
-    private List<Course> getCourseRelevant(String navigation, String category) {
+    private List<Course> getCourseRelevant(Integer id, String navigation, String category) {
         List<Sort.Order> orders= new ArrayList<>();
         orders.add(new Sort.Order(Sort.Direction.DESC, "createTime"));
-        PageRequest pageRequest = new PageRequest(0, 3, new Sort(orders));
+        PageRequest pageRequest = new PageRequest(0, 6, new Sort(orders));
         Page<Course> courseRelevantPage = courseService.findList(navigation, category, pageRequest);
-        if (courseRelevantPage.getTotalElements() > 2) {
+
+        List<Course> courseList = courseRelevantPage.getContent();
+        if (courseList != null && courseList.size() > 2) {
             List<Course> courseRelevantList = new ArrayList<>();
-            Iterator<Course> it = courseRelevantPage.iterator();
-            while (it.hasNext()) {
-                courseRelevantList.add(it.next());
+            for (Course course : courseList) {
+                if (course.getId() != id) {
+                    courseRelevantList.add(course);
+                }
+                if (courseRelevantList.size() == 3) {
+                    return courseRelevantList;
+                }
             }
-            return courseRelevantList;
         }
+
         return null;
     }
 
