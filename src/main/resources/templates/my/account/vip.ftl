@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0047)http://www.chinahadoop.cn/my/orders?status=paid -->
+<!-- saved from url=(0040)http://www.chinahadoop.cn/my/vip/history -->
 <html lang="zh_CN"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <title>我的订单 - 账户中心 - 小象学院 - 互联网新技术学习平台|人工智能|大数据|机器学习|深度学习|Python|Java|Hadoop|Spark|Linux|MySQL|数据分析</title>
+    <title>提示信息 - 小象学院 - 互联网新技术学习平台|人工智能|大数据|机器学习|深度学习|Python|Java|Hadoop|Spark|Linux|MySQL|数据分析</title>
     <meta name="keywords" content="人工智能，机器学习，Hadoop，Hadoop培训，大数据技术，小象社区，HBase，Spark，大数据应用案例，在线教育">
     <meta name="description" content="中国最活跃、最专业的人工智能、大数据在线教育平台,专注于互联网新技术的应用推广,通过系列实战性培训课程,提供来自互联网一线公司专家的实战经验和应用案例">
     <meta content="gcmoLokRQaYs-Wwsv8IV7pqfxXWhYr4J7YwkaAfPmhc" name="csrf-token">
@@ -17,16 +17,16 @@
     <link rel="shortcut icon" href="http://scb1a9q0-sb.qiqiuyun.net/files/system/favicon_1405502134.ico?11.0.2.5" type="image/x-icon" media="screen">
 
 
-    <link href="./order-paid_files/bootstrap-red-light.css" rel="stylesheet">
+    <link href="./vip_files/bootstrap-red-light.css" rel="stylesheet">
 
-    <link rel="stylesheet" media="screen" href="./order-paid_files/common.css">
-    <link rel="stylesheet" media="screen" href="./order-paid_files/font-awesome.min.css">
-    <link rel="stylesheet" media="screen" href="./order-paid_files/es-icon.css">
+    <link rel="stylesheet" media="screen" href="./vip_files/common.css">
+    <link rel="stylesheet" media="screen" href="./vip_files/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="./vip_files/es-icon.css">
 
-    <link href="./order-paid_files/main-red-light.css" rel="stylesheet">
+    <link href="./vip_files/main-red-light.css" rel="stylesheet">
 
 
-    <link href="./order-paid_files/header-white.css" rel="stylesheet">
+    <link href="./vip_files/header-white.css" rel="stylesheet">
 
 
 
@@ -36,12 +36,13 @@
     <script src="//scb1a9q0-sb.qiqiuyun.net/assets/libs/respond.min.js?11.0.2.5"></script>
     <![endif]-->
 
-    <script charset="utf-8" src="./order-paid_files/lxb.js.下载"></script><script charset="utf-8" src="./order-paid_files/v.js.下载"></script><script src="./order-paid_files/push.js.下载"></script><script src="./order-paid_files/hm.js.下载"></script><script type="text/javascript" id="zhuge-js" async="" src="./order-paid_files/zhuge.min.js.下载"></script><script type="text/javascript" src="./order-paid_files/zhuge.js.下载"></script>
+    <script charset="utf-8" src="./vip_files/lxb.js.下载"></script><script charset="utf-8" src="./vip_files/v.js.下载"></script><script src="./vip_files/push.js.下载"></script><script src="./vip_files/hm.js.下载"></script><script type="text/javascript" id="zhuge-js" async="" src="./vip_files/zhuge.min.js.下载"></script><script type="text/javascript" src="./vip_files/zhuge.js.下载"></script>
 
-    <script type="text/javascript" async="async" charset="utf-8" src="./order-paid_files/zh_cn.js.下载" data-requiremodule="lang"></script><script type="text/javascript" async="async" charset="utf-8" src="./order-paid_files/chat.in.js.下载" data-requiremodule="chatManage"></script><script type="text/javascript" async="async" charset="utf-8" src="./order-paid_files/mqtt31.js.下载" data-requiremodule="MQTT"></script><script type="text/javascript" async="async" charset="utf-8" src="./order-paid_files/mqtt.chat.js.下载" data-requiremodule="Connection"></script></head>
+    <script type="text/javascript" async="async" charset="utf-8" src="./vip_files/zh_cn.js.下载" data-requiremodule="lang"></script><script type="text/javascript" async="async" charset="utf-8" src="./vip_files/chat.in.js.下载" data-requiremodule="chatManage"></script><script type="text/javascript" async="async" charset="utf-8" src="./vip_files/mqtt31.js.下载" data-requiremodule="MQTT"></script><script type="text/javascript" async="async" charset="utf-8" src="./vip_files/mqtt.chat.js.下载" data-requiremodule="Connection"></script></head>
 <body onbeforeunload="return CheckUnsave();"><div id="nTalk_post_hiddenElement" style="left: -10px; top: -10px; visibility: hidden; display: none; width: 1px; height: 1px;"></div>
 
 <div class="es-wrap">
+
     <#include "../../common/alert-notice.ftl">
     <script type="text/javascript">
         /*function baidusearch(id) {
@@ -112,7 +113,7 @@
                     <a><i class="es-icon es-icon-chevronleft"></i></a>
                 </div>
                 <a href="http://www.chinahadoop.cn/" class="navbar-brand">
-                    <img src="./order-paid_files/161020c47d8a459916.png">
+                    <img src="./vip_files/161020c47d8a459916.png">
                 </a>
             </div>
             <div class="navbar-user  left ">
@@ -124,7 +125,7 @@
                     </li>
                     <li class="user-avatar-li nav-hover">
                         <a href="javascript:;" class="dropdown-toggle">
-                            <img class="avatar-xs" src="./order-paid_files/144327f261a2577162.jpg">
+                            <img class="avatar-xs" src="./vip_files/144327f261a2577162.jpg">
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li role="presentation" class="dropdown-header">xuebusi</li>
@@ -208,233 +209,13 @@
 
 
     <div id="content-container" class="container">
-        <div class="row">
-            <div class="col-md-3">
 
-                <div class="sidenav">
-                    <ul class="list-group">
-                        <li class="list-group-heading">账户中心</li>
-                        <li class="list-group-item ">
-                            <a href="http://www.chinahadoop.cn/my/coin">我的账户
-                            </a>
-                        </li>
-                        <li class="list-group-item  active ">
-                            <a href="http://www.chinahadoop.cn/my/orders">我的订单</a>
-                        </li>
-                        <li class="list-group-item ">
-                            <a href="http://www.chinahadoop.cn/my/cards">我的卡包</a>
-                        </li>
-
-                        <li class="list-group-item ">
-                            <a href="http://www.chinahadoop.cn/my/vip/history">会员记录</a>
-                        </li>
-                    </ul>
+        <div id="page-message-container" class="page-message-container" data-goto="" data-duration="0">
+            <div class="page-message-panel">
+                <div class="page-message-heading">
+                    <h2 class="page-message-title">提示信息</h2>
                 </div>
-            </div>
-            <div class="col-md-9">
-                <div class="es-section h400">
-                    <div class="section-header"><h3>我的订单</h3></div>
-
-
-                    <ul class="nav nav-pills" role="tablist">
-                        <li role="presentation"><a href="http://www.chinahadoop.cn/my/orders?status=">全部订单</a></li>
-                        <li role="presentation"><a href="http://www.chinahadoop.cn/my/orders?status=created">待付款<span class="badge">0</span></a></li>
-                        <li role="presentation" class="active"><a href="http://www.chinahadoop.cn/my/orders?status=paid">已付款</a></li>
-                    </ul>
-                    <br>
-                    <form id="user-search-form" class="form-inline well well-sm" action="http://www.chinahadoop.cn/my/orders?status=paid" method="get" novalidate="">
-                        <input type="hidden" name="status" value="paid">
-                        <div class="form-group">
-                            <select class="form-control" name="lastHowManyMonths" onchange="submit();">
-                                <option value="oneWeek">最近一周</option><option value="twoWeeks">最近两周</option><option value="oneMonth">最近一个月</option><option value="twoMonths">最近两个月</option><option value="threeMonths">最近三个月</option><option value="" selected="selected">全部记录</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control" name="payWays" onchange="submit();">
-
-                                <option value="alipay">支付宝</option><option value="wxpay">微信支付</option><option value="heepay">网银支付</option><option value="quickpay">快捷支付</option><option value="llpay">连连支付</option><option value="bankpay">银行直付</option><option value="none">其他支付</option><option value="" selected="selected">支付方式</option>
-                            </select>
-                        </div>
-                    </form>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover" id="orders-table">
-
-                            <thead>
-                            <tr>
-                                <th>订单名称</th>
-                                <th>创建时间</th>
-                                <th>状态</th>
-                                <th>实付(元)</th>
-                                <th>支付方式
-                                    <span data-toggle="popover" class="glyphicon glyphicon-question-sign color-gray text-sm js-pay-way-popover"></span>
-                                    <div class="popover-content hidden" style="width:100px;">
-                                        <div class="popover-item">
-                                            <div class="content">站外支付为该笔订单是通过导入或者手动添加的方式产生的，故为站外支付</div>
-                                        </div>
-                                    </div></th>
-                                <th style="min-width:100px">操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr id="order-table-180647" style="word-break: break-all;word-wrap: break-word;">
-                                <td>
-                                    <a href="http://www.chinahadoop.cn/course/1049" target="_blank"><strong>购买课程《《用Python进行员工离职原因分析及预测》》</strong></a>
-                                    <br>
-                                    <span class="text-muted text-sm">订单号：C2017102115423020729</span>
-                                </td>
-                                <td><span class="text-muted text-sm">2017-10-21 15:42:30</span></td>
-                                <td>            <span class="label label-success">已付款</span>
-                                </td>
-                                <td><span class="money-text">0.00</span></td>
-                                <td>
-                                    --
-                                    <br>
-                                    <span class="text-muted text-sm">2017-10-21 15:42:30</span>
-                                </td>
-                                <td>
-
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-sm btn-default" data-toggle="modal" data-target="#modal" data-url="/my/order/180647/detail">详情</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr id="order-table-175220" style="word-break: break-all;word-wrap: break-word;">
-                                <td>
-                                    <a href="http://www.chinahadoop.cn/course/4" target="_blank"><strong>购买课程《手把手教你玩转小米Minos——小米 武泽胜》</strong></a>
-                                    <br>
-                                    <span class="text-muted text-sm">订单号：C2017101020540218952</span>
-                                </td>
-                                <td><span class="text-muted text-sm">2017-10-10 20:54:02</span></td>
-                                <td>            <span class="label label-success">已付款</span>
-                                </td>
-                                <td><span class="money-text">0.00</span></td>
-                                <td>
-                                    --
-                                    <br>
-                                    <span class="text-muted text-sm">2017-10-10 20:54:02</span>
-                                </td>
-                                <td>
-
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-sm btn-default" data-toggle="modal" data-target="#modal" data-url="/my/order/175220/detail">详情</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr id="order-table-173868" style="word-break: break-all;word-wrap: break-word;">
-                                <td>
-                                    <a href="http://www.chinahadoop.cn/course/136" target="_blank"><strong>购买课程《机器智能和2%的人类——吴军》</strong></a>
-                                    <br>
-                                    <span class="text-muted text-sm">订单号：C2017100913444538997</span>
-                                </td>
-                                <td><span class="text-muted text-sm">2017-10-09 13:44:45</span></td>
-                                <td>            <span class="label label-success">已付款</span>
-                                </td>
-                                <td><span class="money-text">0.00</span></td>
-                                <td>
-                                    --
-                                    <br>
-                                    <span class="text-muted text-sm">2017-10-09 13:44:45</span>
-                                </td>
-                                <td>
-
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-sm btn-default" data-toggle="modal" data-target="#modal" data-url="/my/order/173868/detail">详情</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr id="order-table-173867" style="word-break: break-all;word-wrap: break-word;">
-                                <td>
-                                    <a href="http://www.chinahadoop.cn/course/528" target="_blank"><strong>购买课程《备战数学建模地区赛》</strong></a>
-                                    <br>
-                                    <span class="text-muted text-sm">订单号：C2017100913425564564</span>
-                                </td>
-                                <td><span class="text-muted text-sm">2017-10-09 13:42:55</span></td>
-                                <td>            <span class="label label-success">已付款</span>
-                                </td>
-                                <td><span class="money-text">0.00</span></td>
-                                <td>
-                                    --
-                                    <br>
-                                    <span class="text-muted text-sm">2017-10-09 13:42:55</span>
-                                </td>
-                                <td>
-
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-sm btn-default" data-toggle="modal" data-target="#modal" data-url="/my/order/173867/detail">详情</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr id="order-table-173252" style="word-break: break-all;word-wrap: break-word;">
-                                <td>
-                                    <a href="http://www.chinahadoop.cn/course/12" target="_blank"><strong>购买课程《Hadoop/HBase实践及修改——冼茂源》</strong></a>
-                                    <br>
-                                    <span class="text-muted text-sm">订单号：C2017100614404038685</span>
-                                </td>
-                                <td><span class="text-muted text-sm">2017-10-06 14:40:40</span></td>
-                                <td>            <span class="label label-success">已付款</span>
-                                </td>
-                                <td><span class="money-text">0.00</span></td>
-                                <td>
-                                    --
-                                    <br>
-                                    <span class="text-muted text-sm">2017-10-06 14:40:40</span>
-                                </td>
-                                <td>
-
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-sm btn-default" data-toggle="modal" data-target="#modal" data-url="/my/order/173252/detail">详情</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr id="order-table-173251" style="word-break: break-all;word-wrap: break-word;">
-                                <td>
-                                    <a href="http://www.chinahadoop.cn/course/1017" target="_blank"><strong>购买课程《普通程序员如何转型到人工智能领域》</strong></a>
-                                    <br>
-                                    <span class="text-muted text-sm">订单号：C2017100614401037217</span>
-                                </td>
-                                <td><span class="text-muted text-sm">2017-10-06 14:40:10</span></td>
-                                <td>            <span class="label label-success">已付款</span>
-                                </td>
-                                <td><span class="money-text">0.00</span></td>
-                                <td>
-                                    --
-                                    <br>
-                                    <span class="text-muted text-sm">2017-10-06 14:40:10</span>
-                                </td>
-                                <td>
-
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-sm btn-default" data-toggle="modal" data-target="#modal" data-url="/my/order/173251/detail">详情</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr id="order-table-144835" style="word-break: break-all;word-wrap: break-word;">
-                                <td>
-                                    <a href="http://www.chinahadoop.cn/course/986" target="_blank"><strong>购买课程《实用机器学习方法——集成学习》</strong></a>
-                                    <br>
-                                    <span class="text-muted text-sm">订单号：C2017080501504386132</span>
-                                </td>
-                                <td><span class="text-muted text-sm">2017-8-05 01:50:43</span></td>
-                                <td>            <span class="label label-success">已付款</span>
-                                </td>
-                                <td><span class="money-text">0.00</span></td>
-                                <td>
-                                    --
-                                    <br>
-                                    <span class="text-muted text-sm">2017-8-05 01:50:43</span>
-                                </td>
-                                <td>
-
-                                    <div class="btn-group">
-                                        <a href="javascript:;" class="btn btn-sm btn-default" data-toggle="modal" data-target="#modal" data-url="/my/order/144835/detail">详情</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
+                <div class="page-message-body">会员专区已关闭</div>
             </div>
         </div>
     </div>
@@ -517,25 +298,25 @@
                 </div>
 
                 <div class="col-md-4 footer-logo hidden-sm hidden-xs">
-                    <a class="" href="http://www.chinahadoop.cn/" target="_blank"><img src="./order-paid_files/block_picture_1472461810.png" alt="建议图片大小为233*64"></a>
+                    <a class="" href="http://www.chinahadoop.cn/" target="_blank"><img src="./vip_files/block_picture_1472461810.png" alt="建议图片大小为233*64"></a>
                     <div class="footer-sns">
                         <a href="http://weibo.com/chinahadoop" target="_blank"><i class="es-icon es-icon-weibo"></i></a>
                         <a class="qrcode-popover top">
                             <i class="es-icon es-icon-weixin"></i>
                             <div class="qrcode-content">
-                                <img src="./order-paid_files/block_picture_1472472380.jpg" alt="">
+                                <img src="./vip_files/block_picture_1472472380.jpg" alt="">
                             </div>
                         </a>
                         <a class="qrcode-popover top">
                             <i class="es-icon es-icon-apple"></i>
                             <div class="qrcode-content">
-                                <img src="./order-paid_files/block_picture_1481630430.png" alt="">
+                                <img src="./vip_files/block_picture_1481630430.png" alt="">
                             </div>
                         </a>
                         <a class="qrcode-popover top">
                             <i class="es-icon es-icon-android"></i>
                             <div class="qrcode-content">
-                                <img src="./order-paid_files/block_picture_1505720957.png" alt="">
+                                <img src="./vip_files/block_picture_1505720957.png" alt="">
                             </div>
                         </a>
                     </div>
@@ -548,7 +329,7 @@
     </div>    <footer class="es-footer">
     <div class="copyright" style="background: #2e2e2e;border-top: 1px solid #2e2e2e;padding: 0;margin-top: -30px;padding-bottom: 20px;">
         <div class="container">
-            <script type="text/javascript" src="./order-paid_files/stats" charset="UTF-8"></script>
+            <script type="text/javascript" src="./vip_files/stats" charset="UTF-8"></script>
             <script>
                 var _hmt = _hmt || [];
                 (function() {
@@ -697,7 +478,7 @@
         </div>
 
         <div id="bar-weixin-content">
-            <img width="110" class="img-responsive" src="./order-paid_files/130411b055cb326562.jpg" alt="">
+            <img width="110" class="img-responsive" src="./vip_files/130411b055cb326562.jpg" alt="">
         </div>
     </div>
 
@@ -712,7 +493,7 @@
             erpparam:"abc"
         }
     </script>
-    <script type="text/javascript" src="./order-paid_files/ntkfstat.js.下载" charset="utf-8"></script>
+    <script type="text/javascript" src="./vip_files/ntkfstat.js.下载" charset="utf-8"></script>
 
 </div>
 
@@ -757,7 +538,7 @@
     app.config = {"api":{"weibo":{"key":"3735672790"},"qq":{"key":"101291257"},"douban":{"key":""},"renren":{"key":""}},"cloud":{"video_player":"http:\/\/cdn.staticfile.org\/GrindPlayerCN\/1.0.2\/GrindPlayer.swf","video_player_watermark_plugin":"http:\/\/cdn.staticfile.org\/GrindPlayerCN\/1.0.2\/Watermake-1.0.3.swf","video_player_fingerprint_plugin":"http:\/\/cdn.staticfile.org\/GrindPlayerCN\/1.0.2\/Fingerprint-1.0.1.swf"},"loading_img_path":"\/\/scb1a9q0-sb.qiqiuyun.net\/assets\/img\/default\/loading.gif?11.0.2.5"};
 
     app.arguments = {};
-    app.controller = 'my/orders';
+    app.controller = 'default/message';
 
     app.scripts = ["default\/header.js","es-bar\/index","notification\/notification"];
 
@@ -768,12 +549,12 @@
     app.mainScript = '//scb1a9q0-sb.qiqiuyun.net/bundles/topxiaweb/js/app.js?11.0.2.5';
     app.lang = 'zh_CN';
 </script>
-<script src="./order-paid_files/translator.min.js.下载"></script>
-<script src="./order-paid_files/js"></script>
-<script src="./order-paid_files/sea.js.下载"></script>
-<script src="./order-paid_files/seajs-style.js.下载"></script>
-<script src="./order-paid_files/seajs-text.min.js.下载"></script>
-<script src="./order-paid_files/seajs-global-config.js.下载"></script>
+<script src="./vip_files/translator.min.js.下载"></script>
+<script src="./vip_files/js"></script>
+<script src="./vip_files/sea.js.下载"></script>
+<script src="./vip_files/seajs-style.js.下载"></script>
+<script src="./vip_files/seajs-text.min.js.下载"></script>
+<script src="./vip_files/seajs-global-config.js.下载"></script>
 <script>
     seajs.use(app.mainScript);
 </script>

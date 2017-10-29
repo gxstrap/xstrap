@@ -84,4 +84,15 @@ public class IndexController extends BaseController {
         map.put("tag", tag);
         return new ModelAndView("/help/page", map);
     }
+
+
+    /**
+     * 金币说明
+     * @param map
+     * @return
+     */
+    @RequestMapping(value = "/coin/show")
+    public ModelAndView coinShow(Map<String, Object> map) {
+        return new ModelAndView("/help/coinshow", map);
+    }
 }
