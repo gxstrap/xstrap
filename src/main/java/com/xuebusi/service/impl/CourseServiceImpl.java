@@ -1,6 +1,6 @@
 package com.xuebusi.service.impl;
 
-import com.xuebusi.common.cache.BaseDataCacheUtils;
+import com.xuebusi.common.cache.InitDataCacheMap;
 import com.xuebusi.entity.Course;
 import com.xuebusi.enums.CourseCategoryEnum;
 import com.xuebusi.enums.CourseNavigationEnum;
@@ -41,7 +41,7 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     public List<Course> findAll() {
-        Collection<Course> courses = BaseDataCacheUtils.getCourseCacheMap().values();
+        Collection<Course> courses = InitDataCacheMap.getCourseCacheMap().values();
         if (courses != null && courses.size() > 0) {
             return (List<Course>) courses;
         }
@@ -55,7 +55,7 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     public Course findOne(Integer id) {
-        Course course = BaseDataCacheUtils.getCourseCacheMap().get(String.valueOf(id));
+        Course course = InitDataCacheMap.getCourseCacheMap().get(String.valueOf(id));
         if (course != null) {
             return course;
         }
@@ -70,7 +70,7 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public List<Course> findByIdIn(List<Integer> ids){
         List<Course> courseList = new ArrayList<>();
-        Map<String, Course> courseMap = BaseDataCacheUtils.getCourseCacheMap();
+        Map<String, Course> courseMap = InitDataCacheMap.getCourseCacheMap();
         for (Integer id : ids) {
             if (courseMap.containsKey(String.valueOf(id))) {
                 courseList.add(courseMap.get(String.valueOf(id)));

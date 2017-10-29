@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 基础数据缓存工具类
+ * 缓存
  * Created by SYJ on 2017/10/26.
  */
-public class BaseDataCacheUtils {
+public class InitDataCacheMap {
 
     /**
      * 缓存登录信息
