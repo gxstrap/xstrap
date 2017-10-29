@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0035)http://www.xuebusi.com/my/orders -->
+<!-- saved from url=(0035)/my/orders -->
 <html lang="zh_CN"><!--<![endif]-->
 <#include "../../common/head.ftl">
 <body onbeforeunload="return CheckUnsave();" class="">
@@ -36,20 +36,20 @@
                     </div>
                     <ul class="nav nav-pills" role="tablist">
                         <li role="presentation" class="active">
-                            <a href="http://www.xuebusi.com/my/orders?status=">全部订单</a>
+                            <a href="/my/orders?status=">全部订单</a>
                         </li>
                         <li role="presentation">
-                            <a href="http://www.xuebusi.com/my/orders?status=created">待付款
+                            <a href="/my/orders?status=created">待付款
                                 <span class="badge">0</span>
                             </a>
                         </li>
                         <li role="presentation">
-                            <a href="http://www.xuebusi.com/my/orders?status=paid">已付款</a>
+                            <a href="/my/orders?status=paid">已付款</a>
                         </li>
                     </ul>
                     <br>
 
-                    <form id="user-search-form" class="form-inline well well-sm" action="http://www.xuebusi.com/my/orders" method="get" novalidate="">
+                    <form id="user-search-form" class="form-inline well well-sm" action="/my/orders" method="get" novalidate="">
                         <input type="hidden" name="status" value="">
                         <div class="form-group">
                             <select class="form-control" name="lastHowManyMonths" onchange="submit();">
@@ -96,7 +96,7 @@
                             <tbody>
                             <tr id="order-table-180648" style="word-break: break-all;word-wrap: break-word;">
                                 <td>
-                                    <a href="http://www.xuebusi.com/course/526" target="_blank">
+                                    <a href="/course/526" target="_blank">
                                         <strong>购买课程《面试算法中的字符串——邹博》</strong>
                                     </a>
                                     <br>
@@ -117,7 +117,7 @@
                             </tr>
                             <tr id="order-table-180647" style="word-break: break-all;word-wrap: break-word;">
                                 <td>
-                                    <a href="http://www.xuebusi.com/course/1049" target="_blank">
+                                    <a href="/course/1049" target="_blank">
                                         <strong>购买课程《《用Python进行员工离职原因分析及预测》》</strong>
                                     </a>
                                     <br>
@@ -145,7 +145,7 @@
                             </tr>
                             <tr id="order-table-180646" style="word-break: break-all;word-wrap: break-word;">
                                 <td>
-                                    <a href="http://www.xuebusi.com/course/1040" target="_blank">
+                                    <a href="/course/1040" target="_blank">
                                         <strong>购买课程《零基础Python入门》</strong>
                                     </a>
                                     <br>
@@ -171,7 +171,7 @@
                             </tr>
                             <tr id="order-table-175220" style="word-break: break-all;word-wrap: break-word;">
                                 <td>
-                                    <a href="http://www.xuebusi.com/course/4" target="_blank">
+                                    <a href="/course/4" target="_blank">
                                         <strong>购买课程《手把手教你玩转小米Minos——小米武泽胜》</strong>
                                     </a>
                                     <br>
@@ -200,7 +200,7 @@
                             </tr>
                             <tr id="order-table-173868" style="word-break: break-all;word-wrap: break-word;">
                                 <td>
-                                    <a href="http://www.xuebusi.com/course/136" target="_blank">
+                                    <a href="/course/136" target="_blank">
                                         <strong>购买课程《机器智能和2%的人类——吴军》</strong>
                                     </a>
                                     <br>
@@ -229,7 +229,7 @@
                             </tr>
                             <tr id="order-table-173867" style="word-break: break-all;word-wrap: break-word;">
                                 <td>
-                                    <a href="http://www.xuebusi.com/course/528" target="_blank">
+                                    <a href="/course/528" target="_blank">
                                         <strong>购买课程《备战数学建模地区赛》</strong>
                                     </a>
                                     <br>
@@ -256,7 +256,7 @@
                             </tr>
                             <tr id="order-table-173252" style="word-break: break-all;word-wrap: break-word;">
                                 <td>
-                                    <a href="http://www.xuebusi.com/course/12" target="_blank">
+                                    <a href="/course/12" target="_blank">
                                         <strong>购买课程《Hadoop/HBase实践及修改——冼茂源》</strong>
                                     </a>
                                     <br>
@@ -284,7 +284,7 @@
                             </tr>
                             <tr id="order-table-173251" style="word-break: break-all;word-wrap: break-word;">
                                 <td>
-                                    <a href="http://www.xuebusi.com/course/1017" target="_blank">
+                                    <a href="/course/1017" target="_blank">
                                         <strong>购买课程《普通程序员如何转型到人工智能领域》</strong>
                                     </a>
                                     <br>
@@ -312,7 +312,7 @@
                             </tr>
                             <tr id="order-table-144835" style="word-break: break-all;word-wrap: break-word;">
                                 <td>
-                                    <a href="http://www.xuebusi.com/course/986" target="_blank">
+                                    <a href="/course/986" target="_blank">
                                         <strong>购买课程《实用机器学习方法——集成学习》</strong>
                                     </a>
                                     <br>
@@ -341,7 +341,7 @@
                             </tr>
                             <tr id="order-table-144834" style="word-break: break-all;word-wrap: break-word;">
                                 <td>
-                                    <a href="http://www.xuebusi.com/course/993" target="_blank">
+                                    <a href="/course/993" target="_blank">
                                         <strong>购买班级《《CTA投资与程序化交易》第一期》</strong>
                                     </a>
                                     <br>

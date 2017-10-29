@@ -117,10 +117,10 @@ public class MyController extends BaseController {
                                Map<String, Object> map) {
         if (OrderStatusEnum.created.name().equals(status)) {
             //待付款订单
-            return new ModelAndView("/orders/order-created", map);
+            return new ModelAndView("/my/orders/order-created", map);
         } else if (OrderStatusEnum.paid.name().equals(status)) {
             //已付款订单
-            return new ModelAndView("/orders/order-paid", map);
+            return new ModelAndView("/my/orders/order-paid", map);
         }
         //全部订单
         return new ModelAndView("/my/orders/order-all", map);
