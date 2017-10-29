@@ -116,6 +116,13 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.findByCourseNavigationAndCourseCategory(courseNavigation, courseCategory, pageable);
     }
 
+    /**
+     * 根据导航和类别分页查询课程列表
+     * @param navigation
+     * @param category
+     * @param pageable
+     * @return
+     */
     @Override
     public Page<Course> findList(final String navigation, final String category, Pageable pageable) {
 
@@ -144,8 +151,7 @@ public class CourseServiceImpl implements CourseService {
                 return null;
             }
         };
-        Page<Course> coursePage = courseRepository.findAll(specification, pageable);
-        return coursePage;
+        return courseRepository.findAll(specification, pageable);
     }
 
 }

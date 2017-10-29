@@ -9,6 +9,9 @@ import com.xuebusi.service.LessonService;
 import com.xuebusi.service.TeacherService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -81,7 +84,8 @@ public class CourseController extends BaseController{
                 }
             }
         }
-
+        //相关课程
+        map.put("courseRelevantList", this.getCourseRelevant(course.getCourseNavigation(), course.getCourseCategory()));
         return new ModelAndView("/course/detail", map);
     }
 
@@ -123,8 +127,31 @@ public class CourseController extends BaseController{
                 }
             }
         }
-
+        //相关课程
+        map.put("courseRelevantList", this.getCourseRelevant(course.getCourseNavigation(), course.getCourseCategory()));
         return new ModelAndView("/course/lesson", map);
+    }
+
+    /**
+     * 查询相关课程
+     * @param navigation 所属导航菜单
+     * @param category 所属二级分类
+     * @return
+     */
+    private List<Course> getCourseRelevant(String navigation, String category) {
+        List<Sort.Order> orders= new ArrayList<>();
+        orders.add(new Sort.Order(Sort.Direction.DESC, "createTime"));
+        PageRequest pageRequest = new PageRequest(0, 3, new Sort(orders));
+        Page<Course> courseRelevantPage = courseService.findList(navigation, category, pageRequest);
+        if (courseRelevantPage.getTotalElements() > 2) {
+            List<Course> courseRelevantList = new ArrayList<>();
+            Iterator<Course> it = courseRelevantPage.iterator();
+            while (it.hasNext()) {
+                courseRelevantList.add(it.next());
+            }
+            return courseRelevantList;
+        }
+        return null;
     }
 
     /**

@@ -65,4 +65,5 @@ public interface CourseService {
     Page<Course> findByCourseNavigationAndCourseCategory(String courseNavigation, String courseCategory, Pageable pageable);
 
     Page<Course> findList(String navigation, String category, Pageable pageable);
+
 }

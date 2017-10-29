@@ -7,7 +7,7 @@
      style="left: -10px; top: -10px; visibility: hidden; display: none; width: 1px; height: 1px;"></div>
 
 <div class="es-wrap">
-
+<#include "../../common/alert-notice.ftl">
     <script type="text/javascript">
         /*function baidusearch(id) {
           var url = "http://zhannei.baidu.com/cse/search?s=83960727734992248&entry=1&q=" + encodeURIComponent(document.getElementById(id).value);
