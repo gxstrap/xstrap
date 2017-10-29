@@ -90,7 +90,10 @@ buildNumber.properties
 .classpath
 .settings
 .metadata
+xstrap.iml
 src/main/resources/templates/my/homework/
 src/main/resources/templates/my/notebooks/
 src/main/resources/templates/my/questions/
 src/main/resources/templates/my/quiz/
+src/main/resources/templates/my/cards/
+src/main/resources/templates/my/vip/
