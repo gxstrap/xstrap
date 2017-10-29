@@ -69,7 +69,7 @@ aA[index].style.color = 'red'*/
     <div id="content-container" class="container" style="width: 100%; border-top: 1px solid #dedede; margin: 30px 0 0 0; background: #FAFAFA;">
         <div class="course-detail row" style="width: 90%;margin: 0 auto; max-width: 1200px;">
             <div class="col-lg-9 col-md-8  course-detail-main">
-                <section class="es-section" style="padding: 0; min-height: 410px; background: #fff !important;">
+                <#--<section class="es-section" style="padding: 0; min-height: 410px; background: #fff !important;">
                     <div class="nav-btn-tab">
                         <ul class="nav nav-tabs " role="tablist">
                             <li style="width: 25%;" role="presentation" class="active"><a href="/course/${(course.id)!''}">课程介绍</a>
@@ -92,7 +92,8 @@ aA[index].style.color = 'red'*/
                             </div>
                         </div>
                     </div>
-                </section>
+                </section>-->
+                <#include "../common/course-detail-main-unpaid.ftl">
                 <#include "../common/course-relevant.ftl">
             </div>
             <#include "../common/course-sidebar.ftl">

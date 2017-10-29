@@ -65,12 +65,16 @@ public class CourseController extends BaseController{
             teacher = teacherService.findOne(course.getCourseTeacherId());
         }
         List<Lesson> lessonList = lessonService.findByCourseId(id);
+        //相关课程
+        List<Course> courseRelevantList = this.getCourseRelevant(course.getCourseNavigation(), course.getCourseCategory());
+
         map.put("course", course);
         map.put("courseDetail", courseDetail);
         map.put("teacher", teacher);
         map.put("lessonCount", (lessonList != null && lessonList.size() > 0) ? lessonList.size() : 0);
         map.put("courseNavigationStr", courseNavigationStr);
         map.put("courseCategoryStr", courseCategoryStr);
+        map.put("courseRelevantList", courseRelevantList);
 
         //当前用户是否已购买该课程
         User userInfo = this.getUserInfo();
@@ -84,8 +88,7 @@ public class CourseController extends BaseController{
                 }
             }
         }
-        //相关课程
-        map.put("courseRelevantList", this.getCourseRelevant(course.getCourseNavigation(), course.getCourseCategory()));
+
         return new ModelAndView("/course/detail", map);
     }
 
@@ -110,6 +113,8 @@ public class CourseController extends BaseController{
         }
         CourseDetail courseDetail = courseDetailService.findOne(courseId);
         List<Lesson> lessonList = lessonService.findByCourseId(courseId);
+        //相关课程
+        List<Course> courseRelevantList = this.getCourseRelevant(course.getCourseNavigation(), course.getCourseCategory());
         map.put("course", course);
         map.put("courseDetail", courseDetail);
         map.put("teacher", teacher);
@@ -117,6 +122,7 @@ public class CourseController extends BaseController{
         map.put("lessonCount", (lessonList != null && lessonList.size() > 0) ? lessonList.size() : 0);
         map.put("courseNavigationStr", courseNavigationStr);
         map.put("courseCategoryStr", courseCategoryStr);
+        map.put("courseRelevantList", courseRelevantList);
 
         if (this.getUserInfo() != null) {
             String courseIds = this.getUserInfo().getCourseIds();
@@ -127,8 +133,7 @@ public class CourseController extends BaseController{
                 }
             }
         }
-        //相关课程
-        map.put("courseRelevantList", this.getCourseRelevant(course.getCourseNavigation(), course.getCourseCategory()));
+
         return new ModelAndView("/course/lesson", map);
     }
 
