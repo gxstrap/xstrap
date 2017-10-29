@@ -8,6 +8,8 @@ import com.xuebusi.repository.UserRepository;
 import com.xuebusi.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,6 +19,7 @@ import java.util.List;
  * Created by SYJ on 2017/10/15.
  */
 @Service
+@Transactional(readOnly = true)
 public class LoginServiceImpl implements LoginService {
 
     @Autowired
@@ -65,7 +68,7 @@ public class LoginServiceImpl implements LoginService {
      * @param loginInfo
      * @return
      */
-    @Override
+    @Transactional(readOnly = false)
     public LoginInfo save(LoginInfo loginInfo) {
         LoginInfo newLoginInfo = loginRepository.save(loginInfo);
         InitDataCacheMap.getLoginInfoCacheMap().put(newLoginInfo.getUsername(), newLoginInfo);
