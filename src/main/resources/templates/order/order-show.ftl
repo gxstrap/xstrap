@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0068)http://www.chinahadoop.cn/order/show?targetId=1024&targetType=course -->
+<!-- saved from url=(0068)/order/show?targetId=1024&targetType=course -->
 <html lang="zh_CN"><!--<![endif]-->
 <#include "../common/head.ftl">
 <body onbeforeunload="return CheckUnsave();">
@@ -32,25 +32,25 @@
                     <li><span class="number">3</span>订单完成</li>
                 </ul>
                 <div class="order-pay-body">
-                    <form id="order-create-form" method="post" action="http://www.chinahadoop.cn/order/create"
-                          novalidate="novalidate" data-widget-cid="widget-0">
+                    <form id="order-create-form" method="post" action="/order/create" novalidate="novalidate" data-widget-cid="widget-0">
                         <input type="password" style="display:none">
-                        <input type="hidden" role="cash-rate" value="1" data-price-type="RMB"
-                               data-cash-model="deduction">
+                        <input type="hidden" role="cash-rate" value="1" data-price-type="RMB" data-cash-model="deduction">
                         <input type="hidden" name="targetType" value="course">
-                        <input type="hidden" name="targetId" value="1024">
-                        <input type="hidden" name="totalPrice" value="899">
-                        <input type="hidden" name="shouldPayMoney" value="899.00">
-                        <input type="hidden" name="sms_code" value="">
+                        <input type="hidden" name="targetId" value="${(course.id)!}">
+                        <input type="hidden" name="totalPrice" value="${(course.coursePrice)!}">
+                        <input type="hidden" name="shouldPayMoney" value="${(course.coursePrice)!}">
+                        <input type="hidden" name="courseTitle" value="${(course.courseTitle)!}">
+                        <input type="hidden" name="courseImgUrl" value="${(course.courseImgUrl)!}">
+                        <input type="hidden" name="courseLink" value="${(course.courseLink)!}">
+                        <input type="hidden" name="smsCode" value="">
                         <input type="hidden" name="mobile" data-role="mobile" value="">
-                        <input type="hidden" name="_csrf_token" value="1Ls523dg4HYvxSeXK5DVPPRXlIO36jTtbFr_gxM7KT4">
+                        <input type="hidden" name="csrfToken" value="1Ls523dg4HYvxSeXK5DVPPRXlIO36jTtbFr_gxM7KT4">
 
                         <div class="order-detail-bg" style="border:none">
                             <div class="order-detail clearfix">
                                 <div class="order-img hidden-xs">
                                     <a href="${(course.courseLink)!}">
-                                        <img class="img-responsive" src="${(course.courseImgUrl)!}"
-                                             alt="《深度学习》第五期"></a>
+                                        <img class="img-responsive" src="${(course.courseImgUrl)!}" alt="${(course.courseTitle)!}"></a>
                                 </div>
                                 <div class="order-info text-overflow">${(course.courseTitle)!}</div>
                                 <div class="order-price">
@@ -61,25 +61,16 @@
                         </div>
 
                         <div class="order-detail-bg">
-
                             <div class="order-item clearfix">
                                 <div class="order-item-title">
-                                    <i class="es-icon es-icon-localplay">
-                                    </i>
+                                    <i class="es-icon es-icon-localplay"></i>
                                     <span class="title">优惠券</span>
-
-      <span role="no-use-coupon-code">
-      （没有使用优惠券）</span>
-
+                                    <span role="no-use-coupon-code">（没有使用优惠券）</span>
                                 </div>
-
-
                                 <div class="order-item-detail  coupon-detail">
                                     <div role="null-coupon-code">
                                         <a id="coupon-code-btn" class="btn btn-primary" href="javascript:;">使用优惠券</a>
                                     </div>
-
-
                                     <div role="coupon-code" class="input-group" style="display: none;">
                                         <input role="coupon-code-verified" name="couponCode" type="hidden">
                                         <input style="width:150px;" role="coupon-code-input" type="text"
@@ -88,8 +79,7 @@
                                         <button class="btn btn-primary" type="button" role="coupon-use">使用</button>
                                         <a href="javascript:;" class="btn btn-link" role="cancel-coupon">取消</a>
                                     </div>
-                                    <div role="code-notify" class="alert alert-success alert-xs mtm"
-                                         style="display:none;line-height:20px;"></div>
+                                    <div role="code-notify" class="alert alert-success alert-xs mtm" style="display:none;line-height:20px;"></div>
                                 </div>
                                 <div class="order-item-price" role="coupon-price">
                                     <span class="mrs">抵扣</span>
@@ -97,21 +87,21 @@
                                     <span></span>
                                 </div>
                             </div>
-
-
                         </div>
-
                         <div class="form-group">
                             <div class="total-price">
                                 应付金额：
                                 <span class="pay-rmb">￥</span>
-                                <span role="pay-rmb" class="pay-rmb" id="pay-rmb">899.00</span>
+                                <span role="pay-rmb" class="pay-rmb" id="pay-rmb">${(course.coursePrice)!}</span>
                             </div>
                         </div>
-                        <div class="form-group text-right">
-                            <a onclick="subOrder(&#39;取消订单&#39;)" href="http://www.chinahadoop.cn/course/1024" class="btn btn-link" style="">取消</a>
+                        <#--<div class="form-group text-right">
+                            <a onclick="subOrder(&#39;取消订单&#39;)" href="/course/1024" class="btn btn-link" style="">取消</a>
                             <a onclick="subOrder(&#39;提交订单&#39;)" class="btn btn-primary" id="js-order-create-sms-btn"
                                data-toggle="modal" data-target="#modal" data-url="/order/sms_verification">提交订单</a>
+                        </div>-->
+                        <div class="form-group text-right">
+                            <button type="submit" id="order-create-btn" class="btn btn-primary">提交订单</button>
                         </div>
                     </form>
                 </div>
