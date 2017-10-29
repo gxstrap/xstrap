@@ -101,6 +101,7 @@
                                data-toggle="modal" data-target="#modal" data-url="/order/sms_verification">提交订单</a>
                         </div>-->
                         <div class="form-group text-right">
+                            <a href="${(course.courseLink)!}" class="btn btn-link" style="color: red">取消</a>
                             <button type="submit" id="order-create-btn" class="btn btn-primary">提交订单</button>
                         </div>
                     </form>
