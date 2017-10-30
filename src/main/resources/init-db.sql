@@ -10,10 +10,85 @@ Target Server Type    : MYSQL
 Target Server Version : 50634
 File Encoding         : 65001
 
-Date: 2017-10-30 15:28:18
+Date: 2017-10-30 16:16:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for message
+-- ----------------------------
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE `message` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '私信Id',
+  `type` enum('text','image','video','audio') NOT NULL DEFAULT 'text' COMMENT '私信类型',
+  `fromId` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '发信人Id',
+  `toId` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '收信人Id',
+  `content` text NOT NULL COMMENT '私信内容',
+  `createdTime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '私信发送时间',
+  `isDelete` int(1) NOT NULL DEFAULT '0' COMMENT '是否已删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of message
+-- ----------------------------
+INSERT INTO `message` VALUES ('1', 'text', '1', '13', '欢迎加入网络课堂，祝您学习愉快。如有问题，随时与我联系。', '1458089980', '0');
+INSERT INTO `message` VALUES ('2', 'text', '1', '13', '欢迎加入网络课堂，祝您学习愉快。如有问题，随时与我联系。', '1458089989', '0');
+INSERT INTO `message` VALUES ('3', 'text', '1', '14', '欢迎加入网络课堂，祝您学习愉快。如有问题，随时与我联系。', '1486741123', '0');
+INSERT INTO `message` VALUES ('4', 'text', '1', '15', '欢迎加入网络课堂，祝您学习愉快。如有问题，随时与我联系。', '1491372241', '0');
+INSERT INTO `message` VALUES ('5', 'text', '1', '16', '欢迎加入网络课堂，祝您学习愉快。如有问题，随时与我联系。', '1493894502', '0');
+
+-- ----------------------------
+-- Table structure for message_conversation
+-- ----------------------------
+DROP TABLE IF EXISTS `message_conversation`;
+CREATE TABLE `message_conversation` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '会话Id',
+  `fromId` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '发信人Id',
+  `toId` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '收信人Id',
+  `messageNum` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '此对话的信息条数',
+  `latestMessageUserId` int(10) unsigned DEFAULT NULL COMMENT '最后发信人ID',
+  `latestMessageTime` int(10) unsigned NOT NULL COMMENT '最后发信时间',
+  `latestMessageContent` text NOT NULL COMMENT '最后发信内容',
+  `latestMessageType` enum('text','image','video','audio') NOT NULL DEFAULT 'text' COMMENT '最后一条私信类型',
+  `unreadNum` int(10) unsigned NOT NULL COMMENT '未读数量',
+  `createdTime` int(10) unsigned NOT NULL COMMENT '会话创建时间',
+  PRIMARY KEY (`id`),
+  KEY `toId_fromId` (`toId`,`fromId`),
+  KEY `toId_latestMessageTime` (`toId`,`latestMessageTime`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of message_conversation
+-- ----------------------------
+INSERT INTO `message_conversation` VALUES ('2', '1', '13', '2', '1', '1458089989', '欢迎加入网络课堂，祝您学习愉快。如有问题，随时与我联系。', 'text', '2', '1458089980');
+INSERT INTO `message_conversation` VALUES ('3', '13', '1', '1', '1', '1458089989', '欢迎加入网络课堂，祝您学习愉快。如有问题，随时与我联系。', 'text', '0', '1458089989');
+INSERT INTO `message_conversation` VALUES ('5', '1', '14', '1', '1', '1486741123', '欢迎加入网络课堂，祝您学习愉快。如有问题，随时与我联系。', 'text', '1', '1486741123');
+INSERT INTO `message_conversation` VALUES ('7', '1', '15', '1', '1', '1491372241', '欢迎加入网络课堂，祝您学习愉快。如有问题，随时与我联系。', 'text', '1', '1491372241');
+INSERT INTO `message_conversation` VALUES ('9', '1', '16', '1', '1', '1493894502', '欢迎加入网络课堂，祝您学习愉快。如有问题，随时与我联系。', 'text', '1', '1493894502');
+
+-- ----------------------------
+-- Table structure for message_relation
+-- ----------------------------
+DROP TABLE IF EXISTS `message_relation`;
+CREATE TABLE `message_relation` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '消息关联ID',
+  `conversationId` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '关联的会话ID',
+  `messageId` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '关联的消息ID',
+  `isRead` enum('0','1') NOT NULL DEFAULT '0' COMMENT '是否已读',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of message_relation
+-- ----------------------------
+INSERT INTO `message_relation` VALUES ('2', '2', '1', '0');
+INSERT INTO `message_relation` VALUES ('3', '3', '2', '0');
+INSERT INTO `message_relation` VALUES ('4', '2', '2', '0');
+INSERT INTO `message_relation` VALUES ('6', '5', '3', '0');
+INSERT INTO `message_relation` VALUES ('8', '7', '4', '0');
+INSERT INTO `message_relation` VALUES ('10', '9', '5', '0');
 
 -- ----------------------------
 -- Table structure for tb_course

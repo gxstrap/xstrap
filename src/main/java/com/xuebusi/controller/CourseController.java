@@ -1,6 +1,5 @@
 package com.xuebusi.controller;
 
-import com.xuebusi.common.cache.InitDataCacheMap;
 import com.xuebusi.entity.*;
 import com.xuebusi.enums.CourseCategoryEnum;
 import com.xuebusi.enums.CourseNavigationEnum;
@@ -30,16 +29,11 @@ import java.util.*;
 @RequestMapping(value="/course")
 public class CourseController extends BaseController{
 
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
     @Autowired
     private CourseService courseService;
 
     @Autowired
     private CourseDetailService courseDetailService;
-
-    @Autowired
-    private TeacherService teacherService;
 
     @Autowired
     private LessonService lessonService;
@@ -63,7 +57,6 @@ public class CourseController extends BaseController{
 
         Course course = courseService.findOne(id);
         CourseDetail courseDetail = null;
-        Teacher teacher = null;
         String courseNavigationStr = "";
         String courseCategoryStr = "";
 
@@ -71,7 +64,6 @@ public class CourseController extends BaseController{
             courseNavigationStr = getCourseNavigationStr(course.getCourseNavigation());
             courseCategoryStr = getCourseCategoryStr(course.getCourseCategory());
             courseDetail = courseDetailService.findOne(course.getId());
-            //teacher = teacherService.findOne(course.getCourseTeacherId());
         }
         List<Lesson> lessonList = lessonService.findByCourseId(id);
         //相关课程
@@ -115,14 +107,12 @@ public class CourseController extends BaseController{
                                Map<String, Object> map) {
 
         Course course = courseService.findOne(courseId);
-        Teacher teacher = null;
         String courseNavigationStr = "";
         String courseCategoryStr = "";
         if (course != null) {
             courseNavigationStr = getCourseNavigationStr(course.getCourseNavigation());
             courseCategoryStr = getCourseCategoryStr(course.getCourseCategory());
             map.put("courseIsEnd", course.getCourseEndTime().getTime() - System.currentTimeMillis() < 0 ? 1 : 0);//1课程更新完毕
-            //teacher = teacherService.findOne(course.getCourseTeacherId());
         }
         CourseDetail courseDetail = courseDetailService.findOne(courseId);
         List<Lesson> lessonList = lessonService.findByCourseId(courseId);

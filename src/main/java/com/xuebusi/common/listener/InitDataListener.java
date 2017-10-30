@@ -32,9 +32,6 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
     private LessonService lessonService;
 
     @Autowired
-    private TeacherService teacherService;
-
-    @Autowired
     private UserService userService;
 
     //private ServletContext servletContext;
@@ -45,7 +42,6 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
         courseCache();
         courseDetailCache();
         lessonCache();
-        teacherCache();
         userCache();
     }
 
@@ -104,19 +100,6 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
             }
         }
         logger.info(">>>>>> 缓存课时信息 >>>>>>\n\n");
-    }
-
-    /**
-     * 缓存讲师信息
-     */
-    private void teacherCache() {
-        List<Teacher> teacherList = teacherService.findAll();
-        if (teacherList != null && teacherList.size() > 0) {
-            for (Teacher teacher : teacherList) {
-                InitDataCacheMap.getTeacherCacheMap().put(String.valueOf(teacher.getId()), teacher);
-            }
-        }
-        logger.info(">>>>>> 缓存讲师信息 >>>>>>\n\n");
     }
 
     /**

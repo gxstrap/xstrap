@@ -1,6 +1,5 @@
 package com.xuebusi.controller;
 
-import com.xuebusi.common.cache.InitDataCacheMap;
 import com.xuebusi.entity.Course;
 import com.xuebusi.entity.LoginInfo;
 import com.xuebusi.entity.User;
