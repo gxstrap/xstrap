@@ -1,4 +1,4 @@
-define(function(require, exports, module) {
+define(function (require, exports, module) {
     window.$ = window.jQuery = require('jquery');
     require('bootstrap');
     require('common/bootstrap-modal-hack2');
@@ -7,12 +7,12 @@ define(function(require, exports, module) {
     var Swiper = require('swiper');
     var Cookie = require('cookie');
 
-    exports.load = function(name) {
+    exports.load = function (name) {
         if (window.app.jsPaths[name.split('index.html', 1)[0]] == undefined) {
             name = window.app.basePath + '/bundles/topxiaweb/js/controller/' + name;
         }
 
-        seajs.use(name, function(module) {
+        seajs.use(name, function (module) {
             if ($.isFunction(module.run)) {
                 module.run();
             }
@@ -20,7 +20,7 @@ define(function(require, exports, module) {
 
     };
 
-    exports.loadScript = function(scripts) {
+    exports.loadScript = function (scripts) {
         for (var index in scripts) {
             exports.load(scripts[index]);
         }
@@ -41,7 +41,7 @@ define(function(require, exports, module) {
         exports.loadScript(app.scripts);
     }
 
-    $(document).ajaxError(function(event, jqxhr, settings, exception) {
+    $(document).ajaxError(function (event, jqxhr, settings, exception) {
         if (jqxhr.responseText === 'LoginLimit') {
             location.href = 'login.html';
         }
@@ -53,12 +53,12 @@ define(function(require, exports, module) {
         if (error.name == 'Unlogin') {
             var ua = navigator.userAgent.toLowerCase();
             if (ua.match(/MicroMessenger/i) == "micromessenger" && $('meta[name=is-open]').attr('content') != 0) {
-                window.location.href = '/login/bind/weixinmob?_target_path='+location.href;
+                window.location.href = '/login/bind/weixinmob?_target_path=' + location.href;
             } else {
                 var $loginModal = $("#login-modal");
                 $('.modal').modal('hide');
                 $loginModal.modal('show');
-                $.get($loginModal.data('url'), function(html){
+                $.get($loginModal.data('url'), function (html) {
                     $loginModal.html(html);
                 });
             }
@@ -69,15 +69,15 @@ define(function(require, exports, module) {
     if ($('html').hasClass('lt-ie8')) {
         var message = '<div class="alert alert-warning" style="margin-bottom:0;text-align:center;">';
         message += Translator.trans('由于您的浏览器版本太低，将无法正常使用本站点，请使用最新的');
-        message += '<a href="http://windows.microsoft.com/zh-CN/internet-explorer/downloads/ie" target="_blank">'+Translator.trans('IE浏览器')+'</a>、';
-        message += '<a href="http://www.baidu.com/s?wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8" target="_blank">'+Translator.trans('谷歌浏览器')+'</a>'+'<strong>'+'('+Translator.trans('推荐')+')'+'</strong>、';
-        message += '<a href="http://firefox.com.cn/download/" target="_blank">'+Translator.trans('Firefox浏览器')+'</a>'+'，'+Translator.trans('访问本站。');
+        message += '<a href="http://windows.microsoft.com/zh-CN/internet-explorer/downloads/ie" target="_blank">' + Translator.trans('IE浏览器') + '</a>、';
+        message += '<a href="http://www.baidu.com/s?wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8" target="_blank">' + Translator.trans('谷歌浏览器') + '</a>' + '<strong>' + '(' + Translator.trans('推荐') + ')' + '</strong>、';
+        message += '<a href="http://firefox.com.cn/download/" target="_blank">' + Translator.trans('Firefox浏览器') + '</a>' + '，' + Translator.trans('访问本站。');
         message += '</div>';
 
         $('body').prepend(message);
     }
 
-    $(document).ajaxSend(function(a, b, c) {
+    $(document).ajaxSend(function (a, b, c) {
         if (c.type == 'POST') {
             b.setRequestHeader('X-CSRF-Token', $('meta[name=csrf-token]').attr('content'));
         }
@@ -87,14 +87,14 @@ define(function(require, exports, module) {
         $.post(app.scheduleCrontab);
     }
 
-    $("i.hover-spin").mouseenter(function() {
+    $("i.hover-spin").mouseenter(function () {
         $(this).addClass("md-spin");
-    }).mouseleave(function() {
+    }).mouseleave(function () {
         $(this).removeClass("md-spin");
     });
 
     if ($(".set-email-alert").length > 0) {
-        $(".set-email-alert .close").click(function() {
+        $(".set-email-alert .close").click(function () {
             Cookie.set("close_set_email_alert", 'true');
         });
     }
@@ -111,24 +111,24 @@ define(function(require, exports, module) {
             });
         }
 
-        $(".announcements-alert .close").click(function() {
+        $(".announcements-alert .close").click(function () {
             Cookie.set("close_announcements_alert", 'true', {
                 path: '/'
             });
         });
     }
 
-   	if(!navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)){
+    if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)) {
 
-	    $("body").on("mouseenter","li.nav-hover",function(event){
-	        $(this).addClass("open");
-	    }).on("mouseleave","li.nav-hover",function(event) {
-	        $(this).removeClass("open");
-	    });
+        $("body").on("mouseenter", "li.nav-hover", function (event) {
+            $(this).addClass("open");
+        }).on("mouseleave", "li.nav-hover", function (event) {
+            $(this).removeClass("open");
+        });
 
-	} else {
-        $("li.nav-hover >a").attr("data-toggle","dropdown");
-	}
+    } else {
+        $("li.nav-hover >a").attr("data-toggle", "dropdown");
+    }
 
     if ($('.es-wrap [data-toggle="tooltip"]').length > 0) {
         $('.es-wrap [data-toggle="tooltip"]').tooltip({
@@ -136,15 +136,15 @@ define(function(require, exports, module) {
         });
     }
 
-    $(".js-search").focus(function() {
+    $(".js-search").focus(function () {
         $(this).prop("placeholder", "").addClass("active");
-    }).blur(function() {
+    }).blur(function () {
         $(this).prop("placeholder", Translator.trans('搜课程')).removeClass("active");
     });
 
-    $(".js-full-search").focus(function() {
+    $(".js-full-search").focus(function () {
         $(this).prop("placeholder", "").addClass("active");
-    }).blur(function() {
+    }).blur(function () {
         $(this).prop("placeholder", Translator.trans('搜内容')).removeClass("active");
     });
 
@@ -153,8 +153,8 @@ define(function(require, exports, module) {
         $(".nav.nav-tabs").lavaLamp();
     }
 
-    $("select[name='language']").change(function() {
-        Cookie.set("locale", $('select[name=language]').val(),{'path':'/'});
+    $("select[name='language']").change(function () {
+        Cookie.set("locale", $('select[name=language]').val(), {'path': '/'});
         $("select[name='language']").parents('form').trigger('submit');
     });
 

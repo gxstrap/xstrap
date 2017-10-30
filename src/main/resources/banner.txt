@@ -1,0 +1,7 @@
+${AnsiColor.BRIGHT_YELLOW}
+         .__(.)< (MEOW)              .__(.)< (MEOW)               .__(.)< (MEOW)              .__(.)< (MEOW)
+          \___)                       \___)                        \___)                       \___)
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+${AnsiColor.BRIGHT_BLUE}
+::: Project version:${application.version} :::             ＼(^O^)／    Spring-Boot ${spring-boot.version}

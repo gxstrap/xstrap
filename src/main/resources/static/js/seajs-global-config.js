@@ -1,4 +1,4 @@
-var __URL_PROTOCOL = 'https:' == document.location.protocol ? 'https': 'http';
+var __URL_PROTOCOL = 'https:' == document.location.protocol ? 'https' : 'http';
 
 seajs.config({
     alias: {
@@ -70,7 +70,7 @@ seajs.config({
         'edusoho.mimetypes': 'edusoho/mimetypes/0.0.1/mime-types',
         'colorpicker': 'jquery-plugin/colorpicker/js/bootstrap-colorpicker',
         'fullcalendar': 'fullcalendar/lang-all.js',
-        'momentmin':'fullcalendar/lib/moment.min.js',
+        'momentmin': 'fullcalendar/lib/moment.min.js',
         'z_tree': 'jquery-plugin/z_tree/js/jquery.ztree.all-3.5.min',
         'z_tree_css': 'jquery-plugin/z_tree/css/zTreeStyle/zTreeStyle.css',
         'jquery.easing': 'jquery-plugin/jquery.easing/jquery.easing.min',
@@ -79,18 +79,18 @@ seajs.config({
         'video-player': 'balloon-video-player/1.3.0/index',
         'edusoho.tree': 'edusoho/tree/1.0.0/tree.js',
         'video-player-new': __URL_PROTOCOL + ':' + (app.cloudSdkCdn ? app.cloudSdkCdn : '//service-cdn.qiqiuyun.net') + '/js-sdk/video-player/sdk-v1.js',
-        'new-uploader':  __URL_PROTOCOL + ':' + (app.cloudSdkCdn ? app.cloudSdkCdn : '//service-cdn.qiqiuyun.net') + '/js-sdk/uploader/sdk-v1.js',
+        'new-uploader': __URL_PROTOCOL + ':' + (app.cloudSdkCdn ? app.cloudSdkCdn : '//service-cdn.qiqiuyun.net') + '/js-sdk/uploader/sdk-v1.js',
         'subtitle-browser': 'subtitle/1.0.0/subtitle.browser.min.js',
         'echarts': 'gallery2/echarts/3.1.10/echarts',
-        'echarts-debug':'gallery2/echarts/3.1.10/echarts-debug',
-        'z_tree' :'jquery-plugin/zTree/3.5.21/js/jquery.ztree.all.min',
+        'echarts-debug': 'gallery2/echarts/3.1.10/echarts-debug',
+        'z_tree': 'jquery-plugin/zTree/3.5.21/js/jquery.ztree.all.min',
         'z_tree_exhide': 'jquery-plugin/zTree/3.5.21/js/jquery.ztree.exhide.js',
-        'z_tree_css':'jquery-plugin/zTree/3.5.21/css/zTreeStyle/zTreeStyle.css',
+        'z_tree_css': 'jquery-plugin/zTree/3.5.21/css/zTreeStyle/zTreeStyle.css',
         'org_z_tree_css': 'jquery-plugin/zTree/3.5.21/css/org.css',
         'jquery.treegrid': 'jquery-plugin/treegrid/0.3.0/jquery.treegrid',
         'jquery.treegrid.css': 'jquery-plugin/treegrid/0.3.0/jquery.treegrid.css',
-        'jweixin':'edusoho/wxrs/1.0.0/jweixin.js',
-        'g2':'g2/1.2.4/index.js'
+        'jweixin': 'edusoho/wxrs/1.0.0/jweixin.js',
+        'g2': 'g2/1.2.4/index.js'
     },
 
     // 预加载项
@@ -108,39 +108,39 @@ seajs.config({
 
     debug: app.debug,
 
-    base: app.basePath+'/assets/libs',
+    base: app.basePath + '/assets/libs',
 
     plugins: ['text']
 });
 
 var __SEAJS_FILE_VERSION = '?v' + app.version;
 
-seajs.on('fetch', function(data) {
+seajs.on('fetch', function (data) {
     if (!data.uri) {
-        return ;
+        return;
     }
 
     if (data.uri.indexOf(app.mainScript) > 0) {
-        return ;
+        return;
     }
 
     if (/\:\/\/.*?\/assets\/libs\/[^(common)]/.test(data.uri)) {
-        return ;
+        return;
     }
 
     if (data.uri.indexOf('js-sdk/video-player') > 0) {
         data.requestUri = data.uri + '?flag=' + Math.round(new Date().getTime() / 100000);
-        return ;
+        return;
     }
 
     if (data.uri.indexOf('js-sdk/uploader') > 0) {
         data.requestUri = data.uri + '?flag=' + Math.round(new Date().getTime() / 100000);
-        return ;
+        return;
     }
     data.requestUri = data.uri + __SEAJS_FILE_VERSION;
 });
 
-seajs.on('define', function(data) {
+seajs.on('define', function (data) {
     if (data.uri.lastIndexOf(__SEAJS_FILE_VERSION) > 0) {
         data.uri = data.uri.replace(__SEAJS_FILE_VERSION, '');
     }

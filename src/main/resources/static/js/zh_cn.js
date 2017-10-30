@@ -1,8 +1,5 @@
 
-/* @file lang/zh_cn.js
- * @date 2016.12.08 23:09:16 
- */
-﻿(function($){
+(function($){
 	$.lang = {
 		language: 'zh_cn',
 		robot_name: '\u673a\u5668\u4eba',
