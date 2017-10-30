@@ -154,4 +154,14 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.findAll(specification, pageable);
     }
 
+    /**
+     * 根据讲师id查询所教课程
+     * @param courseTeacherId
+     * @return
+     */
+    @Override
+    public List<Course> findBycourseTeacherId(Integer courseTeacherId) {
+        return courseRepository.findBycourseTeacherId(courseTeacherId);
+    }
+
 }
