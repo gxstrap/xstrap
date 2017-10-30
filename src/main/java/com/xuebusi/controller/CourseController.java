@@ -79,7 +79,7 @@ public class CourseController extends BaseController{
         map.put("courseRelevantList", courseRelevantList);
 
         //当前用户是否已购买该课程
-        User userInfo = this.getUserInfo();
+        UserVo userInfo = this.getUserInfo();
         if (userInfo != null) {
             if (StringUtils.isNoneEmpty(userInfo.getCourseIds())) {
                 String[] courseArr = userInfo.getCourseIds().split(",");

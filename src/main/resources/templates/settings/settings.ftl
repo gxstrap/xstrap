@@ -50,7 +50,7 @@
 
         }
     </script>
-    <#include "../common/header-login.ftl">
+    <#include "../common/header.ftl">
 
     <div id="content-container" class="container">
         <div class="row">

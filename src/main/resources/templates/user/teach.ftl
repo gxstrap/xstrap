@@ -6,22 +6,7 @@
 <div id="nTalk_post_hiddenElement" style="left: -10px; top: -10px; visibility: hidden; display: none; width: 1px; height: 1px;"></div>
 
 <div class="es-wrap">
-    <div class="alert alert-warning alert-notice announcements-alert hidden-xs" role="alert">
-        <div class="container swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <i class="es-icon es-icon-infooutline mrm"></i>
-                    <a style="color:#ff5e06" class="alert-link" href="/course/1052"
-                       target="_blank">
-                        内容再升级，《分布式爬虫实战》第三期，杨真主讲，11月3日开课
-                    </a>
-                </div>
-            </div>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
-            </button>
-        </div>
-    </div>
+    <#include "../common/alert-notice.ftl">
     <script type="text/javascript">
         /*function baidusearch(id) {
           var url = "http://zhannei.baidu.com/cse/search?s=83960727734992248&entry=1&q=" + encodeURIComponent(document.getElementById(id).value);
@@ -38,17 +23,20 @@
             window.open(url, "_blank");
         }
     </script>
-    <#include "../common/header-login.ftl">
+    <#--<#include "../common/header-login.ftl">-->
+    <#include "../common/header.ftl">
 
     <div class="user-center-header has-blurr"
-         data-href="http://scb1a9q0-sb.qiqiuyun.net/files/2015/05-08/largeavatar8b2f154d.jpg" data-sharpness="40"
+         data-href="${(user.titleImgUrl)!}" data-sharpness="40"
          style="height: 220px; overflow: hidden; position: relative;">
-        <div class="blurr-bg" style="background: url(&quot;http://scb1a9q0-sb.qiqiuyun.net/files/2015/05-08/largeavatar8b2f154d.jpg&quot;) center center / 150%; left: 0px; right: 0px; top: -50px; bottom: -50px; width: 1349px; filter: blur(60px); transform: translateZ(0px); position: absolute;"></div>
+        <div class="blurr-bg" style="background: url(&quot;${(user.titleImgUrl)!}&quot;) center center / 150%; left: 0px; right: 0px; top: -50px; bottom: -50px; width: 1349px; filter: blur(60px); transform: translateZ(0px); position: absolute;"></div>
         <div class="container clearfix" style="position: absolute; left: 0px; right: 0px; z-index: 1;">
             <div class="user-avatar">
                 <div class="avatar-wrap">
                     <img class="avatar-lg" src="${(user.titleImgUrl)!}">
-                    <span class="icon-user-status icon-md"><i class="es-icon es-icon-school"></i></span>
+                    <span class="icon-user-status icon-md">
+                        <i class="es-icon es-icon-school"></i>
+                    </span>
                 </div>
                 <div class="name">
                     ${(user.username)!}
@@ -57,11 +45,13 @@
                     <span class="mrm">${(user.title)!'暂无头衔'}</span>
                 </div>
                 <div class="mates">
-                    <span class="mrm">19</span>粉丝<span class="mlm mrm">｜</span><span class="mrm">0</span>关注
+                    <span class="mrm">19</span>粉丝
+                    <span class="mlm mrm">｜</span>
+                    <span class="mrm">0</span>关注
                 </div>
                 <div class="actions">
-                    <a class="btn btn-primary follow-btn mrl" href="javascript:;" data-url="/user/10391/follow">关注</a>
-                    <a class="btn btn-default unfollow-btn mrl" href="javascript:;" data-url="/user/10391/unfollow"
+                    <a class="btn btn-primary follow-btn mrl" href="javascript:;" data-url="/user/${(user.id)!}/follow">关注</a>
+                    <a class="btn btn-default unfollow-btn mrl" href="javascript:;" data-url="/user/${(user.id)!}/unfollow"
                        style="display:none;">已关注</a>
                     <button class="btn btn-ghost-white" data-toggle="modal" data-backdrop="static" data-target="#modal"
                             data-url="/message/create/${(user.id)!}">私信

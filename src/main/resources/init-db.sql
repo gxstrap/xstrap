@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50634
 File Encoding         : 65001
 
-Date: 2017-10-30 20:54:17
+Date: 2017-10-30 22:45:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1027,20 +1027,20 @@ CREATE TABLE `tb_login_info` (
 -- ----------------------------
 -- Records of tb_login_info
 -- ----------------------------
-INSERT INTO `tb_login_info` VALUES ('1', 'sysadmin', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 13:48:42', '2017-10-30 13:48:42', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-30/1347197f262a583983.png');
-INSERT INTO `tb_login_info` VALUES ('2', 'admin', '114CNIIUINKMJK72AA1P5807U3', '2017-10-30 13:48:42', '2017-10-30 13:48:42', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-30/1347197f262a583983.png');
-INSERT INTO `tb_login_info` VALUES ('3', 'admin1', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 13:48:42', '2017-10-30 13:48:42', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-30/1347197f262a583983.png');
-INSERT INTO `tb_login_info` VALUES ('4', 'admin2', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 13:48:42', '2017-10-30 13:48:42', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-30/1347197f262a583983.png');
-INSERT INTO `tb_login_info` VALUES ('5', 'sysadmin7', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 13:48:42', '2017-10-30 13:48:42', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-30/1347197f262a583983.png');
-INSERT INTO `tb_login_info` VALUES ('6', 'sys', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 13:48:42', '2017-10-30 13:48:42', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-30/1347197f262a583983.png');
-INSERT INTO `tb_login_info` VALUES ('7', 'xbs', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 13:48:42', '2017-10-30 13:48:42', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-30/1347197f262a583983.png');
-INSERT INTO `tb_login_info` VALUES ('8', 'aaa', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 13:48:42', '2017-10-30 13:48:42', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-30/1347197f262a583983.png');
-INSERT INTO `tb_login_info` VALUES ('9', 'xuebusi', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 13:48:42', '2017-10-30 13:48:42', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-30/1347197f262a583983.png');
-INSERT INTO `tb_login_info` VALUES ('10', 'zhangsan', '1QVQ0EO4M1PTTIH1L2FP2LEDF', '2017-10-30 13:48:42', '2017-10-30 13:48:42', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-30/1347197f262a583983.png');
-INSERT INTO `tb_login_info` VALUES ('11', 'lisi', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 13:48:42', '2017-10-30 13:48:42', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-30/1347197f262a583983.png');
-INSERT INTO `tb_login_info` VALUES ('12', 'wangwu', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 13:48:42', '2017-10-30 13:48:42', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-30/1347197f262a583983.png');
-INSERT INTO `tb_login_info` VALUES ('13', 'xiaohua', '114CNIIUINKMJK72AA1P5807U3', '2017-10-30 13:48:42', '2017-10-30 13:48:42', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-30/1347197f262a583983.png');
-INSERT INTO `tb_login_info` VALUES ('14', 'ttt', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 13:48:42', '2017-10-30 13:48:42', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-30/1347197f262a583983.png');
+INSERT INTO `tb_login_info` VALUES ('1', 'sysadmin', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:27:30', '2017-10-30 22:27:30', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2016/04-12/120240100a71483765.jpg');
+INSERT INTO `tb_login_info` VALUES ('2', 'admin', '114CNIIUINKMJK72AA1P5807U3', '2017-10-30 22:27:34', '2017-10-30 22:27:34', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-16/16573828bc6d933684.jpg');
+INSERT INTO `tb_login_info` VALUES ('3', 'admin1', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:27:47', '2017-10-30 22:27:47', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/01-09/0929117b04eb900787.jpg');
+INSERT INTO `tb_login_info` VALUES ('4', 'admin2', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:27:56', '2017-10-30 22:27:56', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/02-15/014349589791291252.jpg');
+INSERT INTO `tb_login_info` VALUES ('5', 'sysadmin7', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:28:11', '2017-10-30 22:28:11', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-10/014839763420341733.jpg');
+INSERT INTO `tb_login_info` VALUES ('6', 'sys', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:28:27', '2017-10-30 22:28:27', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/10-12/020620c8f73e702781.jpg');
+INSERT INTO `tb_login_info` VALUES ('7', 'xbs', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:28:39', '2017-10-30 22:28:39', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/10-14/05551421a3d7326133.jpg');
+INSERT INTO `tb_login_info` VALUES ('8', 'aaa', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:28:50', '2017-10-30 22:28:50', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/01-05/163913106a19187123.jpg');
+INSERT INTO `tb_login_info` VALUES ('9', 'xuebusi', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:29:02', '2017-10-30 22:29:02', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/07-20/120103f78876702751.jpg');
+INSERT INTO `tb_login_info` VALUES ('10', 'zhangsan', '1QVQ0EO4M1PTTIH1L2FP2LEDF', '2017-10-30 22:29:12', '2017-10-30 22:29:12', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/10-08/123232015b49756117.jpg');
+INSERT INTO `tb_login_info` VALUES ('11', 'lisi', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:29:21', '2017-10-30 22:29:21', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/10-10/1320513717e4547532.jpg');
+INSERT INTO `tb_login_info` VALUES ('12', 'wangwu', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:29:31', '2017-10-30 22:29:31', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/10-11/110724cabb63151238.jpg');
+INSERT INTO `tb_login_info` VALUES ('13', 'xiaohua', '114CNIIUINKMJK72AA1P5807U3', '2017-10-30 22:29:50', '2017-10-30 22:29:50', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2016/09-14/054515bc084f111899.jpg');
+INSERT INTO `tb_login_info` VALUES ('14', 'ttt', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:29:58', '2017-10-30 22:29:58', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/09-19/160430e3e39d511993.jpg');
 
 -- ----------------------------
 -- Table structure for tb_teacher
@@ -1110,7 +1110,7 @@ INSERT INTO `tb_user` VALUES ('4', 'admin2', '2017-10-30 15:25:16', '我是管�
 INSERT INTO `tb_user` VALUES ('5', 'sysadmin7', '2017-10-30 15:13:01', '随寓随安', null, null, null, '嗯嗯', '柔柔弱弱', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://www.zsf.com6', null, 'hdh', null, null, null, 'it6', '济南', '济南', null, '56,99,4,9', '2017-10-30 15:13:01');
 INSERT INTO `tb_user` VALUES ('6', 'sys', '2017-10-30 15:25:17', '实验室', null, null, null, '由于', '额特务', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://jlkjljl.com6', null, 'sfdsg', null, null, null, 'IT行业6', '合肥', '合肥', null, '67', '2017-10-30 15:25:17');
 INSERT INTO `tb_user` VALUES ('7', 'xbs', '2017-10-30 15:25:20', '学布斯', 'female', '1231312', '324214124', '格式工厂', '大范甘迪', '多少个但是反倒是', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://www.zsf.com6', 'lurwoiuro', 'jlsdkfjklsj', null, 'jfdslfjklsjfl', 'on', '了会计分录肯定是', '美国洛杉矶', '美国洛杉矶', null, '378', '2017-10-30 15:25:20');
-INSERT INTO `tb_user` VALUES ('8', 'aaa', '2017-10-30 15:13:04', '啊啊啊', null, null, null, '嗯嗯', '而我特务', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://jlkjljl.com6', null, 'dsfsr', null, null, null, 'it6', '广州', '广州', null, '2,55,6,89,234,123', '2017-10-30 15:13:04');
+INSERT INTO `tb_user` VALUES ('8', 'aaa', '2017-10-30 15:13:04', 'AAA', 'female', '', '', '嗯嗯', '而我特务', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://jlkjljl.com6', '', 'dsfsr', null, '', 'on', 'it6', '广州', '广州', null, '2,55,6,89,234,123', '2017-10-30 22:43:26');
 INSERT INTO `tb_user` VALUES ('9', 'xuebusi', '2017-10-30 15:25:20', '学不死教育', 'female', '', '', '一谢文婷', '434天天热帖', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://www.zsf.com6', '', 'fdgdg', null, '', 'on', 'IT行业6', '成都', '成都', null, '20,1,7', '2017-10-30 15:25:20');
 INSERT INTO `tb_user` VALUES ('10', 'zhangsan', '2017-10-30 15:13:06', '张三', 'female', '', '', '日期', '认为他', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://jlkjljl.com6', '', 'gfdh', null, '', 'on', 'it6', '哈尔滨', '哈尔滨', null, '1,2,3,4,5,6,7,8,9', '2017-10-30 15:13:06');
 INSERT INTO `tb_user` VALUES ('11', 'lisi', '2017-10-30 15:25:25', '李四', 'female', '239402984028', '15878765646', '退热贴', 'retreat', '热太热太热他', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://www.zsf.com6', '儿童热t', 'dgfd', null, '儿童热帖', 'on', 'IT行业6', '齐齐哈尔', '齐齐哈尔', null, '12,34,23,24,36,76,45,32,1', '2017-10-30 15:25:25');

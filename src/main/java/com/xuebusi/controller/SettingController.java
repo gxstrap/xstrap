@@ -1,9 +1,12 @@
 package com.xuebusi.controller;
 
+import com.xuebusi.entity.LoginInfo;
 import com.xuebusi.entity.User;
 import com.xuebusi.enums.BindTypeEnum;
+import com.xuebusi.service.LoginService;
 import com.xuebusi.service.UserService;
 import com.xuebusi.vo.UserFormVo;
+import com.xuebusi.vo.UserVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +32,9 @@ public class SettingController extends BaseController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private LoginService loginService;
+
     /**
      * 基础信息页面
      *
@@ -40,8 +46,13 @@ public class SettingController extends BaseController {
         if (this.getUserInfo() != null) {
             //显示最新基础信息
             User user = userService.findByUsername(this.getUserInfo().getUsername());
-            request.getSession().setAttribute("user", user);
-            map.put("user", user);
+            UserVo userVo = new UserVo();
+            BeanUtils.copyProperties(user, userVo);
+            LoginInfo loginInfo = loginService.findByUsername(this.getUserInfo().getUsername());
+            userVo.setTitleImgUrl(loginInfo.getTitleUrl());
+
+            request.getSession().setAttribute("user", userVo);
+            map.put("user", userVo);
             return new ModelAndView("/settings/settings", map);
         }
         return new ModelAndView(new RedirectView("redirect:/user/login"));

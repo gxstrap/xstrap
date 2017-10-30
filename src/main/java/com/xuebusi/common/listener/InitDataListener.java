@@ -43,11 +43,6 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
         userCache();
     }
 
-    /*@Override
-    public void setServletContext(ServletContext servletContext) {
-        this.servletContext = servletContext;
-    }*/
-
     /**
      * 登录用户信息缓存
      */
