@@ -223,7 +223,19 @@
                 </div>-->
             </div>
         </div>
-        <nav class="text-center"></nav>
+        <nav class="text-center">
+            <nav class=" text-center">
+                <ul class="pagination" style="margin: 0">
+                    <li><a href="/user/1?page=1">首页</a></li>
+                    <li><a href="/user/1?page=1">上一页</a></li>
+                    <li><a href="/user/1?page=1">1</a></li>
+                    <li class="active"><a href="/user/1?page=2">2</a></li>
+                    <li><a href="/user/1?page=3">3</a></li>
+                    <li><a href="/user/1?page=3">下一页</a></li>
+                    <li><a href="/user/1?page=3">尾页</a></li>
+                </ul>
+            </nav>
+        </nav>
     </div>
     <#include "../common/footer.ftl">
 </div>

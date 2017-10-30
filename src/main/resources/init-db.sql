@@ -10,10 +10,56 @@ Target Server Type    : MYSQL
 Target Server Version : 50634
 File Encoding         : 65001
 
-Date: 2017-10-30 16:16:35
+Date: 2017-10-30 20:54:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for friend
+-- ----------------------------
+DROP TABLE IF EXISTS `friend`;
+CREATE TABLE `friend` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '关注ID',
+  `from_id` int(10) unsigned NOT NULL COMMENT '关注人ID',
+  `to_id` int(10) unsigned NOT NULL COMMENT '被关注人ID',
+  `pair` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '是否为互加好友',
+  `create_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of friend
+-- ----------------------------
+INSERT INTO `friend` VALUES ('1', '1', '2', '0', '2017-10-30 19:09:48');
+INSERT INTO `friend` VALUES ('2', '2', '1', '0', '2017-10-30 20:16:12');
+INSERT INTO `friend` VALUES ('5', '1', '3', '0', '2017-10-30 20:51:45');
+INSERT INTO `friend` VALUES ('6', '1', '4', '0', '2017-09-26 20:51:48');
+INSERT INTO `friend` VALUES ('7', '1', '5', '0', '2017-10-19 20:51:51');
+INSERT INTO `friend` VALUES ('8', '2', '3', '0', '2017-10-10 20:51:55');
+INSERT INTO `friend` VALUES ('9', '2', '4', '0', '2017-10-19 20:51:58');
+INSERT INTO `friend` VALUES ('10', '2', '5', '0', '2017-10-09 20:52:01');
+INSERT INTO `friend` VALUES ('11', '2', '6', '0', '2017-10-01 20:52:04');
+INSERT INTO `friend` VALUES ('12', '2', '7', '0', '2017-10-11 20:52:07');
+INSERT INTO `friend` VALUES ('13', '3', '5', '0', '2017-10-27 20:52:10');
+INSERT INTO `friend` VALUES ('14', '3', '6', '0', '2017-10-05 20:52:14');
+INSERT INTO `friend` VALUES ('15', '3', '7', '0', '2017-10-24 20:52:18');
+INSERT INTO `friend` VALUES ('16', '4', '1', '0', '2017-10-16 20:52:22');
+INSERT INTO `friend` VALUES ('17', '4', '3', '0', '2017-10-21 20:52:26');
+INSERT INTO `friend` VALUES ('18', '5', '9', '0', '2017-10-09 20:52:29');
+INSERT INTO `friend` VALUES ('19', '5', '10', '0', '2017-10-04 20:52:32');
+INSERT INTO `friend` VALUES ('20', '5', '11', '0', '2017-10-16 20:52:35');
+INSERT INTO `friend` VALUES ('21', '6', '2', '0', '2017-11-02 20:52:37');
+INSERT INTO `friend` VALUES ('22', '6', '7', '0', '2017-10-09 20:52:40');
+INSERT INTO `friend` VALUES ('23', '6', '9', '0', '2017-10-20 20:52:44');
+INSERT INTO `friend` VALUES ('24', '7', '2', '0', '2017-10-24 20:52:47');
+INSERT INTO `friend` VALUES ('25', '7', '9', '0', '2017-10-31 20:52:53');
+INSERT INTO `friend` VALUES ('26', '8', '4', '0', '2017-10-10 20:52:56');
+INSERT INTO `friend` VALUES ('27', '8', '6', '0', '2017-10-12 20:52:58');
+INSERT INTO `friend` VALUES ('28', '8', '1', '0', '2017-10-12 20:53:03');
+INSERT INTO `friend` VALUES ('29', '8', '5', '0', '2017-10-10 20:53:06');
+INSERT INTO `friend` VALUES ('30', '9', '4', '0', '2017-10-18 20:53:09');
+INSERT INTO `friend` VALUES ('31', '9', '8', '0', '2017-11-03 20:53:11');
 
 -- ----------------------------
 -- Table structure for message
