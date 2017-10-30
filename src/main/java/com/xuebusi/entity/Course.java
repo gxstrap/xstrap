@@ -1,5 +1,7 @@
 package com.xuebusi.entity;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -10,6 +12,7 @@ import java.util.Date;
  * Created by SYJ on 2017/10/7.
  */
 @Entity
+@Data
 @Table(name = "tb_course")
 public class Course {
 
@@ -42,107 +45,5 @@ public class Course {
 
     private Date courseEndTime;//课程结束时间
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getCourseTitle() {
-        return courseTitle;
-    }
-
-    public void setCourseTitle(String courseTitle) {
-        this.courseTitle = courseTitle;
-    }
-
-    public String getCourseImgUrl() {
-        return courseImgUrl;
-    }
-
-    public void setCourseImgUrl(String courseImgUrl) {
-        this.courseImgUrl = courseImgUrl;
-    }
-
-    public Integer getCourseUserCount() {
-        return courseUserCount;
-    }
-
-    public void setCourseUserCount(Integer courseUserCount) {
-        this.courseUserCount = courseUserCount;
-    }
-
-    public String getCourseTeacherName() {
-        return courseTeacherName;
-    }
-
-    public void setCourseTeacherName(String courseTeacherName) {
-        this.courseTeacherName = courseTeacherName;
-    }
-
-    public Double getCoursePrice() {
-        return coursePrice;
-    }
-
-    public void setCoursePrice(Double coursePrice) {
-        this.coursePrice = coursePrice;
-    }
-
-    public String getCourseLink() {
-        return courseLink;
-    }
-
-    public void setCourseLink(String courseLink) {
-        this.courseLink = courseLink;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getCourseCategory() {
-        return courseCategory;
-    }
-
-    public void setCourseCategory(String courseCategory) {
-        this.courseCategory = courseCategory;
-    }
-
-    public String getCourseNavigation() {
-        return courseNavigation;
-    }
-
-    public void setCourseNavigation(String courseNavigation) {
-        this.courseNavigation = courseNavigation;
-    }
-
-    public Integer getCourseTeacherId() {
-        return courseTeacherId;
-    }
-
-    public void setCourseTeacherId(Integer courseTeacherId) {
-        this.courseTeacherId = courseTeacherId;
-    }
-
-    public Date getCourseStartTime() {
-        return courseStartTime;
-    }
-
-    public void setCourseStartTime(Date courseStartTime) {
-        this.courseStartTime = courseStartTime;
-    }
-
-    public Date getCourseEndTime() {
-        return courseEndTime;
-    }
-
-    public void setCourseEndTime(Date courseEndTime) {
-        this.courseEndTime = courseEndTime;
-    }
 }
