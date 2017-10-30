@@ -8,6 +8,7 @@ import com.xuebusi.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -81,13 +82,12 @@ public class MyController extends BaseController {
 
     /**
      * 账户中心-我的账户-我的金币页面
-     * @param map
      * @return
      */
-    @RequestMapping(value = "/coin")
-    public ModelAndView coin(Map<String, Object> map) {
+    @GetMapping(value = "/coin")
+    public ModelAndView myCoin(){
 
-        return new ModelAndView("/coin", map);
+        return new ModelAndView("/my/account/coin");
     }
 
     /**
@@ -96,9 +96,10 @@ public class MyController extends BaseController {
      * @return
      */
     @RequestMapping(value = "/bill")
-    public ModelAndView bill(Map<String, Object> map) {
-
-        return new ModelAndView("/bill", map);
+    public ModelAndView bill(@RequestParam(value = "lastHowManyMonths", required = false, defaultValue = "") String lastHowManyMonths,
+                             Map<String, Object> map) {
+        System.out.println("lastHowManyMonths=" + lastHowManyMonths);
+        return new ModelAndView("/my/account/bill", map);
     }
 
     /**
@@ -116,10 +117,10 @@ public class MyController extends BaseController {
                                Map<String, Object> map) {
         if (OrderStatusEnum.created.name().equals(status)) {
             //待付款订单
-            return new ModelAndView("/orders/order-created", map);
+            return new ModelAndView("/my/orders/order-created", map);
         } else if (OrderStatusEnum.paid.name().equals(status)) {
             //已付款订单
-            return new ModelAndView("/orders/order-paid", map);
+            return new ModelAndView("/my/orders/order-paid", map);
         }
         //全部订单
         return new ModelAndView("/my/orders/order-all", map);
