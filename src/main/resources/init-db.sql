@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : windows-mysql
-Source Server Version : 50634
-Source Host           : localhost:3306
+Source Server         : 123.207.19.65-mysql
+Source Server Version : 50173
+Source Host           : 123.207.19.65:3306
 Source Database       : xstrap
 
 Target Server Type    : MYSQL
-Target Server Version : 50634
+Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2017-10-30 22:45:06
+Date: 2017-10-30 23:10:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -101,8 +101,8 @@ CREATE TABLE `message_conversation` (
   `unreadNum` int(10) unsigned NOT NULL COMMENT '未读数量',
   `createdTime` int(10) unsigned NOT NULL COMMENT '会话创建时间',
   PRIMARY KEY (`id`),
-  KEY `toId_fromId` (`toId`,`fromId`),
-  KEY `toId_latestMessageTime` (`toId`,`latestMessageTime`)
+  KEY `toId_fromId` (`toId`,`fromId`) USING BTREE,
+  KEY `toId_latestMessageTime` (`toId`,`latestMessageTime`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -1018,8 +1018,8 @@ CREATE TABLE `tb_login_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime NOT NULL,
   `title_url` varchar(255) DEFAULT NULL COMMENT '头像url',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
@@ -1043,40 +1043,13 @@ INSERT INTO `tb_login_info` VALUES ('13', 'xiaohua', '114CNIIUINKMJK72AA1P5807U3
 INSERT INTO `tb_login_info` VALUES ('14', 'ttt', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:29:58', '2017-10-30 22:29:58', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/09-19/160430e3e39d511993.jpg');
 
 -- ----------------------------
--- Table structure for tb_teacher
--- ----------------------------
-DROP TABLE IF EXISTS `tb_teacher`;
-CREATE TABLE `tb_teacher` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `teacher_name` varchar(255) DEFAULT NULL COMMENT '讲师名称',
-  `teacher_about` varchar(255) DEFAULT NULL COMMENT '讲师简介',
-  `teacher_learn` varchar(255) DEFAULT NULL COMMENT '在学课程id列表',
-  `teacher_learning_classroom` varchar(255) DEFAULT NULL COMMENT '在学班级id列表',
-  `teacher_favorited` varchar(255) DEFAULT NULL COMMENT '收藏的课程id列表',
-  `teacher_group` varchar(255) DEFAULT NULL COMMENT '加入的小组id列表',
-  `teacher_following` varchar(255) DEFAULT NULL COMMENT '关注的用户id列表',
-  `teacher_follower` varchar(255) DEFAULT NULL COMMENT '粉丝id列表',
-  `teacher_rank` varchar(255) DEFAULT NULL COMMENT '头衔',
-  `teacher_sign` varchar(255) DEFAULT NULL COMMENT '签名',
-  `create_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `teacher_photo_url` varchar(255) DEFAULT NULL COMMENT '头像url',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of tb_teacher
--- ----------------------------
-INSERT INTO `tb_teacher` VALUES ('1', '史艳军', '第三方个但是了看到数据发了多少会计法里的数据发了多少街坊邻居独守空房记录的开始讲发了多少家放了看到数据肺力咳检索关联会立刻贷后管理', null, null, null, null, null, null, null, null, '2017-10-08 22:05:31', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2016/04-29/115850a2aa1e333636.jpg');
-INSERT INTO `tb_teacher` VALUES ('2', 'Robin_TY', '查尔斯特大学（Charles Sturt University）计算机博士，从事机器学习、计算机视觉及模式识别等相关方向的研究，在计算机视觉等国际会议及期刊发表10余篇学术论文。现就职于澳大利亚某科学研究机构，负责算法改进及其产品化、数据分析处理及可视化。', null, null, null, null, null, null, null, null, '2017-10-02 22:04:08', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2014/06-25/2145415d1f1d777940.png');
-
--- ----------------------------
 -- Table structure for tb_user
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_user`;
 CREATE TABLE `tb_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL COMMENT '用户名',
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` datetime NOT NULL COMMENT '创建时间',
   `truename` varchar(255) DEFAULT NULL COMMENT '真实姓名',
   `gender` varchar(255) DEFAULT NULL COMMENT '性别 1男2女',
   `idcard` varchar(255) DEFAULT NULL COMMENT '身份证号码',
@@ -1096,7 +1069,7 @@ CREATE TABLE `tb_user` (
   `company` varchar(255) DEFAULT NULL COMMENT '公司',
   `is_weibo_public` varchar(255) DEFAULT 'on' COMMENT '微博是否公开',
   `course_ids` varchar(255) DEFAULT NULL,
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `update_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
