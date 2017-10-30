@@ -78,31 +78,7 @@
     </div>
 
     <div id="content-container" class="container">
-        <style>
-            .nav.nav-tabs > li > a {
-                padding: 5px 30px 15px;
-            }
-
-            @media (max-width: 1199px) {
-                .nav.nav-tabs > li > a {
-                    padding: 5px 10px 10px;
-                    font-size: 14px;
-                }
-            }
-        </style>
-
-        <ul class="nav nav-tabs clearfix">
-            <li><a href="/user/10391/about">个人介绍</a></li>
-            <li class="active"><a href="/user/10391/teach">在教课程</a></li>
-            <li><a href="/user/10391/teaching/classrooms">在教班级</a></li>
-            <li><a href="/user/10391/learn">在学课程</a></li>
-            <li><a href="/user/10391/learning/classrooms">在学班级</a></li>
-            <li><a href="/user/10391/favorited">收藏课程</a></li>
-            <li><a href="/user/10391/group">加入小组</a></li>
-            <li><a href="/user/10391/following">关注&nbsp;/&nbsp;粉丝</a></li>
-            <li class="highlight" style="left: 124px; width: 124px;"></li>
-        </ul>
-
+        <#include "user-tabs.ftl">
         <div class="course-list">
             <div class="row">
                 <#list courseList as course>

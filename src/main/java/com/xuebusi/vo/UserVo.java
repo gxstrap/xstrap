@@ -11,6 +11,7 @@ public class UserVo {
     private Integer id;
     private String username;//用户名
     private Date createTime;//创建时间
+    private String truename;//真实姓名
     private String gender;//性别
     private String mobile;//手机号码
     private String company;//公司
@@ -52,6 +53,14 @@ public class UserVo {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getTruename() {
+        return truename;
+    }
+
+    public void setTruename(String truename) {
+        this.truename = truename;
     }
 
     public String getGender() {

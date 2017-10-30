@@ -34,8 +34,6 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
     @Autowired
     private UserService userService;
 
-    //private ServletContext servletContext;
-
     @Override
     public void afterPropertiesSet() throws Exception {
         loginInfoCache();

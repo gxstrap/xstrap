@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  * 通用返回值
  * Created by SYJ on 2017/5/19.
  */
-@JsonSerialize(include= JsonSerialize.Inclusion.NON_NULL)
+@JsonSerialize
 public class ResultModel<T> {
 
     private Integer code;

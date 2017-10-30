@@ -34,13 +34,27 @@ public class UserController extends BaseController {
     @Autowired
     private CourseService courseService;
 
+
     /**
-     * 用户信息页面
+     * 个人介绍
+     * @param userId
+     * @param map
+     * @return
+     */
+    @RequestMapping(value = "/{userId}/about")
+    public ModelAndView about(@PathVariable("userId") Integer userId, Map<String, Object> map) {
+
+        map.put("user", this.getUserVo(userId));
+        return new ModelAndView("/user/about", map);
+    }
+
+    /**
+     * 在教课程
      * @param id 用户id
      * @param map
      * @return
      */
-    @RequestMapping(value = "/{id}")
+    @RequestMapping(value = {"/{id}", "/{id}/teach"})
     public ModelAndView toUser(@PathVariable("id") Integer id, Map<String, Object> map) {
         //查询讲师所教课程
         List<Course> courseList = courseService.findBycourseTeacherId(id);
