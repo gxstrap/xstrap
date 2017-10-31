@@ -99,14 +99,12 @@
         <div class="navbar-user  left ">
         <#if Session.user?exists>
             <ul class="nav user-nav">
-                <li class="visible-lg"><a href="/my">
-                    我的学习
-                </a>
-
+                <li class="visible-lg">
+                    <a href="/my">我的学习</a>
                 </li>
                 <li class="user-avatar-li nav-hover">
                     <a href="javascript:;" class="dropdown-toggle">
-                        <img class="avatar-xs" src="/images/0548491aa7e5403534.jpg">
+                        <img class="avatar-xs" src="${(user.titleImgUrl)!}">
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li role="presentation" class="dropdown-header">${(user.username)!}</li>

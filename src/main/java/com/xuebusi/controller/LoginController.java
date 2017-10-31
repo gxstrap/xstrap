@@ -5,6 +5,8 @@ import com.xuebusi.entity.LoginInfo;
 import com.xuebusi.entity.User;
 import com.xuebusi.service.LoginService;
 import com.xuebusi.service.UserService;
+import com.xuebusi.vo.UserVo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -122,9 +124,12 @@ public class LoginController extends BaseController {
 
         if (loginInfo != null && loginInfo.getPassword().equals(MD5Utils.md5(password))) {
             User user = userService.findByUsername(username);
+            UserVo userVo = new UserVo();
+            BeanUtils.copyProperties(user, userVo);
+            userVo.setTitleImgUrl(loginInfo.getTitleUrl());
             //登录后将用户信息放入Session
-            request.getSession().setAttribute("user", user);
-            map.put("user", user);
+            request.getSession().setAttribute("user", userVo);
+            map.put("user", userVo);
             return new ModelAndView(new RedirectView("/my/courses/learning"), map);
         }
         map.put("errMsg", "用户名或密码不正确");
