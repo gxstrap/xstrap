@@ -48,8 +48,8 @@ public class UserController extends BaseController {
      * @return
      */
     @RequestMapping(value = "/{userId}/about")
-    public ModelAndView about(@PathVariable("userId") Integer userId, Map<String, Object> map) {
-
+    public ModelAndView about(@PathVariable("userId") Integer userId, Map<String, Object> map) {        
+        
         map.put("user", this.getUserVo(userId));
         return new ModelAndView("/user/about", map);
     }
@@ -131,6 +131,14 @@ public class UserController extends BaseController {
             if (loginInfo != null) {
                 userVo.setTitleImgUrl(loginInfo.getTitleUrl());//头像
             }
+
+            // 获取粉丝数
+            int fansCount = friendService.findByToId(id).size();
+            // 获取关注数
+            int followCount = friendService.findByFromId(id).size();
+            
+            userVo.setFansCount(fansCount);
+            userVo.setFollowCount(followCount);
         }
         return userVo;
     }

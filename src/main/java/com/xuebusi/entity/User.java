@@ -35,8 +35,10 @@ public class User {
     private String position;//职位
     private String city;//所在城市
     private String courseIds;//所学课程id列表(逗号分隔)
+    private Date updateTime;
 
-    public Integer getId() {
+
+	public Integer getId() {
         return id;
     }
 
@@ -211,4 +213,12 @@ public class User {
     public void setCourseIds(String courseIds) {
         this.courseIds = courseIds;
     }
+
+    public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
 }
