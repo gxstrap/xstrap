@@ -151,7 +151,9 @@
                 <div class="social-login">
                     <span>
 
-                      <a href="http://www.xuebusi.cn/login/bind/weibo?_target_path=/ai/all/list%3Fpage%3D1&amp;inviteCode=" class="social-icon social-weibo">
+                      <#--<a href="https://api.weibo.com/oauth2/authorize?client_id=1489084907&redirect_uri=http://127.0.0.1&response_type=code" class="social-icon social-weibo">-->
+                      <a href="/login/bind/weibo" class="social-icon social-weibo">
+
                           <i class="es-icon es-icon-weibo"></i>
                       </a>
 
