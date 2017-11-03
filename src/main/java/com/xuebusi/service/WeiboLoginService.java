@@ -103,6 +103,8 @@ public class WeiboLoginService {
                 user = new User();
                 user.setUsername(userId);
                 user.setTruename(userName);
+                user.setCreateTime(new Date());
+                user.setUpdateTime(new Date());
                 user.setWeibo("http://weibo.com/"+userId+"/info");
                 userService.save(user);
 
