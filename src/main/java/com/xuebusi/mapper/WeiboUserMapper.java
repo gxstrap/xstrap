@@ -14,17 +14,19 @@ import java.util.Map;
  */
 @Mapper
 @Component
-public interface WeiboUserMapper extends BaseMapper<WeiboUser>{
+public interface WeiboUserMapper extends BaseMapper<WeiboUser>
+{
 
     String FIND_WEIBO_INFO_SQL =
     "" +
             "<script>                              " +
             "   SELECT                             " +
             "       a.weibo_id     AS weiboId,     " +
+            "       a.username     AS username,    " +
             "       a.access_token AS accessToken  " +
             "   FROM tb_weibo_user AS a            " +
             "   INNER JOIN tb_user AS b            " +
-            "       ON a.weibo_id=b.username       " +
+            "       ON a.username=b.username       " +
             "   WHERE 1=1                          " +
             "       AND a.state=1                  " +
             "       <if test='#{token}!=null'>     " +

@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -163,6 +164,8 @@ public class LoginController extends BaseController {
         LoginInfo loginInfo = new LoginInfo();
         loginInfo.setUsername(username);
         loginInfo.setPassword(MD5Utils.md5(password));
+        loginInfo.setCreateTime(new Date());
+        loginInfo.setUpdateTime(new Date());
         loginService.save(loginInfo);
 
         map.put("successMsg", "注册成功，请登录！");
