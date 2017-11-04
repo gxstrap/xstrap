@@ -24,4 +24,25 @@ public interface FriendRepository extends JpaRepository<Friend, Integer> {
      * @return
      */
     List<Friend> findByToId(Integer toId);
+
+    /**
+     * 统计关注数
+     * @param fromId
+     * @return
+     */
+    int countByFromId(Integer fromId);
+
+    /**
+     * 统计粉丝数
+     * @param toId
+     * @return
+     */
+    int countByToId(Integer toId);
+
+    /**
+     * 修改
+     * @param friend
+     * @return
+     */
+    Friend save(Friend friend);
 }
