@@ -9,6 +9,6 @@ public class AppTest {
     public static void main(String[] args) {
         String admin = MD5Utils.md5("admin3");
         String pwd = MD5Utils.md5("admin3");
-        System.out.println(admin);
+        System.out.println(pwd);
     }
 }
