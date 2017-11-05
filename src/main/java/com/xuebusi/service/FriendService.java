@@ -34,4 +34,32 @@ public class FriendService {
     public List<Friend> findByToId(Integer toId) {
         return friendRepository.findByToId(toId);
     }
+
+    /**
+     * 关注数
+     * @param fromId
+     * @return
+     */
+    public int countByFromId(Integer fromId) {
+        return friendRepository.countByFromId(fromId);
+    }
+
+    /**
+     * 粉丝数
+     * @param toId
+     * @return
+     */
+    public int countByToId(Integer toId) {
+        return friendRepository.countByToId(toId);
+    }
+
+    /**
+     * 修改
+     * @param friend
+     * @return
+     */
+    public Friend save(Friend friend) {
+        return friendRepository.save(friend);
+    }
+
 }

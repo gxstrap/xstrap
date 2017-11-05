@@ -1,3 +1,4 @@
+
 package com.xuebusi.entity;
 
 import javax.persistence.*;
@@ -222,3 +223,4 @@ public class User {
 		this.updateTime = updateTime;
 	}
 }
+

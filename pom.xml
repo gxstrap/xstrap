@@ -91,6 +91,28 @@
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
 
+		<!-- weibo API -->
+		<dependency>
+			<groupId>com.belerweb</groupId>
+			<artifactId>weibo4j-oauth2</artifactId>
+			<version>2.1.1-beta2-3</version>
+		</dependency>
+
+		<!-- http request -->
+		<dependency>
+			<groupId>com.github.kevinsawicki</groupId>
+			<artifactId>http-request</artifactId>
+			<version>6.0</version>
+		</dependency>
+
+        <!-- common mapper -->
+		<dependency>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper</artifactId>
+			<version>3.3.8</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>

@@ -13,6 +13,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -48,8 +49,8 @@ public class UserController extends BaseController {
      * @return
      */
     @RequestMapping(value = "/{userId}/about")
-    public ModelAndView about(@PathVariable("userId") Integer userId, Map<String, Object> map) {        
-        
+    public ModelAndView about(@PathVariable("userId") Integer userId, Map<String, Object> map) {
+        //关注数据和粉丝数
         map.put("user", this.getUserVo(userId));
         return new ModelAndView("/user/about", map);
     }
@@ -72,7 +73,26 @@ public class UserController extends BaseController {
     }
 
     /**
-     * 关注了哪些人
+     * 关注
+     * @param toId
+     * @return
+     */
+    @PostMapping(value = "/{userId}/follow")
+    public ModelAndView follow(@PathVariable("userId") Integer toId, Map<String, Object> map) {
+
+        //TODO 待完善
+
+        Friend friend = new Friend();
+        friend.setFromId(this.getUserInfo().getId());
+        friend.setToId(toId);
+        Friend friendFromDb = friendService.save(friend);
+        map.put("countFrom", friendService.countByFromId(friendFromDb.getToId()));
+        map.put("countTo", friendService.countByToId(friendFromDb.getFromId()));
+        return new ModelAndView("", map);
+    }
+
+    /**
+     * 关注的人
      * @param userId 用户id
      * @param map
      * @return

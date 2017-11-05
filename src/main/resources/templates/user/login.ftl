@@ -150,8 +150,8 @@
 
                 <div class="social-login">
                     <span>
+                      <a href="/weibo/boot" class="social-icon social-weibo">
 
-                      <a href="http://www.xuebusi.cn/login/bind/weibo?_target_path=/ai/all/list%3Fpage%3D1&amp;inviteCode=" class="social-icon social-weibo">
                           <i class="es-icon es-icon-weibo"></i>
                       </a>
 
