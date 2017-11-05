@@ -1,7 +1,6 @@
 package com.xuebusi.controller;
 
 import com.xuebusi.common.utils.CommonUtils;
-import com.xuebusi.entity.User;
 import com.xuebusi.vo.UserVo;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
