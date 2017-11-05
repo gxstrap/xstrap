@@ -1,6 +1,7 @@
 package com.xuebusi.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
@@ -15,11 +16,22 @@ import java.util.Date;
 public class WeiboUser {
 
     @Id
+    @GeneratedValue
+    private Integer id;
     private String weiboId;
+    private String username;
     private String accessToken;
     private Integer state;
     private Date createTime;
     private Date updateTime;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getWeiboId() {
         return weiboId;
@@ -27,6 +39,14 @@ public class WeiboUser {
 
     public void setWeiboId(String weiboId) {
         this.weiboId = weiboId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getAccessToken() {

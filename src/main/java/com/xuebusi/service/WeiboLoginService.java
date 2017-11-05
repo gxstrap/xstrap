@@ -3,15 +3,16 @@ package com.xuebusi.service;
 import com.alibaba.fastjson.JSONObject;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.xuebusi.controller.WeiboLoginController;
+import com.xuebusi.entity.LoginInfo;
 import com.xuebusi.entity.User;
 import com.xuebusi.entity.WeiboUser;
 import com.xuebusi.mapper.WeiboUserMapper;
+import com.xuebusi.repository.LoginRepository;
 import com.xuebusi.repository.UserRepository;
 import com.xuebusi.repository.WeiboUserRepository;
 import com.xuebusi.vo.UserVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -59,6 +60,9 @@ public class WeiboLoginService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private LoginRepository loginRepository;
+
 
     public String authBoot()
     {
@@ -68,7 +72,7 @@ public class WeiboLoginService {
         url.append("&response_type=code");
         return url.toString();
     }
-    public UserVo weiboLogin(String code)
+    public WeiboUser weiboBind(String code, UserVo userVo)
     {
         // access token
         Map<String, Object> paramMap = new HashMap<>(16);
@@ -84,9 +88,8 @@ public class WeiboLoginService {
         LOGGER.info("uid: {} token: {}", uid, token);
 
         Map<String, Object> weiboinfoMap = weiboUserMapper.findWeiboInfoByToken(token);
-        String weiboId = null;
+        WeiboUser weiboUser = weiboUserRepository.findByWeiboIdAndState(uid, 1);
 
-        User user = null;
         // if not exist
         if (weiboinfoMap==null){
             Map<String, String> userMap = new HashMap<>(16);
@@ -96,43 +99,66 @@ public class WeiboLoginService {
             JSONObject userObj = JSONObject.parseObject(userResult);
 
             String userId = userObj.getString("idstr");
-            String userName = userObj.getString("name");
+            String nickName = userObj.getString("name");
 
-            try {
-                // add to user table
-                user = new User();
+            User tempUser = userService.findByUsername(userId);
+
+            if (userVo != null)
+            {
+                userId = userVo.getUsername();
+            }
+            else if(weiboUser==null && tempUser==null)
+            {
+                // insert to user table
+                User user = new User();
                 user.setUsername(userId);
-                user.setTruename(userName);
+                user.setTruename(nickName);
                 user.setCreateTime(new Date());
                 user.setUpdateTime(new Date());
-                user.setWeibo("http://weibo.com/"+userId+"/info");
+                user.setWeibo("http://weibo.com/"+userObj.getString("idstr")+"/info");
                 userService.save(user);
 
-                // add to weibo table
-                WeiboUser weiboUser = new WeiboUser();
-                weiboUser.setWeiboId(userId);
-                weiboUser.setAccessToken(token);
+                // insert to login_ifo table
+                LoginInfo loginInfo = new LoginInfo();
+                loginInfo.setUsername(userId);
+                loginInfo.setCreateTime(new Date());
+                loginInfo.setUpdateTime(new Date());
+                loginInfo.setPassword("");
+                loginRepository.save(loginInfo);
+            }
+
+            // insert or update
+            if (null == weiboUser)
+            {
+                weiboUser = new WeiboUser();
+                weiboUser.setUsername(userId);
+                weiboUser.setWeiboId(userObj.getString("idstr"));
                 weiboUser.setCreateTime(new Date());
-                weiboUser.setUpdateTime(new Date());
-                weiboUser.setState(1);
-                weiboUserRepository.save(weiboUser);
-                weiboId = userId;
-
             }
-            catch (Exception e){
-                LOGGER.error("error{}", e.getMessage());
-            }
+            weiboUser.setAccessToken(token);
+            weiboUser.setUpdateTime(new Date());
+            weiboUser.setState(1);
+            weiboUserRepository.save(weiboUser);
+            return weiboUser;
         }
-        else {
-            weiboId = weiboinfoMap.get("weiboId").toString();
+        if (weiboinfoMap!=null && weiboUser!=null && userVo==null)
+        {
+            return weiboUser;
         }
 
-        // copy to userVo
-        user = userRepository.findByUsername(weiboId);
-        UserVo userVo = new UserVo();
-        BeanUtils.copyProperties(user, userVo);
+        return null;
+    }
 
-        return userVo;
+    public WeiboUser findWeiboUserByUsername(String username)
+    {
+        return weiboUserRepository.findByUsernameAndState(username, 1);
+    }
+
+    public void cancelBind(String username)
+    {
+        WeiboUser weiboUser = weiboUserRepository.findByUsernameAndState(username, 1);
+        weiboUser.setState(0);
+        weiboUserRepository.save(weiboUser);
     }
 
 }

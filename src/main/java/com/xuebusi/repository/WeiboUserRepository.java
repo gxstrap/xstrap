@@ -10,10 +10,20 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 
 public interface WeiboUserRepository extends JpaRepository<WeiboUser, String> {
+
     /**
-     * 根据token查询微博信息
-     * @param token
+     * 根据用户名查询是否存在微博绑定
+     * @param username
+     * @param state
      * @return
      */
-    WeiboUser findByAccessToken(String token);
+    WeiboUser findByUsernameAndState(String username, Integer state);
+
+    /**
+     * 根据微博id查询
+     * @param id
+     * @param state
+     * @return
+     */
+    WeiboUser findByWeiboIdAndState(String id, Integer state);
 }

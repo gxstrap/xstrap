@@ -32,6 +32,8 @@ public class UserVo implements Serializable {
     private String city;//所在城市
     private String courseIds;//所学课程id列表(逗号分隔)
     private String titleImgUrl;//头像
+    private int fansCount;
+    private int followCount;
 
     public Integer getId() {
         return id;
@@ -216,4 +218,22 @@ public class UserVo implements Serializable {
     public void setTitleImgUrl(String titleImgUrl) {
         this.titleImgUrl = titleImgUrl;
     }
+
+	public int getFansCount() {
+		return fansCount;
+	}
+
+	public void setFansCount(int fansCount) {
+		this.fansCount = fansCount;
+	}
+
+	public int getFollowCount() {
+		return followCount;
+	}
+
+	public void setFollowCount(int followCount) {
+		this.followCount = followCount;
+	}
+    
+    
 }

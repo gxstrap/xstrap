@@ -100,7 +100,7 @@
                     <a href="/my">我的学习</a>
                 </li>
                 <li class="user-avatar-li nav-hover">
-                    <a href="javascript:;" class="dropdown-toggle">
+                    <a href="/user/${(user.id)!}/about" class="dropdown-toggle">
                         <img class="avatar-xs" src="${(user.titleImgUrl)!}">
                     </a>
                     <ul class="dropdown-menu" role="menu">
