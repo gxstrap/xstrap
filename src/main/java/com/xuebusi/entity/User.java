@@ -37,7 +37,6 @@ public class User implements Serializable {
     private String position;//职位
     private String city;//所在城市
     private String courseIds;//所学课程id列表(逗号分隔)
-    private Date updateTime;
 
 
 	public Integer getId() {
