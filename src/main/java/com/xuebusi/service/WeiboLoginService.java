@@ -141,7 +141,7 @@ public class WeiboLoginService {
             weiboUserRepository.save(weiboUser);
             return weiboUser;
         }
-        if (weiboinfoMap!=null && weiboUser!=null)
+        if (weiboinfoMap!=null && weiboUser!=null && userVo==null)
         {
             return weiboUser;
         }
