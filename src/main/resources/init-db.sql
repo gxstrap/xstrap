@@ -10,11 +10,10 @@ Target Server Type    : MYSQL
 Target Server Version : 50634
 File Encoding         : 65001
 
- Date: 03/11/2017 19:30:46
+Date: 2017-11-05 21:00:47
 */
 
-SET NAMES utf8;
-SET FOREIGN_KEY_CHECKS = 0;
+SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
 -- Table structure for friend
@@ -1023,30 +1022,11 @@ CREATE TABLE `tb_login_info` (
   `update_time` datetime NOT NULL,
   `title_url` varchar(255) DEFAULT NULL COMMENT '头像url',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_login_info
 -- ----------------------------
-BEGIN;
-INSERT INTO `tb_login_info` VALUES (1, 'sysadmin', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:27:30', '2017-10-30 22:27:30', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2016/04-12/120240100a71483765.jpg');
-INSERT INTO `tb_login_info` VALUES (2, 'admin', '114CNIIUINKMJK72AA1P5807U3', '2017-10-30 22:27:34', '2017-10-30 22:27:34', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-16/16573828bc6d933684.jpg');
-INSERT INTO `tb_login_info` VALUES (3, 'admin1', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:27:47', '2017-10-30 22:27:47', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/01-09/0929117b04eb900787.jpg');
-INSERT INTO `tb_login_info` VALUES (4, 'admin2', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:27:56', '2017-10-30 22:27:56', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/02-15/014349589791291252.jpg');
-INSERT INTO `tb_login_info` VALUES (5, 'sysadmin7', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:28:11', '2017-10-30 22:28:11', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-10/014839763420341733.jpg');
-INSERT INTO `tb_login_info` VALUES (6, 'sys', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:28:27', '2017-10-30 22:28:27', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/10-12/020620c8f73e702781.jpg');
-INSERT INTO `tb_login_info` VALUES (7, 'xbs', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:28:39', '2017-10-30 22:28:39', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/10-14/05551421a3d7326133.jpg');
-INSERT INTO `tb_login_info` VALUES (8, 'aaa', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:28:50', '2017-10-30 22:28:50', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/01-05/163913106a19187123.jpg');
-INSERT INTO `tb_login_info` VALUES (9, 'xuebusi', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:29:02', '2017-10-30 22:29:02', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/07-20/120103f78876702751.jpg');
-INSERT INTO `tb_login_info` VALUES (10, 'zhangsan', '1QVQ0EO4M1PTTIH1L2FP2LEDF', '2017-10-30 22:29:12', '2017-10-30 22:29:12', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/10-08/123232015b49756117.jpg');
-INSERT INTO `tb_login_info` VALUES (11, 'lisi', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:29:21', '2017-10-30 22:29:21', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/10-10/1320513717e4547532.jpg');
-INSERT INTO `tb_login_info` VALUES (12, 'wangwu', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:29:31', '2017-10-30 22:29:31', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/10-11/110724cabb63151238.jpg');
-INSERT INTO `tb_login_info` VALUES (13, 'xiaohua', '114CNIIUINKMJK72AA1P5807U3', '2017-10-30 22:29:50', '2017-10-30 22:29:50', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2016/09-14/054515bc084f111899.jpg');
-INSERT INTO `tb_login_info` VALUES (14, 'ttt', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:29:58', '2017-10-30 22:29:58', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/09-19/160430e3e39d511993.jpg');
-INSERT INTO `tb_login_info` VALUES (22, 'caiyuyu', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-11-04 16:53:18', '2017-11-04 16:53:18', NULL);
-INSERT INTO `tb_login_info` VALUES (27, 'caiyuyuaaa', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-11-04 20:07:49', '2017-11-04 20:07:49', NULL);
-INSERT INTO `tb_login_info` VALUES (34, '5086539099', '', '2017-11-04 22:15:49', '2017-11-04 22:15:49', NULL);
-COMMIT;
 INSERT INTO `tb_login_info` VALUES ('1', 'sysadmin', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:27:30', '2017-10-30 22:27:30', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2016/04-12/120240100a71483765.jpg');
 INSERT INTO `tb_login_info` VALUES ('2', 'admin', '114CNIIUINKMJK72AA1P5807U3', '2017-10-30 22:27:34', '2017-10-30 22:27:34', 'http://scb1a9q0-sb.qiqiuyun.net/files/user/2017/10-16/16573828bc6d933684.jpg');
 INSERT INTO `tb_login_info` VALUES ('3', 'admin1', 'UUKHSDDI5KPA43A8VL06V0TU2', '2017-10-30 22:27:47', '2017-10-30 22:27:47', 'http://scb1a9q0-sb.qiqiuyun.net/files/default/2017/01-09/0929117b04eb900787.jpg');
@@ -1091,30 +1071,11 @@ CREATE TABLE `tb_user` (
   `course_ids` varchar(255) DEFAULT NULL,
   `update_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_user
 -- ----------------------------
-BEGIN;
-INSERT INTO `tb_user` VALUES (1, 'sysadmin', '2017-10-30 14:33:49', '系统管理员', 'female', '110101194905063476', '1390108887', '道长6', '老大6', '我是老大我怕谁6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://www.zsf.com6', 'http://weibo.com/zsf6', 'zhangsanfeng6', NULL, '5678976', 'on', 'it6', '北京市大兴区', '北京张氏有限公司6', NULL, '3,90,1,34,99,56,2,7,8', '2017-10-30 14:33:49');
-INSERT INTO `tb_user` VALUES (2, 'admin', '2017-10-30 15:25:10', '管理员', 'female', '110101198809086666', '13420983378', '研发工程师6', '高级工程师6', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://jlkjljl.com6', 'http://owueo.com6', 'jlsk6', NULL, '556656', 'on', 'IT行业6', 'beijing6', '慕课网6', NULL, '3,4,78,123,5,67', '2017-10-30 15:25:10');
-INSERT INTO `tb_user` VALUES (3, 'admin1', '2017-10-30 15:12:59', '我是管理员555', 'female', '', '', '人人', '是范德萨发', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://www.zsf.com6', '', 'erewr', NULL, '', NULL, 'it6', '上海', '上海', NULL, '22,133,24,10,2,6', '2017-10-30 15:12:59');
-INSERT INTO `tb_user` VALUES (4, 'admin2', '2017-10-30 15:25:16', '我是管理员888', 'female', '', '', '淘淘', '给的他人', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://jlkjljl.com6', '', 'dsgs', NULL, '', NULL, 'IT行业6', '重庆', '重庆', NULL, '1,2,3', '2017-10-30 15:25:16');
-INSERT INTO `tb_user` VALUES (5, 'sysadmin7', '2017-10-30 15:13:01', '随寓随安', NULL, NULL, NULL, '嗯嗯', '柔柔弱弱', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://www.zsf.com6', NULL, 'hdh', NULL, NULL, NULL, 'it6', '济南', '济南', NULL, '56,99,4,9', '2017-10-30 15:13:01');
-INSERT INTO `tb_user` VALUES (6, 'sys', '2017-10-30 15:25:17', '实验室', NULL, NULL, NULL, '由于', '额特务', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://jlkjljl.com6', NULL, 'sfdsg', NULL, NULL, NULL, 'IT行业6', '合肥', '合肥', NULL, '67', '2017-10-30 15:25:17');
-INSERT INTO `tb_user` VALUES (7, 'xbs', '2017-10-30 15:25:20', '学布斯', 'female', '1231312', '324214124', '格式工厂', '大范甘迪', '多少个但是反倒是', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://www.zsf.com6', 'lurwoiuro', 'jlsdkfjklsj', NULL, 'jfdslfjklsjfl', 'on', '了会计分录肯定是', '美国洛杉矶', '美国洛杉矶', NULL, '378', '2017-10-30 15:25:20');
-INSERT INTO `tb_user` VALUES (8, 'aaa', '2017-10-30 15:13:04', 'AAA', 'female', '', '', '嗯嗯', '而我特务', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://jlkjljl.com6', '', 'dsfsr', NULL, '', 'on', 'it6', '广州', '广州', NULL, '2,55,6,89,234,123', '2017-10-30 22:43:26');
-INSERT INTO `tb_user` VALUES (9, 'xuebusi', '2017-10-30 15:25:20', '学不死教育', 'female', '', '', '一谢文婷', '434天天热帖', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://www.zsf.com6', '', 'fdgdg', NULL, '', 'on', 'IT行业6', '成都', '成都', NULL, '20,1,7', '2017-10-30 15:25:20');
-INSERT INTO `tb_user` VALUES (10, 'zhangsan', '2017-10-30 15:13:06', '张三', 'female', '', '', '日期', '认为他', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://jlkjljl.com6', '', 'gfdh', NULL, '', 'on', 'it6', '哈尔滨', '哈尔滨', NULL, '1,2,3,4,5,6,7,8,9', '2017-10-30 15:13:06');
-INSERT INTO `tb_user` VALUES (11, 'lisi', '2017-10-30 15:25:25', '李四', 'female', '239402984028', '15878765646', '退热贴', 'retreat', '热太热太热他', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://www.zsf.com6', '儿童热t', 'dgfd', NULL, '儿童热帖', 'on', 'IT行业6', '齐齐哈尔', '齐齐哈尔', NULL, '12,34,23,24,36,76,45,32,1', '2017-10-30 15:25:25');
-INSERT INTO `tb_user` VALUES (12, 'wangwu', '2017-10-30 15:13:13', '王五', 'female', '24324', '23432432', '546546', '45645', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://jlkjljl.com6', '456456', 'sgrwty', NULL, '645646', 'on', '456456457', '南京', '南京', NULL, '56,7,8,4,5,2,34,22', '2017-10-30 15:13:13');
-INSERT INTO `tb_user` VALUES (13, 'xiaohua', '2017-10-30 15:25:25', '小花', NULL, NULL, NULL, '问我', '而我认为', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://jlkjljl.com6', NULL, 'dgfd', NULL, NULL, NULL, 'it6', '三亚', '三亚', NULL, '3,4,22,34,2,88', '2017-10-30 15:25:25');
-INSERT INTO `tb_user` VALUES (14, 'ttt', '2017-10-30 15:13:08', '通天塔', NULL, NULL, NULL, '3而威尔', '染色体我', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://www.zsf.com6', NULL, 'fdhd', NULL, NULL, NULL, 'IT行业6', '乌鲁木齐', '乌鲁木齐', NULL, NULL, '2017-10-30 15:13:08');
-INSERT INTO `tb_user` VALUES (26, 'caiyuyu', '2017-11-04 16:53:18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-04 16:53:18');
-INSERT INTO `tb_user` VALUES (31, 'caiyuyuaaa', '2017-11-04 20:07:49', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-04 20:07:49');
-INSERT INTO `tb_user` VALUES (38, '5086539099', '2017-11-04 22:15:49', '用户st32ih93hu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'http://weibo.com/5086539099/info', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-11-04 22:15:49');
-COMMIT;
 INSERT INTO `tb_user` VALUES ('1', 'sysadmin', '2017-10-30 14:33:49', '系统管理员', 'female', '110101194905063476', '1390108887', '道长6', '老大6', '我是老大我怕谁6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://www.zsf.com6', 'http://weibo.com/zsf6', 'zhangsanfeng6', null, '5678976', 'on', 'it6', '北京市大兴区', '北京张氏有限公司6', null, '3,90,1,34,99,56,2,7,8', '2017-10-30 14:33:49');
 INSERT INTO `tb_user` VALUES ('2', 'admin', '2017-10-30 15:25:10', '管理员', 'female', '110101198809086666', '13420983378', '研发工程师6', '高级工程师6', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://jlkjljl.com6', 'http://owueo.com6', 'jlsk6', null, '556656', 'on', 'IT行业6', 'beijing6', '慕课网6', null, '3,4,78,123,5,67', '2017-10-30 15:25:10');
 INSERT INTO `tb_user` VALUES ('3', 'admin1', '2017-10-30 15:12:59', '我是管理员555', 'female', '', '', '人人', '是范德萨发', '只要学不死，就往死里学！6', '<p>杨真 资深软件架构师 曾就职于Sun中国工程研究院，负责Java 虚拟机的定制开发工作；之后就任腾讯无线部门技术负责人，引领开发了第一版的欢乐斗地主、QQ空间移动版及QQ音乐；2013年自主创业并任公司CTO，开发了多款基于爬虫、大数据及搜索引擎的商业应用及产品。06年硕士毕业于北京航空航天大学计算机专业，一直从事软件研发工作，具备丰富的互联网产品研发经验</p>\r\n', 'http://www.zsf.com6', '', 'erewr', null, '', null, 'it6', '上海', '上海', null, '22,133,24,10,2,6', '2017-10-30 15:12:59');
@@ -1135,28 +1096,13 @@ INSERT INTO `tb_user` VALUES ('14', 'ttt', '2017-10-30 15:13:08', '通天塔', n
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_weibo_user`;
 CREATE TABLE `tb_weibo_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `weibo_id` varchar(64) NOT NULL COMMENT '微博帐号id',
-  `username` varchar(64) NOT NULL COMMENT '用户名',
   `access_token` varchar(100) NOT NULL COMMENT '微博授权token',
   `state` int(11) NOT NULL DEFAULT '1' COMMENT '状态 1:正常',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='微博用户表';
-
--- ----------------------------
--- Records of tb_weibo_user
--- ----------------------------
-BEGIN;
-INSERT INTO `tb_weibo_user` VALUES (5, '5086539099', '5086539099', '2.00NLbOYFVADmcBf3ed2938f50oaTRQ', 0, '2017-11-04 22:18:59', '2017-11-04 22:18:59');
-INSERT INTO `tb_weibo_user` VALUES (6, '5086539099', 'caiyuyu', '2.00NLbOYFVADmcBf3ed2938f50oaTRQ', 0, '2017-11-05 01:35:31', '2017-11-05 01:35:31');
-INSERT INTO `tb_weibo_user` VALUES (7, '5086539099', 'caiyuyu', '2.00NLbOYFVADmcBf3ed2938f50oaTRQ', 0, '2017-11-05 01:35:44', '2017-11-05 01:35:44');
-INSERT INTO `tb_weibo_user` VALUES (8, '5086539099', 'caiyuyuaaa', '2.00NLbOYFVADmcBf3ed2938f50oaTRQ', 0, '2017-11-05 01:36:10', '2017-11-05 01:36:10');
-INSERT INTO `tb_weibo_user` VALUES (9, '5086539099', '5086539099', '2.00NLbOYFVADmcBf3ed2938f50oaTRQ', 0, '2017-11-05 01:36:39', '2017-11-05 01:36:39');
-INSERT INTO `tb_weibo_user` VALUES (10, '5086539099', 'caiyuyu', '2.00NLbOYFVADmcBf3ed2938f50oaTRQ', 0, '2017-11-05 01:38:12', '2017-11-05 01:38:12');
-INSERT INTO `tb_weibo_user` VALUES (11, '5086539099', 'caiyuyu', '2.00NLbOYFVADmcBf3ed2938f50oaTRQ', 1, '2017-11-05 01:47:32', '2017-11-05 01:47:32');
-COMMIT;
+  PRIMARY KEY (`weibo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='微博用户表';
 
 -- ----------------------------
 -- Records of tb_weibo_user
