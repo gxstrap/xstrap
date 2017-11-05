@@ -11,6 +11,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -65,7 +69,14 @@ public class SettingController extends BaseController {
      * @return
      */
     @PostMapping
-    public ModelAndView saveSettings(UserFormVo userFormVo, HttpServletRequest request, Map<String, Object> map) {
+    public ModelAndView saveSettings(@Validated UserFormVo userFormVo, BindingResult bindingResult, Map<String, Object> map) {
+
+        if (bindingResult.hasErrors()) {
+            List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+            FieldError error = fieldErrors.get(0);
+            map.put("errMsg_" + error.getField(), error.getDefaultMessage());
+            return new ModelAndView("/settings/settings", map);
+        }
         if (this.getUserInfo() != null && this.getUserInfo().getUsername().equals(userFormVo.getUsername())) {
             User user = userService.findByUsername(userFormVo.getUsername());
             if (user == null) {

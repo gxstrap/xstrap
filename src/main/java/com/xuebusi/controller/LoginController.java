@@ -1,22 +1,28 @@
 package com.xuebusi.controller;
 
 import com.xuebusi.common.utils.MD5Utils;
+import com.xuebusi.common.vcode.Captcha;
+import com.xuebusi.common.vcode.SpecCaptcha;
 import com.xuebusi.entity.LoginInfo;
 import com.xuebusi.entity.User;
 import com.xuebusi.service.LoginService;
 import com.xuebusi.service.UserService;
 import com.xuebusi.vo.UserVo;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.session.Session;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -85,8 +91,8 @@ public class LoginController extends BaseController {
      * @param map
      * @return
      */
-    @GetMapping(value = "/logout")
-    public ModelAndView logout(HttpServletRequest request, Map<String, Object> map) {
+    @GetMapping(value = "/logout2")
+    public ModelAndView logout2(HttpServletRequest request, Map<String, Object> map) {
         request.getSession().invalidate();
         return new ModelAndView("/user/login", map);
     }
@@ -95,6 +101,20 @@ public class LoginController extends BaseController {
     public String check() {
 
         return "";
+    }
+
+    /**
+     * 退出登录
+     * @return
+     */
+    @GetMapping(value="/logout")
+    public ModelAndView logout(){
+        try {
+            SecurityUtils.getSubject().logout();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return new ModelAndView(new RedirectView("/login"));
     }
 
     /**
@@ -107,12 +127,39 @@ public class LoginController extends BaseController {
     }
 
     /**
+     * 获取验证码(PNG格式)
+     * @param response
+     */
+    @RequestMapping(value="/login/captcha/check",method=RequestMethod.GET)
+    public void getPngCode(HttpServletResponse response,HttpServletRequest request){
+        try {
+            response.setHeader("Pragma", "No-cache");
+            response.setHeader("Cache-Control", "no-cache");
+            response.setDateHeader("Expires", 0);
+            response.setContentType("image/gif");
+            /**
+             * gif格式动画验证码
+             * 宽，高，位数。
+             */
+            //Captcha captcha = new GifCaptcha(146,33,4);
+            Captcha captcha = new SpecCaptcha(146, 33, 4);
+            //输出
+            captcha.out(response.getOutputStream());
+            HttpSession session = request.getSession(true);
+            //存入Session
+            session.setAttribute("_code",captcha.text().toLowerCase());
+        } catch (Exception e) {
+            System.err.println("获取验证码异常："+e.getMessage());
+        }
+    }
+
+    /**
      * 用户登录
      * @param username 用户名
      * @param password 密码
      * @return
      */
-    @PostMapping(value = "/login")
+    @PostMapping(value = "/login2")
     public ModelAndView login(@RequestParam("username")String username,
                              @RequestParam("password")String password,
                              HttpServletRequest request, Map<String, Object> map) {
@@ -135,6 +182,62 @@ public class LoginController extends BaseController {
         map.put("errMsg", "用户名或密码不正确");
         return new ModelAndView("/user/login", map);
     }
+
+    /**
+     * shiro登录
+     *
+     * @param username
+     * @param password
+     * @param request
+     * @param map
+     * @return
+     */
+    @PostMapping(value="/login")
+    public ModelAndView submitLogin(@RequestParam("username")String username,
+                                    @RequestParam("password")String password,
+                                    @RequestParam("vcode")String vcode,
+                                    HttpServletRequest request,
+                                    Map<String, Object> map) {
+        if (this.getUserInfo() != null){
+            return new ModelAndView(new RedirectView("/my/courses/learning"), map);
+        }
+
+        if(vcode==null||vcode==""){
+            map.put("errMsg", "验证码不能为空！");
+            return new ModelAndView("/user/login", map);
+        }
+
+        Session session = SecurityUtils.getSubject().getSession();
+        //转化成小写字母
+        vcode = vcode.toLowerCase();
+        String v = (String) session.getAttribute("_code");
+        //还可以读取一次后把验证码清空，这样每次登录都必须获取验证码
+        session.removeAttribute("_code");
+        if(!vcode.equals(v)){
+            map.put("errMsg", "验证码错误！");
+            return new ModelAndView("/user/login", map);
+        }
+
+        try {
+            UsernamePasswordToken token = new UsernamePasswordToken(username, password,false);
+            SecurityUtils.getSubject().login(token);
+
+            LoginInfo loginInfo = loginService.findByUsername(username);
+            User user = userService.findByUsername(username);
+            UserVo userVo = new UserVo();
+            BeanUtils.copyProperties(user, userVo);
+            userVo.setTitleImgUrl(loginInfo.getTitleUrl());
+            //登录后将用户信息放入Session
+            request.getSession().setAttribute("user", userVo);
+            map.put("user", userVo);
+            return new ModelAndView(new RedirectView("/my/courses/learning"), map);
+
+        } catch (Exception e) {
+            map.put("errMsg", "帐号或密码不正确！");
+            return new ModelAndView("/user/login", map);
+        }
+    }
+
 
     /**
      * 用户注册

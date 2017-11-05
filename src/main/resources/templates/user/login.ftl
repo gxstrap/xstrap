@@ -120,6 +120,25 @@
                         </div>
                     </div>
 
+                    <div class="form-group mbl js-captcha">
+                        <label class="control-label required" for="captcha_code">验证码</label>
+                        <div class="controls row">
+                            <div class="col-xs-7">
+                                <input type="text" class="form-control input-lg" id="vcode" name="vcode" maxlength="5" placeholder="验证码" data-url="/login/captcha/check">
+                                <p class="help-block"></p>
+                            </div>
+                            <div class="col-xs-5">
+                                <img src="/login/captcha/check" data-url="/login/captcha/check" id="codePic" onclick="getPic();" title="看不清，点击换一张" style="cursor:pointer;height:40px;width:100%">
+                            </div>
+                            <script type="text/javascript">
+                                function getPic(){
+                                    $("#codePic").attr("src","/login/captcha/check?flag="+Math.random());
+                                };
+                            </script>
+                        </div>
+                    </div>
+
+
                     <div id="errMsg" style="padding: 0">
                         <#if errMsg?exists >
                             <div class="alert alert-danger">${errMsg}</div>
@@ -171,7 +190,6 @@
         </div>
     </div>
 </div>
-
 <#include "../common/sidebar.ftl">
 <#include "../common/login-modal.ftl">
 </body>

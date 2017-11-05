@@ -3,6 +3,7 @@ package com.xuebusi.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Date;
  * Created by SYJ on 2017/10/30.
  */
 @Entity
-public class Friend {
+public class Friend implements Serializable {
 
     @Id
     @GeneratedValue

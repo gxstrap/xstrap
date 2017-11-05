@@ -1,18 +1,20 @@
 package com.xuebusi.vo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 查看用户资料
  * Created by SYJ on 2017/10/30.
  */
-public class UserVo {
+public class UserVo implements Serializable {
 
     private Integer id;
     private String username;//用户名
     private Date createTime;//创建时间
     private String truename;//真实姓名
     private String gender;//性别
+    private String idcard;//身份证号码
     private String mobile;//手机号码
     private String company;//公司
     private String job;//职业
@@ -69,6 +71,14 @@ public class UserVo {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getIdcard() {
+        return idcard;
+    }
+
+    public void setIdcard(String idcard) {
+        this.idcard = idcard;
     }
 
     public String getMobile() {
