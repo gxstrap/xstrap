@@ -43,7 +43,7 @@
                     <span class="mrm">${(user.title)!'暂无头衔'}</span>
                 </div>
                 <div class="mates">
-                    <span class="mrm">36</span>粉丝<span class="mlm mrm">｜</span><span class="mrm">0</span>关注
+                    <span class="mrm">${(user.fansCount)!}</span>粉丝<span class="mlm mrm">｜</span><span class="mrm">${(user.followCount)!}</span>关注
                 </div>
                 <div class="actions">
                     <a class="btn btn-primary follow-btn mrl" href="javascript:;" data-url="/user/${(user.id)!}/follow">关注</a>
