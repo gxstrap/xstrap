@@ -2,9 +2,11 @@ package com.xuebusi.controller;
 
 import com.xuebusi.common.result.JsonResult;
 import com.xuebusi.entity.LoginInfo;
+import com.xuebusi.entity.test.Employee;
 import com.xuebusi.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -64,6 +66,19 @@ public class TestController {
     @RequestMapping(value = "/saveLoginInfo")
     public String updateLoginInfo(@ModelAttribute("loginInfo") LoginInfo loginInfo) {
         loginService.save(loginInfo);
+        return "success";
+    }
+
+    /**
+     * 测试日期数据类型转换
+     * 使用@DateTimeFormat注解对出生日期进行格式转换;
+     * 使用@NumberFormat注解对薪水进行数字格式转换;
+     * @param employee
+     * @return
+     */
+    @PostMapping(value = "/emp")
+    public String saveEmployee(Employee employee) {
+        System.out.println(employee);
         return "success";
     }
 
