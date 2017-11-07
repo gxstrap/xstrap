@@ -51,7 +51,7 @@
                 <a><i class="es-icon es-icon-chevronleft"></i></a>
             </div>
             <a href="/" class="navbar-brand">
-                <img src="/images/19876785c34d6a348876.png">
+                <img src="/images/19876785c34d6a348876(副本).png">
             </a>
         </div>
         <ul class="nav navbar-nav topNav clearfix hidden-xs " id="nav">
