@@ -32,12 +32,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
     private LessonService lessonService;
 
     @Autowired
-    private TeacherService teacherService;
-
-    @Autowired
     private UserService userService;
-
-    //private ServletContext servletContext;
 
     @Override
     public void afterPropertiesSet() throws Exception {
@@ -45,14 +40,8 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
         courseCache();
         courseDetailCache();
         lessonCache();
-        teacherCache();
         userCache();
     }
-
-    /*@Override
-    public void setServletContext(ServletContext servletContext) {
-        this.servletContext = servletContext;
-    }*/
 
     /**
      * 登录用户信息缓存
@@ -104,19 +93,6 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
             }
         }
         logger.info(">>>>>> 缓存课时信息 >>>>>>\n\n");
-    }
-
-    /**
-     * 缓存讲师信息
-     */
-    private void teacherCache() {
-        List<Teacher> teacherList = teacherService.findAll();
-        if (teacherList != null && teacherList.size() > 0) {
-            for (Teacher teacher : teacherList) {
-                InitDataCacheMap.getTeacherCacheMap().put(String.valueOf(teacher.getId()), teacher);
-            }
-        }
-        logger.info(">>>>>> 缓存讲师信息 >>>>>>\n\n");
     }
 
     /**

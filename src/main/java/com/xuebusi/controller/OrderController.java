@@ -23,7 +23,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = "/order")
-public class OrderController {
+public class OrderController extends BaseController {
 
     private static final SimpleDateFormat dateFormart = new SimpleDateFormat("yyyyMMddHHssmm");
 

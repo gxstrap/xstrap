@@ -1,21 +1,14 @@
 package com.xuebusi.common.utils;
 
-import com.alibaba.fastjson.JSON;
-import freemarker.template.Configuration;
-import freemarker.template.Template;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStreamWriter;
 import java.io.RandomAccessFile;
-import java.io.StringWriter;
 import java.util.Enumeration;
-import java.util.Map;
 import java.util.Properties;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -31,65 +24,6 @@ public class FileUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(FileUtil.class);
 
     public FileUtil() {
-    }
-
-    public static void createFileTemplate(Map dataMap, String templateName, String templateUrl, String fileUrl) {
-        try {
-            Configuration e = new Configuration();
-            e.setDefaultEncoding("UTF-8");
-            e.setDirectoryForTemplateLoading(new File(templateUrl));
-            Template template = e.getTemplate(templateName);
-            template.setEncoding("UTF-8");
-            File outFile = new File(fileUrl);
-            if(!outFile.getParentFile().exists()) {
-                outFile.getParentFile().mkdirs();
-            }
-
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
-            template.process(dataMap, out);
-            out.flush();
-            out.close();
-        } catch (Exception ex) {
-            LOGGER.error("createFileTemplate[dataMap{},templateUrl{},fileUrl{},exception{}]", new Object[]{JSON.toJSONString(dataMap), templateUrl, fileUrl, ex.getMessage()});
-        }
-
-    }
-
-    public static String getFileTemplate(Map dataMap, String templateName, String templateUrl, String fileUrl) {
-        try {
-            Configuration e = new Configuration();
-            e.setDefaultEncoding("UTF-8");
-            e.setDirectoryForTemplateLoading(new File(templateUrl));
-            Template template = e.getTemplate(templateName);
-            template.setEncoding("UTF-8");
-            File outFile = new File(fileUrl);
-            if(!outFile.getParentFile().exists()) {
-                outFile.getParentFile().mkdirs();
-            }
-
-            StringWriter out = new StringWriter();
-            template.process(dataMap, out);
-            return out.toString();
-        } catch (Exception var8) {
-            LOGGER.error("createFileTemplate[dataMap{},templateUrl{},fileUrl{},exception{}]", new Object[]{JSON.toJSONString(dataMap), templateUrl, fileUrl, var8.getMessage()});
-            return "";
-        }
-    }
-
-    public static String getFileTemplate(Map dataMap, String templateName, Class classLoader, String prefix, String fileUrl) {
-        try {
-            Configuration e = new Configuration();
-            e.setDefaultEncoding("UTF-8");
-            e.setClassForTemplateLoading(classLoader, prefix);
-            Template template = e.getTemplate(templateName);
-            template.setEncoding("UTF-8");
-            StringWriter out = new StringWriter();
-            template.process(dataMap, out);
-            return out.toString();
-        } catch (Exception var8) {
-            LOGGER.error("createFileTemplate[dataMap{},fileUrl{},exception{}]", new Object[]{JSON.toJSONString(dataMap), fileUrl, var8.getMessage()});
-            return "";
-        }
     }
 
     public static Properties loadProperties(Class classz, String resources) {

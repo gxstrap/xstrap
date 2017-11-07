@@ -3,6 +3,7 @@ package com.xuebusi.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "tb_course")
-public class Course {
+public class Course implements Serializable {
 
     @Id
     private Integer id;

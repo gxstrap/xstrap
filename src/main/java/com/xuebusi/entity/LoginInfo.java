@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,13 +13,14 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "tb_login_info")
-public class LoginInfo {
+public class LoginInfo implements Serializable {
 
     @Id
     @GeneratedValue
     private Integer id;
     private String username;
     private String password;
+    private String titleUrl;//头像
     private Date createTime;
     private Date updateTime;
 
@@ -46,6 +48,14 @@ public class LoginInfo {
         this.password = password;
     }
 
+    public String getTitleUrl() {
+        return titleUrl;
+    }
+
+    public void setTitleUrl(String titleUrl) {
+        this.titleUrl = titleUrl;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -61,5 +71,4 @@ public class LoginInfo {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
-
 }

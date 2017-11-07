@@ -47,10 +47,10 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User findByUsername(String username) {
-        User user = InitDataCacheMap.getUserCacheMap().get(username);
+        /*User user = InitDataCacheMap.getUserCacheMap().get(username);
         if (user != null) {
             return user;
-        }
+        }*/
         return userRepository.findByUsername(username);
     }
 

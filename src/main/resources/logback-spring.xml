@@ -51,4 +51,7 @@
         <appender-ref ref="fileErrorLog" />
     </root>
 
+    <!-- show mybatis sql -->
+    <logger name="com.xuebusi.mapper" level="DEBUG"></logger>
+
 </configuration>

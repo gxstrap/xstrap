@@ -1,16 +1,24 @@
 package com.xuebusi.vo;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.Range;
+
+import java.io.Serializable;
+
 /**
  * 用户设置信息
  * Created by SYJ on 2017/10/22.
  */
-public class UserFormVo {
+public class UserFormVo implements Serializable {
 
     private Integer id;
     private String username;//用户名
     private String truename;//真实姓名
     private String gender;//性别
+    @NotBlank(message = "身份证号码不能为空")
     private String idcard;//身份证号码
+    @Length(min = 11, max = 11, message = "手机号码长度必须为11位数字")
     private String mobile;//手机号码
     private String company;//公司
     private String job;//职业
