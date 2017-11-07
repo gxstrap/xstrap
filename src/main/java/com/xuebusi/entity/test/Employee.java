@@ -1,8 +1,14 @@
 package com.xuebusi.entity.test;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -11,12 +17,19 @@ import java.util.Date;
  */
 public class Employee {
 
+    @NotEmpty
     private String name;
-    private Integer age;
+
+    @NotNull
+    private Integer gender;
+
+    @Email
+    private String email;
 
     /**
      * 使用@DateTimeFormat对日期进行格式转换
      */
+    @Past
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birth;
 
@@ -34,12 +47,20 @@ public class Employee {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
+    public Integer getGender() {
+        return gender;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Date getBirth() {
@@ -62,7 +83,8 @@ public class Employee {
     public String toString() {
         return "Employee{" +
                 "name='" + name + '\'' +
-                ", age=" + age +
+                ", gender=" + gender +
+                ", email='" + email + '\'' +
                 ", birth=" + birth +
                 ", salary=" + salary +
                 '}';

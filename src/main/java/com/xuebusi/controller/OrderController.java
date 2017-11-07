@@ -4,6 +4,8 @@ import com.xuebusi.entity.Course;
 import com.xuebusi.service.CourseService;
 import com.xuebusi.vo.OrderCreateVo;
 import com.xuebusi.vo.PayCenterInfoVo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,8 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/order")
 public class OrderController extends BaseController {
+
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     private static final SimpleDateFormat dateFormart = new SimpleDateFormat("yyyyMMddHHssmm");
 

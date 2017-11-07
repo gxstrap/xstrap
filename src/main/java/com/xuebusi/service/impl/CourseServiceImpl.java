@@ -6,6 +6,8 @@ import com.xuebusi.enums.CourseCategoryEnum;
 import com.xuebusi.enums.CourseNavigationEnum;
 import com.xuebusi.repository.CourseRepository;
 import com.xuebusi.service.CourseService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +23,8 @@ import java.util.*;
  */
 @Service
 public class CourseServiceImpl implements CourseService {
+
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private CourseRepository courseRepository;

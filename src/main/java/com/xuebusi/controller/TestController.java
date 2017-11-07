@@ -4,12 +4,15 @@ import com.xuebusi.common.result.JsonResult;
 import com.xuebusi.entity.LoginInfo;
 import com.xuebusi.entity.test.Employee;
 import com.xuebusi.service.LoginService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +23,8 @@ import java.util.Map;
 @RestController
 @RequestMapping(value = "/test")
 public class TestController {
+
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private LoginService loginService;
@@ -77,8 +82,28 @@ public class TestController {
      * @return
      */
     @PostMapping(value = "/emp")
-    public String saveEmployee(Employee employee) {
+    public String saveEmployee(@Valid Employee employee, BindingResult result) {
         System.out.println(employee);
+        if (result.getErrorCount() > 0) {
+            for (FieldError error : result.getFieldErrors()) {
+                return error.getField() + "," + error.getDefaultMessage();
+            }
+        }
+        return "success";
+    }
+
+    /**
+     * 测试文件上传
+     * @param desc
+     * @param file
+     * @return
+     */
+    @PostMapping(value = "/upload")
+    public String fileUpload(@RequestParam("desc") String desc, @RequestParam MultipartFile file) {
+
+        System.out.println(desc);
+        System.out.println(file.getOriginalFilename());
+
         return "success";
     }
 

@@ -10,6 +10,8 @@ import com.xuebusi.service.WeiboLoginService;
 import com.xuebusi.vo.UserFormVo;
 import com.xuebusi.vo.UserVo;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +37,8 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/settings")
 public class SettingController extends BaseController {
+
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private UserService userService;

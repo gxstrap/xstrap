@@ -4,6 +4,8 @@ import com.xuebusi.common.cache.InitDataCacheMap;
 import com.xuebusi.entity.CourseDetail;
 import com.xuebusi.repository.CourseDetailRepository;
 import com.xuebusi.service.CourseDetailService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,8 @@ import java.util.List;
  */
 @Service
 public class CourseDetailServiceImpl implements CourseDetailService {
+
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private CourseDetailRepository courseDetailRepository;

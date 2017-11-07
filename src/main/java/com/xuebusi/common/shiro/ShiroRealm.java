@@ -1,16 +1,15 @@
 package com.xuebusi.common.shiro;
 
-import com.xuebusi.common.utils.MD5Utils;
 import com.xuebusi.entity.LoginInfo;
 import com.xuebusi.entity.SysUser;
 import com.xuebusi.service.LoginService;
-import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashSet;
@@ -20,7 +19,7 @@ import java.util.Set;
  * shiro身份校验核心类
  */
 
-public class MyShiroRealm extends AuthorizingRealm {
+public class ShiroRealm extends AuthorizingRealm {
 
 	@Autowired
 	private LoginService loginService;
@@ -36,17 +35,18 @@ public class MyShiroRealm extends AuthorizingRealm {
 	protected AuthenticationInfo doGetAuthenticationInfo(
 			AuthenticationToken authcToken) throws AuthenticationException {
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-		String name = token.getUsername();
-		String password = String.valueOf(token.getPassword());
+		String username = token.getUsername();
 
 		// 从数据库获取对应用户名密码的用户
-		LoginInfo loginInfo = loginService.findByUsername(name);
-
-		if (null == loginInfo || !loginInfo.getPassword().equals(MD5Utils.md5(password))) {
+		LoginInfo loginInfo = loginService.findByUsername(username);
+		if (loginInfo != null) {
+			Object credentials = loginInfo.getPassword();//数据库中的密码
+			ByteSource credentialsSalt = ByteSource.Util.bytes(username);//用户名作为盐值
+			String realm = getName();//当前Realm对象的名字
+			return new SimpleAuthenticationInfo(loginInfo.getUsername(), credentials, credentialsSalt, realm);
+		}else {
 			throw new AccountException("帐号或密码不正确！");
 		}
-		Logger.getLogger(getClass()).info("身份认证成功，登录用户：" + name);
-		return new SimpleAuthenticationInfo(loginInfo, password, getName());
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class MyShiroRealm extends AuthorizingRealm {
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(
 			PrincipalCollection principals) {
-		System.out.println("权限认证方法：MyShiroRealm.doGetAuthorizationInfo()");
+		System.out.println("权限认证方法：ShiroRealm.doGetAuthorizationInfo()");
 		SysUser user = (SysUser)SecurityUtils.getSubject().getPrincipal();
 		String userId = user.getId();
 		SimpleAuthorizationInfo info =  new SimpleAuthorizationInfo();
@@ -82,4 +82,5 @@ public class MyShiroRealm extends AuthorizingRealm {
 		info.setStringPermissions(permissionSet);
         return info;
 	}
+
 }

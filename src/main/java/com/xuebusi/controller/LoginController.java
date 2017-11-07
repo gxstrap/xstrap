@@ -11,6 +11,8 @@ import com.xuebusi.vo.UserVo;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +33,8 @@ import java.util.Map;
 @Controller
 @RequestMapping
 public class LoginController extends BaseController {
+
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private LoginService loginService;
@@ -220,7 +224,7 @@ public class LoginController extends BaseController {
         try {
             UsernamePasswordToken token = new UsernamePasswordToken(username, password,false);
             SecurityUtils.getSubject().login(token);
-
+            log.info("身份认证成功，登录用户：" + username);
             LoginInfo loginInfo = loginService.findByUsername(username);
             User user = userService.findByUsername(username);
             UserVo userVo = new UserVo();
@@ -264,7 +268,7 @@ public class LoginController extends BaseController {
         //保存注册用户
         LoginInfo loginInfo = new LoginInfo();
         loginInfo.setUsername(username);
-        loginInfo.setPassword(MD5Utils.md5(password));
+        loginInfo.setPassword(MD5Utils.md5Salt(username, password));
         loginInfo.setCreateTime(new Date());
         loginInfo.setUpdateTime(new Date());
         loginService.save(loginInfo);
