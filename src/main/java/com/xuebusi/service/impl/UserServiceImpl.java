@@ -4,6 +4,8 @@ import com.xuebusi.common.cache.InitDataCacheMap;
 import com.xuebusi.entity.User;
 import com.xuebusi.repository.UserRepository;
 import com.xuebusi.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,8 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl implements UserService {
+
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private UserRepository userRepository;

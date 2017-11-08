@@ -1,5 +1,7 @@
 package com.xuebusi.common.utils;
 
+import org.apache.shiro.crypto.hash.SimpleHash;
+import org.apache.shiro.util.ByteSource;
 import org.springframework.util.StringUtils;
 
 import java.math.BigInteger;
@@ -8,6 +10,23 @@ import java.security.NoSuchAlgorithmException;
 
 
 public class MD5Utils {
+
+	public static final String MD5 = "MD5";//md5加密
+	public static final String SHA1 = "SHA1";//sha1加密
+	public static final int HASH_ITERATIONS = 1024;//加密次数
+
+	/**
+	 * md5盐值加密
+	 * @param username
+	 * @param password
+	 * @return
+	 */
+	public static String md5Salt(String username, String password) {
+		ByteSource salt = ByteSource.Util.bytes(username);//用户名作为盐值
+		SimpleHash simpleHash = new SimpleHash(MD5, password, salt, HASH_ITERATIONS);
+		return simpleHash.toString();
+	}
+
 	/**
 	 * 对字符串进行Md5加密
 	 * 
@@ -38,9 +57,14 @@ public class MD5Utils {
 		}
 		return md5(salt + md5(input));
 	}
-	
+
+	/**
+	 * 加密测试
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		System.out.println(md5("111111"));;
+		//038bdaf98f2037b31f1e75b5b4c9b26e
+		System.out.println(MD5Utils.md5Salt("admin", "123456"));
 	}
 	
 }
