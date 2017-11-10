@@ -8,6 +8,12 @@ import com.xuebusi.entity.User;
 import com.xuebusi.service.LoginService;
 import com.xuebusi.service.UserService;
 import com.xuebusi.vo.UserVo;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
@@ -31,6 +37,7 @@ import java.util.Map;
  * Created by SYJ on 2017/10/14.
  */
 @Controller
+@Api(value = "登陆接口", description = "登陆服务接口")
 @RequestMapping
 public class LoginController extends BaseController {
 
@@ -48,6 +55,9 @@ public class LoginController extends BaseController {
      * @return
      */
     @GetMapping(value = "/register")
+    @ApiOperation(value = "跳转到注册页")
+    @ApiImplicitParams(value = {
+			@ApiImplicitParam(name = "map", value = "登陆所需参数", required = true, dataType = "Map") })
     public ModelAndView register(HttpServletRequest request, Map<String, Object> map) {
         if (this.getUserInfo() != null) {
             return new ModelAndView(new RedirectView("/my/courses/learning"));
