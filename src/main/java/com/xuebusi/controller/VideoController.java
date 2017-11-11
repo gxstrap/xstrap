@@ -100,15 +100,17 @@ public class VideoController extends BaseController
     public ModelAndView play(@PathVariable("pk") String courseId, HttpServletRequest request)
         throws Exception
     {
-        /**
-         * 添加测试数据 start
-         */
-        File file = new File("test-video.mp4");
-        Course tempCourse = courseService.findOne(Integer.parseInt(courseId));
-        videoService.uploadVideo(file, tempCourse.getId().toString());
-        /**
-         * 添加测试数据 end
-         */
+//        // type one
+//        /**
+//         * 添加测试数据 start
+//         */
+//        File file = new File("test-video.mp4");
+//        Course tempCourse = courseService.findOne(Integer.parseInt(courseId));
+//        videoService.uploadVideo(file, tempCourse.getId().toString());
+//        /**
+//         * 添加测试数据 end
+//         */
+
 
         Map<String, Object> returnMap = new HashMap<>(16);
         Course course = courseService.findOne(Integer.parseInt(courseId));

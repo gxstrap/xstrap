@@ -85,7 +85,9 @@ public class VideoService {
     }
 
     /**
-     * 加载
+     * 加载远程视频
+     * @param response
+     * @param courseId
      */
     public void loadVideoByTypeTwo(HttpServletResponse response, String courseId) throws Exception
     {
@@ -93,7 +95,9 @@ public class VideoService {
         if (null != course)
         {
             // 获取课程视频远程 url 地址
-            String url = course.getCourseLink();
+//            String url = course.getCourseLink();
+            // test
+            String url = "test-video.mp4";
             File file = new File(url);
             OutputStream o = response.getOutputStream();
             InputStream i = new FileInputStream(file);

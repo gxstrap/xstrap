@@ -75,7 +75,7 @@ aA[index].style.color = 'red'*/
             </p>
 
             <video height="500" controls preload="metadata" poster="起始图片.jpg">
-                <source id="blob-video" src="/course/video/${course_id}/type-one" type="video/mp4">
+                <source id="blob-video" src="/course/video/${course_id}/type-two" type="video/mp4">
             </video>
 
         </div>
