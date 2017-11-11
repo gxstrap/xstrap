@@ -8,7 +8,6 @@ import com.xuebusi.entity.User;
 import com.xuebusi.entity.WeiboUser;
 import com.xuebusi.mapper.WeiboUserMapper;
 import com.xuebusi.repository.LoginRepository;
-import com.xuebusi.repository.UserRepository;
 import com.xuebusi.repository.WeiboUserRepository;
 import com.xuebusi.vo.UserVo;
 import org.slf4j.Logger;
@@ -56,9 +55,6 @@ public class WeiboLoginService {
 
     @Autowired
     private WeiboUserMapper weiboUserMapper;
-
-    @Autowired
-    private UserRepository userRepository;
 
     @Autowired
     private LoginRepository loginRepository;

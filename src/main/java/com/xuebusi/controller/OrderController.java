@@ -47,6 +47,12 @@ public class OrderController extends BaseController {
 
         Course course = courseService.findOne(targetId);
         map.put("course", course);
+
+        // 价格判断，免费课程直接进入展示页
+        if (null!=course && course.getCoursePrice()<=0)
+        {
+            return new ModelAndView("/course/video/play/"+course.getId(), map);
+        }
         return new ModelAndView("/order/order-show", map);
     }
 
