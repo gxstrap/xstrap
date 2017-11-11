@@ -1,7 +1,7 @@
 package com.xuebusi.controller;
 
 import com.xuebusi.entity.Course;
-import com.xuebusi.repository.CourseRepository;
+import com.xuebusi.service.CourseService;
 import com.xuebusi.service.VideoService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +31,13 @@ public class VideoController extends BaseController
     private VideoService videoService;
 
     @Autowired
-    private CourseRepository courseRepository;
+    private CourseService courseService;
 
     /**
      * 上传本地视频，以 blob 格式保存在数据库
      * @param courseId
      * @param request
-     * @return
-     */
+     * @return */
     @RequestMapping(value = "/{pk}", method = RequestMethod.POST)
     public ResponseEntity upload(@PathVariable("pk") String courseId, HttpServletRequest request)
             throws Exception
@@ -99,9 +98,20 @@ public class VideoController extends BaseController
      */
     @RequestMapping(value = "/play/{pk}", method = RequestMethod.GET)
     public ModelAndView play(@PathVariable("pk") String courseId, HttpServletRequest request)
+        throws Exception
     {
+        /**
+         * 添加测试数据 start
+         */
+        File file = new File("test-video.mp4");
+        Course tempCourse = courseService.findOne(Integer.parseInt(courseId));
+        videoService.uploadVideo(file, tempCourse.getId().toString());
+        /**
+         * 添加测试数据 end
+         */
+
         Map<String, Object> returnMap = new HashMap<>(16);
-        Course course = courseRepository.findOne(Integer.parseInt(courseId));
+        Course course = courseService.findOne(Integer.parseInt(courseId));
         if (null != course)
         {
             returnMap.put("course_title", course.getCourseTitle());

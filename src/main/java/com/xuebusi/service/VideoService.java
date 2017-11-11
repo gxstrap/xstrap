@@ -55,6 +55,7 @@ public class VideoService {
         if (null != course)
         {
             course.setCourseData(blob);
+            courseRepository.saveAndFlush(course);
         }
 
         return returnMap;
