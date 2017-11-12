@@ -2,7 +2,6 @@ package com.xuebusi.vo;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.Range;
 
 import java.io.Serializable;
 

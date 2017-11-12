@@ -6,6 +6,8 @@ import com.xuebusi.enums.CourseNavigationEnum;
 import com.xuebusi.service.*;
 import com.xuebusi.vo.UserVo;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,6 +32,8 @@ import java.util.Map;
 @Controller
 @RequestMapping(value="/course")
 public class CourseController extends BaseController{
+
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private CourseService courseService;

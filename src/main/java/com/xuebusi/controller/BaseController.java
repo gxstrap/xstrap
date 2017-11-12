@@ -2,6 +2,8 @@ package com.xuebusi.controller;
 
 import com.xuebusi.common.utils.CommonUtils;
 import com.xuebusi.vo.UserVo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -12,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
  * Created by SYJ on 2017/10/23.
  */
 public class BaseController {
+
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     /**
      * 获取HttpServletRequest

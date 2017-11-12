@@ -3,6 +3,8 @@ package com.xuebusi.controller;
 import com.alibaba.fastjson.JSON;
 import com.xuebusi.entity.SysPermission;
 import com.xuebusi.service.SysPermissionService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,8 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "permission")
 public class PermissionController {
+
+	protected final Logger log = LoggerFactory.getLogger(getClass());
 
 	@Autowired
 	SysPermissionService sysPermissionService;

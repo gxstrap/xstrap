@@ -4,6 +4,8 @@ import com.xuebusi.entity.Course;
 import com.xuebusi.service.CourseService;
 import com.xuebusi.vo.OrderCreateVo;
 import com.xuebusi.vo.PayCenterInfoVo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,8 @@ import java.util.Map;
 @RequestMapping(value = "/order")
 public class OrderController extends BaseController {
 
+    protected final Logger log = LoggerFactory.getLogger(getClass());
+
     private static final SimpleDateFormat dateFormart = new SimpleDateFormat("yyyyMMddHHssmm");
 
     @Autowired
@@ -43,6 +47,12 @@ public class OrderController extends BaseController {
 
         Course course = courseService.findOne(targetId);
         map.put("course", course);
+
+        // 价格判断，免费课程直接进入展示页
+        if (null!=course && course.getCoursePrice()<=0)
+        {
+            return new ModelAndView("/course/video/play/"+course.getId(), map);
+        }
         return new ModelAndView("/order/order-show", map);
     }
 

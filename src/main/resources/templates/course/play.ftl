@@ -71,11 +71,11 @@ aA[index].style.color = 'red'*/
                 </a>
             </div>
             <p style="margin-left:36pt; text-align:center">
-                <h1>普通程序员如何转型到人工智能领域</h1>
+                <h1>${course_title}</h1>
             </p>
 
-            <video src="http://1253363188.vod2.myqcloud.com/dffc698fvodtransgzp1253363188/eb1aabd39031868223072399976/6jwcaMe8KBoA.f30.mp4" height="500" controls preload="metadata" poster="起始图片.jpg">//插入视频
-                <source src="http://1253363188.vod2.myqcloud.com/dffc698fvodtransgzp1253363188/eb1aabd39031868223072399976/6jwcaMe8KBoA.f30.mp4" type="video/mp4">
+            <video height="500" controls preload="metadata" poster="起始图片.jpg">
+                <source id="blob-video" src="/course/video/${course_id}/type-two" type="video/mp4">
             </video>
 
         </div>

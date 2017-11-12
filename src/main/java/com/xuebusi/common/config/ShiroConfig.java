@@ -1,9 +1,11 @@
 package com.xuebusi.common.config;
 
-import com.xuebusi.common.shiro.MyShiroRealm;
+import com.xuebusi.common.shiro.ShiroRealm;
 import com.xuebusi.common.shiro.filter.KickoutSessionControlFilter;
+import com.xuebusi.common.utils.MD5Utils;
 import com.xuebusi.entity.SysPermissionInit;
 import com.xuebusi.service.SysPermissionInitService;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -94,7 +96,7 @@ public class ShiroConfig {
 	public SecurityManager securityManager() {
 		DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
 		// 设置realm.
-		securityManager.setRealm(myShiroRealm());
+		securityManager.setRealm(getShiroRealm());
 		// 自定义缓存实现 使用redis
 		securityManager.setCacheManager(cacheManager());
 		// 自定义session管理 使用redis
@@ -110,10 +112,16 @@ public class ShiroConfig {
 	 * @return
 	 */
 	@Bean
-	public MyShiroRealm myShiroRealm() {
-		MyShiroRealm myShiroRealm = new MyShiroRealm();
-		return myShiroRealm;
+	public ShiroRealm getShiroRealm() {
+		ShiroRealm shiroRealm = new ShiroRealm();
+		HashedCredentialsMatcher matcher = new HashedCredentialsMatcher();
+		matcher.setHashAlgorithmName(MD5Utils.MD5);
+		matcher.setHashIterations(MD5Utils.HASH_ITERATIONS);
+		shiroRealm.setCredentialsMatcher(matcher);
+		return shiroRealm;
 	}
+
+
 
 	/**
 	 * 配置shiro redisManager

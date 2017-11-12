@@ -3,6 +3,8 @@ package com.xuebusi.controller;
 import com.xuebusi.entity.Course;
 import com.xuebusi.service.CourseService;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -25,6 +27,8 @@ import java.util.Map;
 @Controller
 @RequestMapping
 public class IndexController extends BaseController {
+
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private CourseService courseService;
