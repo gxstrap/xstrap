@@ -1,6 +1,7 @@
 package com.xuebusi.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,13 +10,14 @@ import java.util.Date;
  */
 @Entity
 @Table(name="tb_user")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue
     private Integer id;
     private String username;//用户名
     private Date createTime;//创建时间
+    private Date updateTime;//修改时间
     private String truename;//真实姓名
     private String gender;//性别
     private String idcard;//身份证号码
@@ -36,7 +38,8 @@ public class User {
     private String city;//所在城市
     private String courseIds;//所学课程id列表(逗号分隔)
 
-    public Integer getId() {
+
+	public Integer getId() {
         return id;
     }
 
@@ -211,4 +214,12 @@ public class User {
     public void setCourseIds(String courseIds) {
         this.courseIds = courseIds;
     }
+
+    public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
 }

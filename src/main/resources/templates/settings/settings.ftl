@@ -50,7 +50,7 @@
 
         }
     </script>
-    <#include "../common/header-login.ftl">
+    <#include "../common/header.ftl">
 
     <div id="content-container" class="container">
         <div class="row">
@@ -94,6 +94,9 @@
                                 </div>
                             </div>
 
+                            <#if errMsg_idcard?exists >
+                                <div class="alert alert-danger">${errMsg_idcard}</div>
+                            </#if>
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="profile_idcard">身份证号码</label>
                                 <div class="col-md-7 controls radios">
@@ -102,6 +105,9 @@
                                 </div>
                             </div>
 
+                            <#if errMsg_mobile?exists >
+                                <div class="alert alert-danger">${errMsg_mobile}</div>
+                            </#if>
                             <div class="form-group">
                                 <label for="profile_mobile" class="col-md-2 control-label">手机号码</label>
                                 <div class="col-md-7 controls">

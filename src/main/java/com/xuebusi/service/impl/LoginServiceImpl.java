@@ -6,12 +6,14 @@ import com.xuebusi.entity.User;
 import com.xuebusi.repository.LoginRepository;
 import com.xuebusi.repository.UserRepository;
 import com.xuebusi.service.LoginService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,6 +23,8 @@ import java.util.List;
 @Service
 @Transactional(readOnly = true)
 public class LoginServiceImpl implements LoginService {
+
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private LoginRepository loginRepository;
@@ -68,6 +72,7 @@ public class LoginServiceImpl implements LoginService {
      * @param loginInfo
      * @return
      */
+    @Override
     @Transactional(readOnly = false)
     public LoginInfo save(LoginInfo loginInfo) {
         LoginInfo newLoginInfo = loginRepository.save(loginInfo);
@@ -76,6 +81,8 @@ public class LoginServiceImpl implements LoginService {
         //同时生成一条用户基本信息
         User user = new User();
         user.setUsername(loginInfo.getUsername());
+        user.setCreateTime(new Date());
+        user.setUpdateTime(new Date());
         User newUser = userRepository.save(user);
         InitDataCacheMap.getUserCacheMap().put(newUser.getUsername(), newUser);
         return newLoginInfo;

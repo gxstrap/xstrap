@@ -32,11 +32,6 @@ public class InitDataCacheMap {
     private static Map<String, Lesson> lessonCacheMap = new HashMap<>();
 
     /**
-     * 缓存讲师信息
-     */
-    private static Map<String, Teacher>teacherCacheMap = new HashMap<>();
-
-    /**
      * 缓存用户基本信息
      */
     private static Map<String, User> userCacheMap = new HashMap<>();
@@ -55,10 +50,6 @@ public class InitDataCacheMap {
 
     public static Map<String, Lesson> getLessonCacheMap() {
         return lessonCacheMap;
-    }
-
-    public static Map<String, Teacher> getTeacherCacheMap() {
-        return teacherCacheMap;
     }
 
     public static Map<String, User> getUserCacheMap() {

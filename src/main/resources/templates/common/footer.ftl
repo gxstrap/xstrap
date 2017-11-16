@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-4 footer-logo hidden-sm hidden-xs">
                 <a class="" href="http://www.xuebusi.com/" target="_blank">
-                    <img src="/images/block_picture_1472461810.png" alt="建议图片大小为233*64">
+                    <img src="/images/19876785c34d6a348876(副本).png" alt="建议图片大小为233*64">
                 </a>
                 <div class="footer-sns">
                     <a href="http://weibo.com/xuebusi" target="_blank">
@@ -104,11 +104,11 @@
         <div class="container">
             <div class="mts">课程内容版权均归
                 <a href="http://www.xuebusi.com/">
-                北京XBS有限公司
+                上海Xstrap开源项目组
                 </a>
                 所有
                 <a class="mlm" href="http://www.miibeian.gov.cn/" target="_blank">
-                    京ICP备*******号
+                    沪ICP备*******号
                 </a>
 
             </div>

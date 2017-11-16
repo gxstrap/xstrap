@@ -1,3 +1,4 @@
+<#--
 <div class="alert alert-warning alert-notice announcements-alert hidden-xs" role="alert">
     <div class="container swiper-container">
         <div class="swiper-wrapper">
@@ -14,4 +15,4 @@
             <span aria-hidden="true">×</span>
         </button>
     </div>
-</div>
+</div>-->

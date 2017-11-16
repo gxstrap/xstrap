@@ -3,11 +3,12 @@ package com.xuebusi.controller;
 import com.xuebusi.entity.*;
 import com.xuebusi.enums.CourseCategoryEnum;
 import com.xuebusi.enums.CourseNavigationEnum;
-import com.xuebusi.service.CourseDetailService;
-import com.xuebusi.service.CourseService;
-import com.xuebusi.service.LessonService;
-import com.xuebusi.service.TeacherService;
+import com.xuebusi.service.*;
+import com.xuebusi.vo.UserVo;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 课程
@@ -30,7 +33,7 @@ import java.util.*;
 @RequestMapping(value="/course")
 public class CourseController extends BaseController{
 
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private CourseService courseService;
@@ -39,10 +42,13 @@ public class CourseController extends BaseController{
     private CourseDetailService courseDetailService;
 
     @Autowired
-    private TeacherService teacherService;
+    private LessonService lessonService;
 
     @Autowired
-    private LessonService lessonService;
+    private LoginService loginService;
+
+    @Autowired
+    private UserService userService;
 
     /**
      * 查询课程详情
@@ -57,14 +63,13 @@ public class CourseController extends BaseController{
 
         Course course = courseService.findOne(id);
         CourseDetail courseDetail = null;
-        Teacher teacher = null;
         String courseNavigationStr = "";
         String courseCategoryStr = "";
+
         if (course != null) {
             courseNavigationStr = getCourseNavigationStr(course.getCourseNavigation());
             courseCategoryStr = getCourseCategoryStr(course.getCourseCategory());
             courseDetail = courseDetailService.findOne(course.getId());
-            teacher = teacherService.findOne(course.getCourseTeacherId());
         }
         List<Lesson> lessonList = lessonService.findByCourseId(id);
         //相关课程
@@ -73,14 +78,14 @@ public class CourseController extends BaseController{
         map.put("selectiveType", selectiveType);
         map.put("course", course);
         map.put("courseDetail", courseDetail);
-        map.put("teacher", teacher);
+        map.put("user", this.getUserVo(course.getCourseTeacherId()));
         map.put("lessonCount", (lessonList != null && lessonList.size() > 0) ? lessonList.size() : 0);
         map.put("courseNavigationStr", courseNavigationStr);
         map.put("courseCategoryStr", courseCategoryStr);
         map.put("courseRelevantList", courseRelevantList);
 
         //当前用户是否已购买该课程
-        User userInfo = this.getUserInfo();
+        UserVo userInfo = this.getUserInfo();
         if (userInfo != null) {
             if (StringUtils.isNoneEmpty(userInfo.getCourseIds())) {
                 String[] courseArr = userInfo.getCourseIds().split(",");
@@ -95,6 +100,7 @@ public class CourseController extends BaseController{
         return new ModelAndView("/course/detail", map);
     }
 
+
     /**
      * 查询课程目录
      * @param courseId
@@ -107,14 +113,12 @@ public class CourseController extends BaseController{
                                Map<String, Object> map) {
 
         Course course = courseService.findOne(courseId);
-        Teacher teacher = null;
         String courseNavigationStr = "";
         String courseCategoryStr = "";
         if (course != null) {
             courseNavigationStr = getCourseNavigationStr(course.getCourseNavigation());
             courseCategoryStr = getCourseCategoryStr(course.getCourseCategory());
             map.put("courseIsEnd", course.getCourseEndTime().getTime() - System.currentTimeMillis() < 0 ? 1 : 0);//1课程更新完毕
-            teacher = teacherService.findOne(course.getCourseTeacherId());
         }
         CourseDetail courseDetail = courseDetailService.findOne(courseId);
         List<Lesson> lessonList = lessonService.findByCourseId(courseId);
@@ -124,7 +128,7 @@ public class CourseController extends BaseController{
         map.put("selectiveType", selectiveType);
         map.put("course", course);
         map.put("courseDetail", courseDetail);
-        map.put("teacher", teacher);
+        map.put("user", this.getUserVo(course.getCourseTeacherId()));
         map.put("lessonList", lessonList);
         map.put("lessonCount", (lessonList != null && lessonList.size() > 0) ? lessonList.size() : 0);
         map.put("courseNavigationStr", courseNavigationStr);
@@ -142,6 +146,25 @@ public class CourseController extends BaseController{
         }
 
         return new ModelAndView("/course/lesson", map);
+    }
+
+
+    /**
+     * 获取用户资料
+     * @param id 用户id(课程讲师id)
+     * @return
+     */
+    private UserVo getUserVo(Integer id) {
+        UserVo userVo = new UserVo();
+        User user = userService.findOne(id);
+        if (user != null) {
+            BeanUtils.copyProperties(user, userVo);
+            LoginInfo loginInfo = loginService.findByUsername(user.getUsername());
+            if (loginInfo != null) {
+                userVo.setTitleImgUrl(loginInfo.getTitleUrl());//头像
+            }
+        }
+        return userVo;
     }
 
     /**

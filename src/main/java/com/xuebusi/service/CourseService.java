@@ -66,4 +66,11 @@ public interface CourseService {
 
     Page<Course> findList(String navigation, String category, Pageable pageable);
 
+    /**
+     * 根据讲师id查询所教的课程
+     * @param courseTeacherId
+     * @return
+     */
+    List<Course> findBycourseTeacherId(Integer courseTeacherId);
+
 }

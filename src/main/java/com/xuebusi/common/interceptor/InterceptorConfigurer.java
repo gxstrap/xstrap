@@ -20,7 +20,7 @@ public class InterceptorConfigurer extends WebMvcConfigurerAdapter {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new CommonIntercepter()).addPathPatterns("/settings/**", "/my/**", "/courses/learning", "/message/**");
+        registry.addInterceptor(new CommonIntercepter()).addPathPatterns("/order/**", "/settings/**", "/my/**", "/courses/learning", "/message/**");
         super.addInterceptors(registry);
     }
 
