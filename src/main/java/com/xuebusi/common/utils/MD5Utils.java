@@ -12,7 +12,7 @@ import java.security.NoSuchAlgorithmException;
 public class MD5Utils {
 
 	public static final String MD5 = "MD5";//md5加密
-	public static final String SHA1 = "SHA1";//sha1加密
+	public static final String HASH_ALGORITHM = "SHA-1";
 	public static final int HASH_ITERATIONS = 1024;//加密次数
 
 	/**

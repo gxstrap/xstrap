@@ -163,7 +163,12 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.6.1</version>
         </dependency>
-
+		<!-- 第三方登录 -->
+		<dependency>
+			<groupId>com.belerweb</groupId>
+			<artifactId>social-sdk</artifactId>
+			<version>0.0.5</version>
+		</dependency>
 	</dependencies>
 
 	<build>

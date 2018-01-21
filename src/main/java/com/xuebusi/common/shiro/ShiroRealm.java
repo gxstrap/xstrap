@@ -53,8 +53,7 @@ public class ShiroRealm extends AuthorizingRealm {
 	 * 授权
 	 */
 	@Override
-	protected AuthorizationInfo doGetAuthorizationInfo(
-			PrincipalCollection principals) {
+	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		System.out.println("权限认证方法：ShiroRealm.doGetAuthorizationInfo()");
 		SysUser user = (SysUser)SecurityUtils.getSubject().getPrincipal();
 		String userId = user.getId();
