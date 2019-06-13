@@ -6,6 +6,7 @@ import com.belerweb.social.qq.connect.api.QQConnect;
 import com.belerweb.social.weibo.api.Weibo;
 import com.belerweb.social.weixin.api.Weixin;
 import com.belerweb.social.weixin.bean.AccessToken;
+import com.xuebusi.common.cache.InitDataCacheMap;
 import com.xuebusi.common.utils.MD5Utils;
 import com.xuebusi.common.vcode.Captcha;
 import com.xuebusi.common.vcode.SpecCaptcha;
@@ -14,15 +15,11 @@ import com.xuebusi.entity.User;
 import com.xuebusi.service.LoginService;
 import com.xuebusi.service.UserService;
 import com.xuebusi.vo.UserVo;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.session.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -246,7 +243,8 @@ public class LoginController extends BaseController {
             return new ModelAndView("/user/login", map);
         }
 
-        Session session = SecurityUtils.getSubject().getSession();
+//        Session session = SecurityUtils.getSubject().getSession();
+        HttpSession session = request.getSession();
         //转化成小写字母
         vcode = vcode.toLowerCase();
         String v = (String) session.getAttribute("_code");
@@ -258,10 +256,23 @@ public class LoginController extends BaseController {
         }
 
         try {
-            UsernamePasswordToken token = new UsernamePasswordToken(username, password,false);
-            SecurityUtils.getSubject().login(token);
+//            UsernamePasswordToken token = new UsernamePasswordToken(username, password,false);
+//            SecurityUtils.getSubject().login(token);
+            LoginInfo loginInfo = InitDataCacheMap.getLoginInfoCacheMap().get(username);
+            if (loginInfo == null) {
+                loginInfo = loginService.findByUsername(username);
+            }
+            if (loginInfo == null) {
+                map.put("errMsg", "用户不存在！");
+                return new ModelAndView("/user/login", map);
+            }
+
+            if (!loginInfo.getPassword().equalsIgnoreCase(MD5Utils.md5(password))) {
+                map.put("errMsg", "密码不正确！");
+                return new ModelAndView("/user/login", map);
+            }
             log.info("身份认证成功，登录用户：" + username);
-            LoginInfo loginInfo = loginService.findByUsername(username);
+
             User user = userService.findByUsername(username);
             UserVo userVo = new UserVo();
             BeanUtils.copyProperties(user, userVo);
