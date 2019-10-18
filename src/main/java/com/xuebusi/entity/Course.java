@@ -1,8 +1,9 @@
 package com.xuebusi.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.sql.Blob;
 import java.util.Date;
 
 /**
@@ -11,9 +12,10 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "tb_course")
-public class Course {
+public class Course implements Serializable {
 
     @Id
+    @GeneratedValue
     private Integer id;
     private String courseTitle;
     private String courseImgUrl;
@@ -22,6 +24,9 @@ public class Course {
     private Double coursePrice;
     private String courseLink;
     private Date createTime;
+    @Lob
+    @Basic(fetch = FetchType.EAGER)
+    private Blob courseData;
     /**
      * systematic   系统课
      * open         公开课
@@ -144,5 +149,13 @@ public class Course {
 
     public void setCourseEndTime(Date courseEndTime) {
         this.courseEndTime = courseEndTime;
+    }
+
+    public Blob getCourseData() {
+        return courseData;
+    }
+
+    public void setCourseData(Blob courseData) {
+        this.courseData = courseData;
     }
 }

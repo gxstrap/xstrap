@@ -1,0 +1,55 @@
+JSR 303 是java为Bean数据合法性校验提供的标准框架，它已经包含在JavaEE 6.0中。
+JSR 303 通过在Bean属性上标注类似于@NotNull、@Max等标准的注解指定校验规则，
+并通过标准的验证接口对Bean进行验证：
+---------------------------------------------------------------------------
+注解                             说明
+---------------------------------------------------------------------------
+@Null                           被注释的元素必须为null
+@NotNull                        被注释的元素不能为null
+@AssertTrue                     被注释的元素必须为true
+@AssertFalse                    被注释的元素必须为false
+@Min(value)                     被注释的元素必须是一个数字，其值必须>=指定的最小值
+@Max(value)                     被注释的元素必须是一个数字，其值必须<=指定的最大值
+@DecimalMin(value)              被注释的元素必须是一个数字，其值必须>=指定的最小值
+@DecimalMax(value)              被注释的元素必须是一个数字，其值必须<=指定的最大值
+@Size(max, min)                 被注释的元素的大小必须在指定的范围内
+@Digits(integer, fraction)      被注释的元素必须是一个数字，其值必须在可接受的范围内
+@Past                           被注释的元素必须是一个过去的日期
+@Future                         被注释的元素必须是一个将来的日期
+@Pattern(value)                 被注释的元素必须符合指定的正则表达式
+
+---------------------------------------------------------------------------
+Hibernate Validation 是JSR 303 的一个参考实现，除支持所有的标准的校验注解之外，
+它还支持以下的扩展注解：
+
+注解                     说明
+@Email                  被注释的元素必须是一个电子邮箱地址
+@Length                 被注释的字符串的大小必须在指定的范围内
+@NotEmpty               被注释的字符串必须非空
+@Range                  被注释的元素必须在合适的范围内
+---------------------------------------------------------------------------
+Spring 4.0 拥有自己独立的数据校验框架，同时支持JSR 303 标准的校验框架。
+Spring 在进行数据绑定时，可同时调用校验框架完成数据校验工作。
+在SpringMVC中， 可直接通过注解驱动的方式进行数据校验。
+Spring 的LocalValidatorFactoryBean 既实现了Spring的Validator接口，
+也实现了 JSR 303 的Validator接口。只要在Spring容器中定义一个
+LocalValidatorFactoryBean，即可将其注入到需要数据校验的Bean中。
+Spring本身并没有提供 JSR303 的实现，所以必须将 JSR303 的实现者的jar包
+放到类路径下。
+
+通过在处理方法的入参上标注 @Valid注解 即可让SpringMVC 在完成数据绑定之后执行数据校验的工作。
+在已经标注了 JSR303 注解的表单/命令对象前标注一个 @Valid， SpringMVC 框架在将请求参数绑定到
+该入参对象后，就会调用校验框架根据注解生命的校验规则实施校验。
+
+SpringMVC 是用过对处理方法签名的规约来保存校验结果的:
+前一个表单/命令对象的校验结果保存到随后的入参中，这个保存的校验结果的入参必须是 BindingResult
+或 Errors 类型，这两个类都位于 org.springframework.validation 包中。
+
+
+但是需要注意的一点：
+需要校验的bean对象和其绑定结果的BindingResult对象必须成对出现，而且它们两个必须紧挨着，之间不能有
+其他的入参。
+
+BindingResutl 其实是 Errors的子类， Errors 接口提供了获取错误信息的方法，如 getErrorCount()
+或 getFieldErrors(String field)。
+BindingResult 扩展了 Errors 接口。

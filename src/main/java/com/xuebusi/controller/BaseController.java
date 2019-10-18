@@ -1,7 +1,9 @@
 package com.xuebusi.controller;
 
 import com.xuebusi.common.utils.CommonUtils;
-import com.xuebusi.entity.User;
+import com.xuebusi.vo.UserVo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -12,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
  * Created by SYJ on 2017/10/23.
  */
 public class BaseController {
+
+    protected final Logger log = LoggerFactory.getLogger(getClass());
 
     /**
      * 获取HttpServletRequest
@@ -44,9 +48,9 @@ public class BaseController {
      * 获取当前登录用户信息
      * @return
      */
-    public User getUserInfo(){
+    public UserVo getUserInfo(){
         HttpServletRequest request = this.getHttpServletRequest();
-        User user = (User) request.getSession().getAttribute("user");
+        UserVo user = (UserVo) request.getSession().getAttribute("user");
         return user != null ? user : null;
     }
 

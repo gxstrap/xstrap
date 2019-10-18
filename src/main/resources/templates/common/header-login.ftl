@@ -2,12 +2,12 @@
     <nav class="collapse navbar-collapse">
         <div class="navbar-header">
             <div class="visible-xs  navbar-mobile">
-                <a href="javascript:;" class="navbar-more js-navbar-more"> <i class="es-icon es-icon-menu"></i>
-
+                <a href="javascript:;" class="navbar-more js-navbar-more">
+                    <i class="es-icon es-icon-menu"></i>
                 </a>
                 <div class="html-mask"></div>
                 <div class="nav-mobile">
-                    <form class="navbar-form" action="http://www.xuebusi.cn/search" method="get">
+                    <form class="navbar-form" action="/search" method="get">
                         <div class="form-group">
                             <input class="form-control" placeholder="搜索" name="q">
                             <button class="button es-icon es-icon-search"></button>
@@ -51,7 +51,7 @@
                 <a><i class="es-icon es-icon-chevronleft"></i></a>
             </div>
             <a href="/" class="navbar-brand">
-                <img src="/images/19876785c34d6a348876.png">
+                <img src="/images/19876785c34d6a348876(副本).png">
             </a>
         </div>
         <ul class="nav navbar-nav topNav clearfix hidden-xs " id="nav">
@@ -100,8 +100,8 @@
                     <a href="/my">我的学习</a>
                 </li>
                 <li class="user-avatar-li nav-hover">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <img class="avatar-xs" src="/images/0548491aa7e5403534.jpg">
+                    <a href="/user/${(user.id)!}/about" class="dropdown-toggle">
+                        <img class="avatar-xs" src="${(user.titleImgUrl)!}">
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li role="presentation" class="dropdown-header">${(user.username)!}</li>

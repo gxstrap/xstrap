@@ -5,7 +5,10 @@ import com.xuebusi.entity.User;
 import com.xuebusi.enums.OrderStatusEnum;
 import com.xuebusi.service.CourseService;
 import com.xuebusi.service.UserService;
+import com.xuebusi.vo.UserVo;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +30,8 @@ import java.util.Map;
 @RequestMapping(value = "/my")
 public class MyController extends BaseController {
 
+    protected final Logger log = LoggerFactory.getLogger(getClass());
+
     @Autowired
     private UserService userService;
 
@@ -40,7 +45,7 @@ public class MyController extends BaseController {
      */
     @RequestMapping(value = {"", "/courses/learning"})
     public ModelAndView toMyCoursesLearning(HttpServletRequest request, Map<String, Object> map){
-        User user = this.getUserInfo();
+        UserVo user = this.getUserInfo();
         if (user != null) {
             String courseIds = user.getCourseIds();
             if (StringUtils.isEmpty(courseIds)) {

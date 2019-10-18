@@ -1,13 +1,23 @@
 package com.xuebusi.controller;
 
+import com.xuebusi.entity.LoginInfo;
 import com.xuebusi.entity.User;
+import com.xuebusi.entity.WeiboUser;
 import com.xuebusi.enums.BindTypeEnum;
+import com.xuebusi.service.LoginService;
 import com.xuebusi.service.UserService;
+import com.xuebusi.service.WeiboLoginService;
 import com.xuebusi.vo.UserFormVo;
+import com.xuebusi.vo.UserVo;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +26,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,8 +38,16 @@ import java.util.Map;
 @RequestMapping(value = "/settings")
 public class SettingController extends BaseController {
 
+    protected final Logger log = LoggerFactory.getLogger(getClass());
+
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private LoginService loginService;
+
+    @Autowired
+    private WeiboLoginService weiboLoginService;
 
     /**
      * 基础信息页面
@@ -40,8 +60,13 @@ public class SettingController extends BaseController {
         if (this.getUserInfo() != null) {
             //显示最新基础信息
             User user = userService.findByUsername(this.getUserInfo().getUsername());
-            request.getSession().setAttribute("user", user);
-            map.put("user", user);
+            UserVo userVo = new UserVo();
+            BeanUtils.copyProperties(user, userVo);
+            LoginInfo loginInfo = loginService.findByUsername(this.getUserInfo().getUsername());
+            userVo.setTitleImgUrl(loginInfo.getTitleUrl());
+
+            request.getSession().setAttribute("user", userVo);
+            map.put("user", userVo);
             return new ModelAndView("/settings/settings", map);
         }
         return new ModelAndView(new RedirectView("redirect:/user/login"));
@@ -54,7 +79,14 @@ public class SettingController extends BaseController {
      * @return
      */
     @PostMapping
-    public ModelAndView saveSettings(UserFormVo userFormVo, HttpServletRequest request, Map<String, Object> map) {
+    public ModelAndView saveSettings(@Validated UserFormVo userFormVo, BindingResult bindingResult, Map<String, Object> map) {
+
+        if (bindingResult.hasErrors()) {
+            List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+            FieldError error = fieldErrors.get(0);
+            map.put("errMsg_" + error.getField(), error.getDefaultMessage());
+            return new ModelAndView("/settings/settings", map);
+        }
         if (this.getUserInfo() != null && this.getUserInfo().getUsername().equals(userFormVo.getUsername())) {
             User user = userService.findByUsername(userFormVo.getUsername());
             if (user == null) {
@@ -180,8 +212,13 @@ public class SettingController extends BaseController {
      * @return
      */
     @GetMapping(value = "/binds")
-    public ModelAndView toBinds(Map<String, Object> map) {
-
+    public ModelAndView toBinds(Map<String, Object> map, HttpServletRequest request)
+    {
+        String username = this.getUserInfo().getUsername();
+        // weibo
+        WeiboUser weiboUser = weiboLoginService.findWeiboUserByUsername(username);
+        map.put("weibo", weiboUser);
+        map.put("errorMsg", request.getParameter("errorMsg"));
         return new ModelAndView("/settings/binds", map);
     }
 
@@ -196,10 +233,14 @@ public class SettingController extends BaseController {
      * @param map
      * @return
      */
-    @PostMapping(value = "/binds/{bindType}")
-    public ModelAndView bind(@PathVariable("bindType") String bindType, Map<String, Object> map) {
+    @GetMapping(value = "/bind/{bindType}")
+    public ModelAndView bind(@PathVariable("bindType") String bindType, Map<String, Object> map, HttpSession session)
+    {
+        session.setAttribute(bindType + "_login_current_url", "/settings/binds");
+
         if (BindTypeEnum.weibo.name().equals(bindType)) {
             //微博绑定
+            return new ModelAndView("/weibo/boot", map);
         } else if (BindTypeEnum.qq.name().equals(bindType)) {
             //QQ绑定
         } else if (BindTypeEnum.weixin.name().equals(bindType)){
@@ -215,10 +256,11 @@ public class SettingController extends BaseController {
      * @param map
      * @return
      */
-    @PostMapping(value = "/unbind/{bindType}")
+    @GetMapping(value = "/unbind/{bindType}")
     public ModelAndView unbindWeibo(@PathVariable("bindType") String bindType, Map<String, Object> map) {
         if (BindTypeEnum.weibo.name().equals(bindType)) {
             //微博取消绑定
+            return new ModelAndView("/weibo/unbind", map);
         } else if (BindTypeEnum.qq.name().equals(bindType)) {
             //QQ取消绑定
         } else if (BindTypeEnum.weixin.name().equals(bindType)){

@@ -120,6 +120,19 @@
                         </div>
                     </div>
 
+                    <div class="form-group mbl">
+                        <div class="controls">
+                            <input type="text" class="form-control input-lg" id="vcode" name="vcode" maxlength="5" required placeholder="验证码" data-url="/login/captcha/check">
+                            <p class="help-block"></p>
+                            <img src="/login/captcha/check" data-url="/login/captcha/check" id="codePic" onclick="getPic();" title="看不清，点击换一张" style="cursor:pointer;height:33px;width:146px;">
+                            <script type="text/javascript">
+                                function getPic(){
+                                    $("#codePic").attr("src","/login/captcha/check?flag="+Math.random());
+                                };
+                            </script>
+                        </div>
+                    </div>
+
                     <div id="errMsg" style="padding: 0">
                         <#if errMsg?exists >
                             <div class="alert alert-danger">${errMsg}</div>
@@ -150,8 +163,8 @@
 
                 <div class="social-login">
                     <span>
+                      <a href="/weibo/boot" class="social-icon social-weibo">
 
-                      <a href="http://www.xuebusi.cn/login/bind/weibo?_target_path=/ai/all/list%3Fpage%3D1&amp;inviteCode=" class="social-icon social-weibo">
                           <i class="es-icon es-icon-weibo"></i>
                       </a>
 
@@ -169,7 +182,6 @@
         </div>
     </div>
 </div>
-
 <#include "../common/sidebar.ftl">
 <#include "../common/login-modal.ftl">
 </body>

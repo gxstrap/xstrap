@@ -13,12 +13,12 @@
     <meta property="wb:webmaster" content="7143832026c0eaae">
     <link rel="icon" href="http://www.xuebusi.com/files/system/favicon_1405502134.ico" type="image/x-icon">
     <link rel="shortcut icon" href="http://www.xuebusi.com/files/system/favicon_1405502134.ico" type="image/x-icon" media="screen">
-    <link href="http://xstrap-1253363188.cosbj.myqcloud.com/css/bootstrap-red-light.css" rel="stylesheet">
-    <link rel="stylesheet" media="screen" href="http://xstrap-1253363188.cosbj.myqcloud.com/css/common.css">
-    <link rel="stylesheet" media="screen" href="http://xstrap-1253363188.cosbj.myqcloud.com/css/font-awesome.min.css">
-    <link rel="stylesheet" media="screen" href="http://xstrap-1253363188.cosbj.myqcloud.com/css/es-icon.css">
-    <link href="http://xstrap-1253363188.cosbj.myqcloud.com/css/main-red-light.css" rel="stylesheet">
-    <link href="http://xstrap-1253363188.cosbj.myqcloud.com/css/header-white.css" rel="stylesheet">
+    <link href="/css/bootstrap-red-light.css" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="/css/common.css">
+    <link rel="stylesheet" media="screen" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" media="screen" href="/css/es-icon.css">
+    <link href="/css/main-red-light.css" rel="stylesheet">
+    <link href="/css/header-white.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="/js/html5shiv.js"></script>
     <script src="/js/respond.min.js"></script>

@@ -9,9 +9,9 @@
                     <small class="text-muted">( ${lessonCount!''} )</small>
                 </a>
             </li>
-            <li style="width: 25%;" role="presentation" <#if selectiveType?? && selectiveType == '3'>class="active"</#if>>
+            <#--<li style="width: 25%;" role="presentation" <#if selectiveType?? && selectiveType == '3'>class="active"</#if>>
                 <a href="../../type/notice?selectiveType=3"> 听课须知</a>
-            </li>
+            </li>-->
             <li style="width: 25%;" role="presentation" <#if selectiveType?? && selectiveType == '4'>class="active"</#if>>
                 <a href="../../reviews?selectiveType=4">往期评论
                     <small class="text-muted">( 1 )</small>
